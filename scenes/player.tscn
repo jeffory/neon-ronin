@@ -1,0 +1,27 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_g2els"]
+[ext_resource type="Script" path="res://scripts/weapon_manager.gd" id="2_qhqgy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqkch"]
+radius = 0.3
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" unique_id=261956957]
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=452918927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_dqkch")
+
+[node name="Head" type="Node3D" parent="." unique_id=1371505743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1683203523]
+
+[node name="WeaponHolder" type="Node3D" parent="Head/Camera3D" unique_id=270363284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.2, -0.5)
+script = ExtResource("2_qhqgy")
+
+[node name="WeaponRaycast" type="RayCast3D" parent="Head/Camera3D" unique_id=1739421568]
+target_position = Vector3(0, 0, -100)

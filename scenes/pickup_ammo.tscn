@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/pickup.gd" id="1_83h5k"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jpuh0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hd364"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[node name="PickupAmmo" type="Area3D" unique_id=578908681]
+script = ExtResource("1_83h5k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1146211117]
+shape = SubResource("SphereShape3D_jpuh0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2003757382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("BoxMesh_hd364")

@@ -1,0 +1,13 @@
+[gd_scene format=3]
+
+[node name="Level" type="Node3D" unique_id=1367994544]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1994933049]
+
+[node name="SpawnPoints" type="Node3D" parent="." unique_id=1207435859]
+
+[node name="PickupSpots" type="Node3D" parent="." unique_id=959919468]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=405383756]
+
+[node name="Moonlight" type="DirectionalLight3D" parent="." unique_id=1242277224]

@@ -1,0 +1,28 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/bot_controller.gd" id="1_cwism"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qpkb6"]
+radius = 0.3
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hhacj"]
+radius = 0.3
+height = 1.8
+
+[node name="Bot" type="CharacterBody3D" unique_id=1372830278]
+script = ExtResource("1_cwism")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1261125042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_qpkb6")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2063182082]
+
+[node name="SightRaycast" type="RayCast3D" parent="." unique_id=2085284237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+target_position = Vector3(0, 0, -50)
+
+[node name="BotMesh" type="MeshInstance3D" parent="." unique_id=432108048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+mesh = SubResource("CapsuleMesh_hhacj")
