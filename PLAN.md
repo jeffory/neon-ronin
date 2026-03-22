@@ -77,7 +77,7 @@ A 3D first-person shooter with cyberpunk aesthetics. Dark Tokyo-inspired city le
 - **Verify:** Four bots are visible navigating the arena, engaging each other and the player in combat. Kill feed appears when kills happen. Tab scoreboard shows all combatants ranked by kills. Bots respawn after death and resume fighting.
 
 ## 4. Presentation Video
-- **Status:** pending
+- **Status:** done
 - **Depends on:** 1, 2, 3
 - **Targets:** test/presentation.gd, screenshots/presentation/gameplay.mp4
 - **Goal:** Create a ~30-second cinematic video showcasing the completed game.

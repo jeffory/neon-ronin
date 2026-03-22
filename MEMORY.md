@@ -102,3 +102,26 @@
 - Weapon models hidden/shown on switch, fire cooldown prevents spam
 - Impact sparks use GPUParticles3D with ParticleProcessMaterial, auto-cleanup after 0.5s
 - VQA issues about level geometry (primitive buildings, missing textures) are Task 1 concerns, not Task 2
+
+## Task 4: Presentation Video
+
+### Architecture
+- SceneTree script at test/presentation.gd, extends SceneTree
+- Loads main.tscn, creates separate CinematicCamera, disables player camera every frame
+- 900 frames at 30 FPS = 30 seconds of video
+- 10 shots across 3 acts: establishing (9s), combat showcase (12s), finale (9s)
+
+### Camera Choreography
+- Act 1: High crane descent → orbit at medium height → low street-level dolly
+- Act 2: Third-person bot tracking → two-bot action shot → close shoulder cam → sweeping overhead
+- Act 3: Orbiting most-active bot → ground-level pullback → final wide crane up
+- Smoothstep easing on fixed-path shots, lerp on tracking shots
+
+### Technical Notes
+- GPU rendering at DISPLAY=:0 with AMD Radeon 890M, `--rendering-method forward_plus`
+- `DISPLAY=:0` must be set as environment variable before `timeout`, not after
+- AVI output from `--write-movie`, converted to H.264 MP4 via ffmpeg (CRF 28, ~2.5MB)
+- Player camera must be disabled EVERY frame (chase camera re-assertion quirk)
+- Camera pre-positioned in `_initialize()` for frame 0 (--write-movie renders before _process)
+- Manual look-at via atan2/asin to avoid `look_at()` issues during initialization
+- Bot kill feed is visible in the video, confirming combat AI is active during recording
