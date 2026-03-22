@@ -30,7 +30,7 @@ A 3D first-person shooter with cyberpunk aesthetics. Dark Tokyo-inspired city le
 - **Verify:** First-person camera shows a dark city environment densely lit by colorful neon signs. Streets are navigable, cover objects are placed at natural positions, and the overall mood matches the reference image — dark with vivid neon color splashes.
 
 ## 2. Player Controller, Weapons & Combat
-- **Status:** pending
+- **Status:** done
 - **Depends on:** 1
 - **Targets:** scenes/player.tscn, scenes/build_player.gd, scenes/hud.tscn, scenes/build_hud.gd, scenes/pickup_health.tscn, scenes/build_pickup_health.gd, scenes/pickup_ammo.tscn, scenes/build_pickup_ammo.gd, scenes/main.tscn, scenes/build_main.gd, scripts/player_controller.gd, scripts/weapon_manager.gd, scripts/hud_controller.gd, scripts/pickup.gd, scripts/game_manager.gd
 - **Goal:** Implement the complete player experience — fluid modern FPS movement, three distinct weapons, health/damage, pickups, and HUD. This is the core gameplay loop.

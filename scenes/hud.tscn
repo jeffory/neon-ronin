@@ -2,61 +2,131 @@
 
 [ext_resource type="Script" path="res://scripts/hud_controller.gd" id="1_ahhtf"]
 
-[node name="HUD" type="CanvasLayer" unique_id=1266158115]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo0fn"]
+bg_color = Color(0.15, 0.15, 0.15, 0.8)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ysmq"]
+bg_color = Color(0.1, 0.9, 0.3, 0.9)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fi6k"]
+bg_color = Color(0.05, 0.05, 0.1, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.8, 1, 0.5)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="HUD" type="CanvasLayer" unique_id=1620505917]
 script = ExtResource("1_ahhtf")
 
-[node name="Container" type="Control" parent="." unique_id=1255747598]
+[node name="Container" type="Control" parent="." unique_id=1446186412]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
-[node name="HealthBar" type="ProgressBar" parent="Container" unique_id=1082549486]
+[node name="HealthBar" type="ProgressBar" parent="Container" unique_id=1613780764]
 layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_left = 20.0
-offset_top = 660.0
-offset_right = 220.0
-offset_bottom = 687.0
+offset_top = -50.0
+offset_right = 250.0
+offset_bottom = -20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_oo0fn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5ysmq")
 value = 100.0
+show_percentage = false
 
-[node name="AmmoLabel" type="Label" parent="Container" unique_id=327011515]
+[node name="HealthLabel" type="Label" parent="Container" unique_id=346513453]
 layout_mode = 0
-offset_left = 1060.0
-offset_top = 665.0
-offset_right = 1260.0
-offset_bottom = 695.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -70.0
+offset_right = 100.0
+offset_bottom = -50.0
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0, 1, 0.5, 1)
+text = "HP"
+
+[node name="AmmoLabel" type="Label" parent="Container" unique_id=1213202973]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -230.0
+offset_top = -45.0
+offset_right = -20.0
+offset_bottom = -20.0
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "12 / 36"
 horizontal_alignment = 2
 
-[node name="WeaponLabel" type="Label" parent="Container" unique_id=288673044]
+[node name="WeaponLabel" type="Label" parent="Container" unique_id=263437677]
 layout_mode = 0
-offset_left = 1060.0
-offset_top = 640.0
-offset_right = 1260.0
-offset_bottom = 665.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -230.0
+offset_top = -70.0
+offset_right = -20.0
+offset_bottom = -48.0
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0, 0.9, 1, 1)
 text = "HANDGUN"
 horizontal_alignment = 2
 
-[node name="Crosshair" type="Label" parent="Container" unique_id=1291724701]
+[node name="Crosshair" type="Label" parent="Container" unique_id=704234509]
 layout_mode = 0
-offset_left = 632.0
-offset_top = 352.0
-offset_right = 648.0
-offset_bottom = 375.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 10.0
+offset_bottom = 15.0
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(1, 1, 1, 0.8)
 text = "+"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="KillFeed" type="VBoxContainer" parent="Container" unique_id=932639744]
+[node name="KillFeed" type="VBoxContainer" parent="Container" unique_id=1637258344]
 layout_mode = 0
-offset_left = 880.0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -400.0
 offset_top = 20.0
-offset_right = 1260.0
-offset_bottom = 220.0
+offset_right = -20.0
+offset_bottom = 200.0
 
-[node name="Scoreboard" type="PanelContainer" parent="Container" unique_id=1348830289]
+[node name="Scoreboard" type="PanelContainer" parent="Container" unique_id=264683831]
 visible = false
 layout_mode = 0
-offset_left = 340.0
-offset_top = 160.0
-offset_right = 940.0
-offset_bottom = 560.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6fi6k")

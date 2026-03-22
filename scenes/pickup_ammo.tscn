@@ -1,18 +1,23 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/pickup.gd" id="1_83h5k"]
+[ext_resource type="Script" path="res://scripts/pickup.gd" id="1_jpuh0"]
+[ext_resource type="PackedScene" path="res://assets/glb/ammo_crate.glb" id="2_hd364"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_jpuh0"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_gd70l"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_hd364"]
-size = Vector3(0.3, 0.3, 0.3)
+[node name="PickupAmmo" type="Area3D" unique_id=1407769270]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_jpuh0")
 
-[node name="PickupAmmo" type="Area3D" unique_id=578908681]
-script = ExtResource("1_83h5k")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=552691848]
+shape = SubResource("SphereShape3D_gd70l")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1146211117]
-shape = SubResource("SphereShape3D_jpuh0")
+[node name="Model" type="Node3D" parent="." unique_id=1531865641 instance=ExtResource("2_hd364")]
+transform = Transform3D(0.30001712, 0, 0, 0, 0.30001712, 0, 0, 0, 0.30001712, 0, 0.3, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2003757382]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
-mesh = SubResource("BoxMesh_hd364")
+[node name="GlowLight" type="OmniLight3D" parent="." unique_id=1042203208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+light_color = Color(1, 0.6, 0.1, 1)
+light_energy = 1.5
+omni_range = 3.0

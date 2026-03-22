@@ -1,18 +1,23 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/pickup.gd" id="1_xbi4q"]
+[ext_resource type="Script" path="res://scripts/pickup.gd" id="1_heve4"]
+[ext_resource type="PackedScene" path="res://assets/glb/health_pickup.glb" id="2_twsja"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_heve4"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_csu2n"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_twsja"]
-size = Vector3(0.3, 0.3, 0.3)
+[node name="PickupHealth" type="Area3D" unique_id=120591905]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_heve4")
 
-[node name="PickupHealth" type="Area3D" unique_id=1122455740]
-script = ExtResource("1_xbi4q")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1460221111]
+shape = SubResource("SphereShape3D_csu2n")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=72957355]
-shape = SubResource("SphereShape3D_heve4")
+[node name="Model" type="Node3D" parent="." unique_id=1760301464 instance=ExtResource("2_twsja")]
+transform = Transform3D(0.29992023, 0, 0, 0, 0.29992023, 0, 0, 0, 0.29992023, 0, 0.3, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=665627409]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
-mesh = SubResource("BoxMesh_twsja")
+[node name="GlowLight" type="OmniLight3D" parent="." unique_id=549284436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+light_color = Color(0.1, 1, 0.3, 1)
+light_energy = 1.5
+omni_range = 3.0
