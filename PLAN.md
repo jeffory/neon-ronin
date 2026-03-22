@@ -5,7 +5,7 @@
 A 3D first-person shooter with cyberpunk aesthetics. Dark Tokyo-inspired city level with colorful neon illumination. Free-for-all deathmatch with 4 bots. Three weapons: handgun, rifle, shotgun. Modern polished movement with sprint, crouch-slide, and mantle. Health, ammo, and pickup systems.
 
 ## 1. Cyberpunk City Arena
-- **Status:** pending
+- **Status:** done
 - **Depends on:** (none)
 - **Targets:** scenes/level.tscn, scenes/build_level.gd
 - **Goal:** Build the playable arena — the neon-lit Tokyo cityscape that defines the game's visual identity and provides the spatial layout for all combat.
