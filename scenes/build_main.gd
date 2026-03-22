@@ -26,6 +26,23 @@ func _initialize() -> void:
 	hud.name = "HUD"
 	root.add_child(hud)
 
+	# Instance 4 bots at different spawn points
+	var bot_scene: PackedScene = load("res://scenes/bot.tscn")
+	var bot_names: Array[String] = ["Bot_Alpha", "Bot_Bravo", "Bot_Charlie", "Bot_Delta"]
+	var bot_spawns: Array[Vector3] = [
+		Vector3(14, 1, -10),
+		Vector3(-14, 1, 10),
+		Vector3(0, 1, -20),
+		Vector3(0, 1, 20),
+	]
+
+	for i in range(4):
+		var bot = bot_scene.instantiate()
+		bot.name = bot_names[i]
+		bot.position = bot_spawns[i]
+		# Set bot_name property for identification (set via script var)
+		root.add_child(bot)
+
 	# Instance pickups at pickup spots from MEMORY.md
 	var pickup_positions: Array = [
 		{"pos": Vector3(0, 0.5, -5), "type": "health"},

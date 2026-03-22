@@ -1,5 +1,5 @@
 extends CanvasLayer
-## res://scripts/hud_controller.gd — HUD display for health, ammo, crosshair, kill feed
+## res://scripts/hud_controller.gd — HUD display for health, ammo, crosshair, kill feed, scoreboard
 
 @onready var health_bar: ProgressBar = $Container/HealthBar
 @onready var ammo_label: Label = $Container/AmmoLabel
@@ -10,6 +10,8 @@ extends CanvasLayer
 
 var _player: Node = null
 var _weapon_manager: Node = null
+var _scoreboard_vbox: VBoxContainer = null
+var _scoreboard_dirty: bool = true
 
 func _ready() -> void:
 	# Find player and connect signals (deferred to let scene tree settle)
@@ -31,8 +33,17 @@ func _connect_signals() -> void:
 
 	# Connect to GameManager kill feed
 	var gm = _get_game_manager()
-	if gm and gm.has_signal("kill_registered"):
-		gm.kill_registered.connect(_on_kill_registered)
+	if gm:
+		if gm.has_signal("kill_registered"):
+			gm.kill_registered.connect(_on_kill_registered)
+		if gm.has_signal("score_updated"):
+			gm.score_updated.connect(_on_score_updated)
+
+	# Build scoreboard VBox once
+	if scoreboard:
+		_scoreboard_vbox = VBoxContainer.new()
+		_scoreboard_vbox.name = "ScoreList"
+		scoreboard.add_child(_scoreboard_vbox)
 
 func _get_game_manager() -> Node:
 	var root_node = get_tree().root
@@ -44,9 +55,11 @@ func _get_game_manager() -> Node:
 func _process(_delta: float) -> void:
 	# Scoreboard toggle
 	if scoreboard:
-		scoreboard.visible = Input.is_action_pressed("scoreboard")
-		if scoreboard.visible:
+		var show_board: bool = Input.is_action_pressed("scoreboard")
+		scoreboard.visible = show_board
+		if show_board and _scoreboard_dirty:
 			_update_scoreboard()
+			_scoreboard_dirty = false
 
 func _on_health_changed(hp: int) -> void:
 	if health_bar:
@@ -60,7 +73,11 @@ func _on_weapon_switched(weapon_name: String) -> void:
 	if weapon_label:
 		weapon_label.text = weapon_name
 
+func _on_score_updated() -> void:
+	_scoreboard_dirty = true
+
 func _on_kill_registered(killer_name: String, victim_name: String) -> void:
+	_scoreboard_dirty = true
 	if not kill_feed:
 		return
 	var entry := Label.new()
@@ -83,25 +100,26 @@ func _on_kill_registered(killer_name: String, victim_name: String) -> void:
 	)
 
 func _update_scoreboard() -> void:
-	# Clear existing children in scoreboard
-	for child in scoreboard.get_children():
-		child.queue_free()
+	if not _scoreboard_vbox:
+		return
 
-	var vbox := VBoxContainer.new()
-	vbox.name = "ScoreList"
+	# Clear existing children
+	for child in _scoreboard_vbox.get_children():
+		_scoreboard_vbox.remove_child(child)
+		child.free()
 
 	var title := Label.new()
 	title.text = "SCOREBOARD"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_font_size_override("font_size", 24)
 	title.add_theme_color_override("font_color", Color(0, 1, 1))
-	vbox.add_child(title)
+	_scoreboard_vbox.add_child(title)
 
 	var header := Label.new()
-	header.text = "  Name            Kills   Deaths"
+	header.text = "  Name              Kills   Deaths"
 	header.add_theme_font_size_override("font_size", 16)
 	header.add_theme_color_override("font_color", Color(0.7, 0.7, 0.7))
-	vbox.add_child(header)
+	_scoreboard_vbox.add_child(header)
 
 	var gm = _get_game_manager()
 	if gm:
@@ -114,12 +132,10 @@ func _update_scoreboard() -> void:
 
 		for entry_data in entries:
 			var row := Label.new()
-			row.text = "  %-16s %3d     %3d" % [entry_data["name"], entry_data["kills"], entry_data["deaths"]]
+			row.text = "  %-18s %3d     %3d" % [entry_data["name"], entry_data["kills"], entry_data["deaths"]]
 			row.add_theme_font_size_override("font_size", 16)
 			if entry_data["name"] == "Player":
 				row.add_theme_color_override("font_color", Color(0, 1, 0.5))
 			else:
 				row.add_theme_color_override("font_color", Color(1, 1, 1))
-			vbox.add_child(row)
-
-	scoreboard.add_child(vbox)
+			_scoreboard_vbox.add_child(row)

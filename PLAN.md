@@ -57,7 +57,7 @@ A 3D first-person shooter with cyberpunk aesthetics. Dark Tokyo-inspired city le
 - **Verify:** First-person view shows the player can sprint, slide (camera lowers, speed boost), and mantle over low cover. All three weapons are switchable with distinct fire behaviors. HUD displays health and ammo. Shooting at walls produces impact effects. Picking up health/ammo items updates HUD values.
 
 ## 3. Bot AI & Deathmatch
-- **Status:** pending
+- **Status:** done
 - **Depends on:** 1, 2
 - **Targets:** scenes/bot.tscn, scenes/build_bot.gd, scenes/main.tscn, scenes/build_main.gd, scripts/bot_controller.gd, scripts/game_manager.gd, scripts/hud_controller.gd
 - **Goal:** Add 4 AI opponents and the competitive deathmatch game loop — bots that navigate, fight, and die using the same combat systems as the player.

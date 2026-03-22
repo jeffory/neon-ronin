@@ -1,28 +1,27 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/bot_controller.gd" id="1_cwism"]
+[ext_resource type="Script" path="res://scripts/bot_controller.gd" id="1_qpkb6"]
+[ext_resource type="PackedScene" path="res://assets/glb/bot.glb" id="2_hhacj"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qpkb6"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hon3i"]
 radius = 0.3
 height = 1.8
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_hhacj"]
-radius = 0.3
-height = 1.8
+[node name="Bot" type="CharacterBody3D" unique_id=1426096816]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_qpkb6")
 
-[node name="Bot" type="CharacterBody3D" unique_id=1372830278]
-script = ExtResource("1_cwism")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1261125042]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=780060961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-shape = SubResource("CapsuleShape3D_qpkb6")
+shape = SubResource("CapsuleShape3D_hon3i")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2063182082]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=779123626]
+target_desired_distance = 1.5
 
-[node name="SightRaycast" type="RayCast3D" parent="." unique_id=2085284237]
+[node name="SightRaycast" type="RayCast3D" parent="." unique_id=1335461401]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 target_position = Vector3(0, 0, -50)
 
-[node name="BotMesh" type="MeshInstance3D" parent="." unique_id=432108048]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-mesh = SubResource("CapsuleMesh_hhacj")
+[node name="BotModel" type="Node3D" parent="." unique_id=2011230268 instance=ExtResource("2_hhacj")]
+transform = Transform3D(1.8013029, 0, 0, 0, 1.8013029, 0, 0, 0, 1.8013029, 0, 0.8992534, 0)

@@ -1,58 +1,84 @@
 [gd_scene format=3]
 
-[ext_resource type="PackedScene" path="res://scenes/level.tscn" id="1_tipki"]
-[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="2_85g3d"]
-[ext_resource type="Script" path="res://scripts/player_controller.gd" id="3_choun"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="4_ya4ey"]
-[ext_resource type="Script" path="res://scripts/hud_controller.gd" id="5_eb6dy"]
-[ext_resource type="PackedScene" path="res://scenes/pickup_health.tscn" id="6_trceg"]
-[ext_resource type="Script" path="res://scripts/pickup.gd" id="7_a8y0u"]
-[ext_resource type="PackedScene" path="res://scenes/pickup_ammo.tscn" id="8_jkv2x"]
+[ext_resource type="PackedScene" path="res://scenes/level.tscn" id="1_choun"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="2_ya4ey"]
+[ext_resource type="Script" path="res://scripts/player_controller.gd" id="3_eb6dy"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="4_trceg"]
+[ext_resource type="Script" path="res://scripts/hud_controller.gd" id="5_a8y0u"]
+[ext_resource type="PackedScene" path="res://scenes/bot.tscn" id="6_jkv2x"]
+[ext_resource type="Script" path="res://scripts/bot_controller.gd" id="7_jbj1t"]
+[ext_resource type="PackedScene" path="res://scenes/pickup_health.tscn" id="8_muem4"]
+[ext_resource type="Script" path="res://scripts/pickup.gd" id="9_dp3eg"]
+[ext_resource type="PackedScene" path="res://scenes/pickup_ammo.tscn" id="10_0ld40"]
 
-[node name="Main" type="Node3D" unique_id=802879678]
+[node name="Main" type="Node3D" unique_id=1666010819]
 
-[node name="Level" type="Node3D" parent="." unique_id=1825971638 instance=ExtResource("1_tipki")]
+[node name="Level" type="Node3D" parent="." unique_id=1825971638 instance=ExtResource("1_choun")]
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=2006007324 instance=ExtResource("2_85g3d")]
+[node name="Player" type="CharacterBody3D" parent="." unique_id=2006007324 instance=ExtResource("2_ya4ey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 12
-script = ExtResource("3_choun")
+script = ExtResource("3_eb6dy")
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1620505917 instance=ExtResource("4_ya4ey")]
-script = ExtResource("5_eb6dy")
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1620505917 instance=ExtResource("4_trceg")]
+script = ExtResource("5_a8y0u")
 
-[node name="PickupHealth_0" type="Area3D" parent="." unique_id=120591905 instance=ExtResource("6_trceg")]
+[node name="Bot_Alpha" type="CharacterBody3D" parent="." unique_id=1426096816 instance=ExtResource("6_jkv2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -10)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("7_jbj1t")
+
+[node name="Bot_Bravo" type="CharacterBody3D" parent="." unique_id=1842956833 instance=ExtResource("6_jkv2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 1, 10)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("7_jbj1t")
+
+[node name="Bot_Charlie" type="CharacterBody3D" parent="." unique_id=1720809375 instance=ExtResource("6_jkv2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -20)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("7_jbj1t")
+
+[node name="Bot_Delta" type="CharacterBody3D" parent="." unique_id=1993411685 instance=ExtResource("6_jkv2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 20)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("7_jbj1t")
+
+[node name="PickupHealth_0" type="Area3D" parent="." unique_id=120591905 instance=ExtResource("8_muem4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -5)
 collision_layer = 8
 collision_mask = 3
-script = ExtResource("7_a8y0u")
+script = ExtResource("9_dp3eg")
 
-[node name="PickupAmmo_1" type="Area3D" parent="." unique_id=1407769270 instance=ExtResource("8_jkv2x")]
+[node name="PickupAmmo_1" type="Area3D" parent="." unique_id=1407769270 instance=ExtResource("10_0ld40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0.5, 0)
 collision_layer = 8
 collision_mask = 3
-script = ExtResource("7_a8y0u")
+script = ExtResource("9_dp3eg")
 
-[node name="PickupHealth_2" type="Area3D" parent="." unique_id=1022121560 instance=ExtResource("6_trceg")]
+[node name="PickupHealth_2" type="Area3D" parent="." unique_id=1286721894 instance=ExtResource("8_muem4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0.5, 0)
 collision_layer = 8
 collision_mask = 3
-script = ExtResource("7_a8y0u")
+script = ExtResource("9_dp3eg")
 
-[node name="PickupAmmo_3" type="Area3D" parent="." unique_id=755672403 instance=ExtResource("8_jkv2x")]
+[node name="PickupAmmo_3" type="Area3D" parent="." unique_id=1616965789 instance=ExtResource("10_0ld40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 15)
 collision_layer = 8
 collision_mask = 3
-script = ExtResource("7_a8y0u")
+script = ExtResource("9_dp3eg")
 
-[node name="PickupHealth_4" type="Area3D" parent="." unique_id=469150511 instance=ExtResource("6_trceg")]
+[node name="PickupHealth_4" type="Area3D" parent="." unique_id=560554489 instance=ExtResource("8_muem4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -15)
 collision_layer = 8
 collision_mask = 3
-script = ExtResource("7_a8y0u")
+script = ExtResource("9_dp3eg")
 
-[node name="PickupAmmo_5" type="Area3D" parent="." unique_id=109257878 instance=ExtResource("8_jkv2x")]
+[node name="PickupAmmo_5" type="Area3D" parent="." unique_id=749711553 instance=ExtResource("10_0ld40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, 10)
 collision_layer = 8
 collision_mask = 3
-script = ExtResource("7_a8y0u")
+script = ExtResource("9_dp3eg")

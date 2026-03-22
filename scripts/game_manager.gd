@@ -8,6 +8,7 @@ var scores: Dictionary = {}
 var spawn_points: Array[Vector3] = []
 var pickup_spots: Array[Vector3] = []
 var _entities: Dictionary = {}  # name -> node reference
+var _nav_baked: bool = false
 
 func _ready() -> void:
 	# Spawn points from MEMORY.md
@@ -21,6 +22,27 @@ func _ready() -> void:
 		Vector3(0, 0.5, -5), Vector3(14, 0.5, 0), Vector3(-14, 0.5, 0),
 		Vector3(0, 0.5, 15), Vector3(2, 0.5, -15), Vector3(-2, 0.5, 10)
 	]
+	# Bake navmesh after scene tree is ready
+	call_deferred("_bake_navmesh")
+
+func _bake_navmesh() -> void:
+	if _nav_baked:
+		return
+	# Find NavigationRegion3D in the scene tree
+	var nav_region = _find_navigation_region(get_tree().root)
+	if nav_region and nav_region is NavigationRegion3D:
+		nav_region.bake_navigation_mesh()
+		_nav_baked = true
+		print("GameManager: NavMesh baked")
+
+func _find_navigation_region(node: Node) -> Node:
+	if node is NavigationRegion3D:
+		return node
+	for child in node.get_children():
+		var found = _find_navigation_region(child)
+		if found:
+			return found
+	return null
 
 func register_entity(entity_name: String, node: Node) -> void:
 	_entities[entity_name] = node
