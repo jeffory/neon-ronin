@@ -51,6 +51,14 @@ func _get_game_manager() -> Node:
 			return child
 	return null
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	elif event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 func _input(event: InputEvent) -> void:
 	if is_dead:
 		if _respawn_ready and event is InputEventMouseButton:
