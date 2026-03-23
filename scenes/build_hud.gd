@@ -16,108 +16,154 @@ func _initialize() -> void:
 	container.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(container)
 
-	# Health bar — bottom left
+	# ── Health Area (top-left, no panel border) ──
+	# Health bar row: bar + percentage
+	var bar_row := HBoxContainer.new()
+	bar_row.name = "BarRow"
+	bar_row.anchor_left = 0.0
+	bar_row.anchor_top = 0.0
+	bar_row.offset_left = 24
+	bar_row.offset_top = 24
+	bar_row.offset_right = 280
+	bar_row.offset_bottom = 36
+	bar_row.add_theme_constant_override("separation", 8)
+	container.add_child(bar_row)
+
 	var health_bar := ProgressBar.new()
 	health_bar.name = "HealthBar"
 	health_bar.min_value = 0
 	health_bar.max_value = 100
 	health_bar.value = 100
 	health_bar.show_percentage = false
-	# Anchor bottom-left
-	health_bar.anchor_left = 0.0
-	health_bar.anchor_top = 1.0
-	health_bar.anchor_right = 0.0
-	health_bar.anchor_bottom = 1.0
-	health_bar.offset_left = 20
-	health_bar.offset_top = -50
-	health_bar.offset_right = 250
-	health_bar.offset_bottom = -20
-	# Style
+	health_bar.custom_minimum_size = Vector2(180, 8)
+	health_bar.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	# White-cyan gradient fill
 	var fill_style := StyleBoxFlat.new()
-	fill_style.bg_color = Color(0.1, 0.9, 0.3, 0.9)
-	fill_style.corner_radius_top_left = 3
-	fill_style.corner_radius_top_right = 3
-	fill_style.corner_radius_bottom_left = 3
-	fill_style.corner_radius_bottom_right = 3
+	fill_style.bg_color = Color(0.7, 0.95, 1.0, 0.95)
+	fill_style.corner_radius_top_left = 1
+	fill_style.corner_radius_top_right = 1
+	fill_style.corner_radius_bottom_left = 1
+	fill_style.corner_radius_bottom_right = 1
 	health_bar.add_theme_stylebox_override("fill", fill_style)
-	var bg_style := StyleBoxFlat.new()
-	bg_style.bg_color = Color(0.15, 0.15, 0.15, 0.8)
-	bg_style.corner_radius_top_left = 3
-	bg_style.corner_radius_top_right = 3
-	bg_style.corner_radius_bottom_left = 3
-	bg_style.corner_radius_bottom_right = 3
-	health_bar.add_theme_stylebox_override("background", bg_style)
-	container.add_child(health_bar)
+	# Subtle dark background
+	var bar_bg := StyleBoxFlat.new()
+	bar_bg.bg_color = Color(0.1, 0.12, 0.18, 0.6)
+	bar_bg.corner_radius_top_left = 1
+	bar_bg.corner_radius_top_right = 1
+	bar_bg.corner_radius_bottom_left = 1
+	bar_bg.corner_radius_bottom_right = 1
+	health_bar.add_theme_stylebox_override("background", bar_bg)
+	bar_row.add_child(health_bar)
 
-	# Health label
-	var health_label := Label.new()
-	health_label.name = "HealthLabel"
-	health_label.text = "HP"
-	health_label.anchor_left = 0.0
-	health_label.anchor_top = 1.0
-	health_label.anchor_right = 0.0
-	health_label.anchor_bottom = 1.0
-	health_label.offset_left = 20
-	health_label.offset_top = -70
-	health_label.offset_right = 100
-	health_label.offset_bottom = -50
-	health_label.add_theme_color_override("font_color", Color(0, 1, 0.5))
-	health_label.add_theme_font_size_override("font_size", 14)
-	container.add_child(health_label)
+	# Health percentage next to bar
+	var health_percent := Label.new()
+	health_percent.name = "HealthPercent"
+	health_percent.text = "100%"
+	health_percent.add_theme_color_override("font_color", Color(0.85, 0.95, 1.0))
+	health_percent.add_theme_font_size_override("font_size", 14)
+	health_percent.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	bar_row.add_child(health_percent)
 
-	# Ammo label — bottom right
+	# Info row below bar: player name + HP value
+	var info_row := HBoxContainer.new()
+	info_row.name = "InfoRow"
+	info_row.anchor_left = 0.0
+	info_row.anchor_top = 0.0
+	info_row.offset_left = 24
+	info_row.offset_top = 40
+	info_row.offset_right = 280
+	info_row.offset_bottom = 56
+	info_row.add_theme_constant_override("separation", 10)
+	container.add_child(info_row)
+
+	var player_name := Label.new()
+	player_name.name = "PlayerName"
+	player_name.text = "NEON_RONIN"
+	player_name.add_theme_color_override("font_color", Color(0, 0.9, 1, 0.8))
+	player_name.add_theme_font_size_override("font_size", 11)
+	info_row.add_child(player_name)
+
+	var health_value := Label.new()
+	health_value.name = "HealthValue"
+	health_value.text = "100/100"
+	health_value.add_theme_color_override("font_color", Color(0.5, 0.6, 0.7, 0.7))
+	health_value.add_theme_font_size_override("font_size", 11)
+	info_row.add_child(health_value)
+
+	# ── Weapon Area (bottom-LEFT, no panel border) ──
+	var weapon_area := HBoxContainer.new()
+	weapon_area.name = "WeaponArea"
+	weapon_area.anchor_left = 0.0
+	weapon_area.anchor_top = 1.0
+	weapon_area.anchor_right = 0.0
+	weapon_area.anchor_bottom = 1.0
+	weapon_area.offset_left = 24
+	weapon_area.offset_top = -76
+	weapon_area.offset_right = 280
+	weapon_area.offset_bottom = -20
+	weapon_area.add_theme_constant_override("separation", 10)
+	container.add_child(weapon_area)
+
+	# Weapon icon (left)
+	var weapon_icon := TextureRect.new()
+	weapon_icon.name = "WeaponIcon"
+	weapon_icon.custom_minimum_size = Vector2(56, 40)
+	weapon_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	weapon_icon.expand_mode = TextureRect.EXPAND_FIT_WIDTH
+	weapon_icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	var icon_tex: Texture2D = load("res://assets/img/icon_handgun.png")
+	if icon_tex:
+		weapon_icon.texture = icon_tex
+	weapon_area.add_child(weapon_icon)
+
+	# Weapon text info (right of icon)
+	var weapon_vbox := VBoxContainer.new()
+	weapon_vbox.name = "WeaponVBox"
+	weapon_vbox.add_theme_constant_override("separation", 2)
+	weapon_vbox.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	weapon_area.add_child(weapon_vbox)
+
 	var ammo_label := Label.new()
 	ammo_label.name = "AmmoLabel"
 	ammo_label.text = "12 / 36"
-	ammo_label.anchor_left = 1.0
-	ammo_label.anchor_top = 1.0
-	ammo_label.anchor_right = 1.0
-	ammo_label.anchor_bottom = 1.0
-	ammo_label.offset_left = -230
-	ammo_label.offset_top = -45
-	ammo_label.offset_right = -20
-	ammo_label.offset_bottom = -20
-	ammo_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	ammo_label.add_theme_color_override("font_color", Color(1, 1, 1))
-	ammo_label.add_theme_font_size_override("font_size", 22)
-	container.add_child(ammo_label)
+	ammo_label.add_theme_font_size_override("font_size", 28)
+	weapon_vbox.add_child(ammo_label)
 
-	# Weapon label — bottom right, above ammo
 	var weapon_label := Label.new()
 	weapon_label.name = "WeaponLabel"
 	weapon_label.text = "HANDGUN"
-	weapon_label.anchor_left = 1.0
-	weapon_label.anchor_top = 1.0
-	weapon_label.anchor_right = 1.0
-	weapon_label.anchor_bottom = 1.0
-	weapon_label.offset_left = -230
-	weapon_label.offset_top = -70
-	weapon_label.offset_right = -20
-	weapon_label.offset_bottom = -48
-	weapon_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	weapon_label.add_theme_color_override("font_color", Color(0, 0.9, 1))
-	weapon_label.add_theme_font_size_override("font_size", 14)
-	container.add_child(weapon_label)
+	weapon_label.add_theme_color_override("font_color", Color(0, 0.9, 1, 0.7))
+	weapon_label.add_theme_font_size_override("font_size", 12)
+	weapon_vbox.add_child(weapon_label)
 
-	# Crosshair — center
+	# ── Crosshair (center, small dot) ──
 	var crosshair := Label.new()
 	crosshair.name = "Crosshair"
-	crosshair.text = "+"
+	crosshair.text = "·"
 	crosshair.anchor_left = 0.5
 	crosshair.anchor_top = 0.5
 	crosshair.anchor_right = 0.5
 	crosshair.anchor_bottom = 0.5
-	crosshair.offset_left = -10
-	crosshair.offset_top = -15
-	crosshair.offset_right = 10
-	crosshair.offset_bottom = 15
+	crosshair.offset_left = -8
+	crosshair.offset_top = -10
+	crosshair.offset_right = 8
+	crosshair.offset_bottom = 10
 	crosshair.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	crosshair.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	crosshair.add_theme_color_override("font_color", Color(1, 1, 1, 0.8))
-	crosshair.add_theme_font_size_override("font_size", 24)
+	crosshair.add_theme_color_override("font_color", Color(0, 1, 1, 0.8))
+	crosshair.add_theme_font_size_override("font_size", 14)
 	container.add_child(crosshair)
 
-	# Kill feed — top right
+	# ── Damage Overlay (full screen) ──
+	var damage_overlay := Control.new()
+	damage_overlay.name = "DamageOverlay"
+	damage_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+	damage_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	damage_overlay.set_script(load("res://scripts/damage_overlay.gd"))
+	container.add_child(damage_overlay)
+
+	# ── Kill Feed (top-right) ──
 	var kill_feed := VBoxContainer.new()
 	kill_feed.name = "KillFeed"
 	kill_feed.anchor_left = 1.0
@@ -130,7 +176,7 @@ func _initialize() -> void:
 	kill_feed.offset_bottom = 200
 	container.add_child(kill_feed)
 
-	# Scoreboard — center, hidden
+	# ── Scoreboard (center, hidden) ──
 	var scoreboard := PanelContainer.new()
 	scoreboard.name = "Scoreboard"
 	scoreboard.anchor_left = 0.5
@@ -142,19 +188,16 @@ func _initialize() -> void:
 	scoreboard.offset_right = 300
 	scoreboard.offset_bottom = 200
 	scoreboard.visible = false
-	# Dark semi-transparent background
-	var panel_style := StyleBoxFlat.new()
-	panel_style.bg_color = Color(0.05, 0.05, 0.1, 0.85)
-	panel_style.corner_radius_top_left = 8
-	panel_style.corner_radius_top_right = 8
-	panel_style.corner_radius_bottom_left = 8
-	panel_style.corner_radius_bottom_right = 8
-	panel_style.border_width_left = 2
-	panel_style.border_width_top = 2
-	panel_style.border_width_right = 2
-	panel_style.border_width_bottom = 2
-	panel_style.border_color = Color(0, 0.8, 1, 0.5)
-	scoreboard.add_theme_stylebox_override("panel", panel_style)
+	var sb_style := _make_panel()
+	sb_style.corner_radius_top_left = 8
+	sb_style.corner_radius_top_right = 8
+	sb_style.corner_radius_bottom_left = 8
+	sb_style.corner_radius_bottom_right = 8
+	sb_style.border_width_left = 2
+	sb_style.border_width_top = 2
+	sb_style.border_width_right = 2
+	sb_style.border_width_bottom = 2
+	scoreboard.add_theme_stylebox_override("panel", sb_style)
 	container.add_child(scoreboard)
 
 	# Save
@@ -172,6 +215,24 @@ func _initialize() -> void:
 		return
 	print("Saved: res://scenes/hud.tscn")
 	quit(0)
+
+func _make_panel() -> StyleBoxFlat:
+	var s := StyleBoxFlat.new()
+	s.bg_color = Color(0.03, 0.03, 0.08, 0.8)
+	s.corner_radius_top_left = 4
+	s.corner_radius_top_right = 4
+	s.corner_radius_bottom_left = 4
+	s.corner_radius_bottom_right = 4
+	s.border_width_left = 1
+	s.border_width_top = 1
+	s.border_width_right = 1
+	s.border_width_bottom = 1
+	s.border_color = Color(0, 0.8, 1, 0.4)
+	s.content_margin_left = 12
+	s.content_margin_right = 12
+	s.content_margin_top = 8
+	s.content_margin_bottom = 8
+	return s
 
 func _set_owners(node: Node, owner: Node) -> void:
 	for c in node.get_children():

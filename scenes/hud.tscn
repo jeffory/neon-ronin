@@ -1,115 +1,151 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/hud_controller.gd" id="1_ahhtf"]
+[ext_resource type="Script" path="res://scripts/hud_controller.gd" id="1_5ysmq"]
+[ext_resource type="Texture2D" path="res://assets/img/icon_handgun.png" id="2_6fi6k"]
+[ext_resource type="Script" path="res://scripts/damage_overlay.gd" id="3_uo2fv"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo0fn"]
-bg_color = Color(0.15, 0.15, 0.15, 0.8)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_047uy"]
+bg_color = Color(0.1, 0.12, 0.18, 0.6)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ysmq"]
-bg_color = Color(0.1, 0.9, 0.3, 0.9)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5pdws"]
+bg_color = Color(0.7, 0.95, 1, 0.95)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fi6k"]
-bg_color = Color(0.05, 0.05, 0.1, 0.85)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd3ao"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.03, 0.03, 0.08, 0.8)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0, 0.8, 1, 0.5)
+border_color = Color(0, 0.8, 1, 0.4)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="HUD" type="CanvasLayer" unique_id=1620505917]
-script = ExtResource("1_ahhtf")
+[node name="HUD" type="CanvasLayer" unique_id=1951671741]
+script = ExtResource("1_5ysmq")
 
-[node name="Container" type="Control" parent="." unique_id=1446186412]
+[node name="Container" type="Control" parent="." unique_id=392855387]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="HealthBar" type="ProgressBar" parent="Container" unique_id=1613780764]
+[node name="BarRow" type="HBoxContainer" parent="Container" unique_id=265615328]
 layout_mode = 0
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = -50.0
-offset_right = 250.0
-offset_bottom = -20.0
-theme_override_styles/background = SubResource("StyleBoxFlat_oo0fn")
-theme_override_styles/fill = SubResource("StyleBoxFlat_5ysmq")
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 280.0
+offset_bottom = 36.0
+theme_override_constants/separation = 8
+
+[node name="HealthBar" type="ProgressBar" parent="Container/BarRow" unique_id=786618845]
+custom_minimum_size = Vector2(180, 8)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_047uy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5pdws")
 value = 100.0
 show_percentage = false
 
-[node name="HealthLabel" type="Label" parent="Container" unique_id=346513453]
-layout_mode = 0
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = -70.0
-offset_right = 100.0
-offset_bottom = -50.0
+[node name="HealthPercent" type="Label" parent="Container/BarRow" unique_id=30322062]
+layout_mode = 2
 theme_override_font_sizes/font_size = 14
-theme_override_colors/font_color = Color(0, 1, 0.5, 1)
-text = "HP"
+theme_override_colors/font_color = Color(0.85, 0.95, 1, 1)
+text = "100%"
 
-[node name="AmmoLabel" type="Label" parent="Container" unique_id=1213202973]
+[node name="InfoRow" type="HBoxContainer" parent="Container" unique_id=739817315]
 layout_mode = 0
-anchor_left = 1.0
+offset_left = 24.0
+offset_top = 40.0
+offset_right = 280.0
+offset_bottom = 56.0
+theme_override_constants/separation = 10
+
+[node name="PlayerName" type="Label" parent="Container/InfoRow" unique_id=75437415]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0, 0.9, 1, 0.8)
+text = "NEON_RONIN"
+
+[node name="HealthValue" type="Label" parent="Container/InfoRow" unique_id=1505100296]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.5, 0.6, 0.7, 0.7)
+text = "100/100"
+
+[node name="WeaponArea" type="HBoxContainer" parent="Container" unique_id=1448929318]
+layout_mode = 0
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -230.0
-offset_top = -45.0
-offset_right = -20.0
+offset_left = 24.0
+offset_top = -76.0
+offset_right = 280.0
 offset_bottom = -20.0
-theme_override_font_sizes/font_size = 22
+theme_override_constants/separation = 10
+
+[node name="WeaponIcon" type="TextureRect" parent="Container/WeaponArea" unique_id=1540659743]
+custom_minimum_size = Vector2(56, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_6fi6k")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="WeaponVBox" type="VBoxContainer" parent="Container/WeaponArea" unique_id=513306043]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="AmmoLabel" type="Label" parent="Container/WeaponArea/WeaponVBox" unique_id=1001851684]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "12 / 36"
-horizontal_alignment = 2
 
-[node name="WeaponLabel" type="Label" parent="Container" unique_id=263437677]
-layout_mode = 0
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -230.0
-offset_top = -70.0
-offset_right = -20.0
-offset_bottom = -48.0
-theme_override_font_sizes/font_size = 14
-theme_override_colors/font_color = Color(0, 0.9, 1, 1)
+[node name="WeaponLabel" type="Label" parent="Container/WeaponArea/WeaponVBox" unique_id=182777836]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0, 0.9, 1, 0.7)
 text = "HANDGUN"
-horizontal_alignment = 2
 
-[node name="Crosshair" type="Label" parent="Container" unique_id=704234509]
+[node name="Crosshair" type="Label" parent="Container" unique_id=505101164]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -15.0
-offset_right = 10.0
-offset_bottom = 15.0
-theme_override_font_sizes/font_size = 24
-theme_override_colors/font_color = Color(1, 1, 1, 0.8)
-text = "+"
+offset_left = -8.0
+offset_top = -10.0
+offset_right = 8.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0, 1, 1, 0.8)
+text = "·"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="KillFeed" type="VBoxContainer" parent="Container" unique_id=1637258344]
+[node name="DamageOverlay" type="Control" parent="Container" unique_id=2008202463]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("3_uo2fv")
+
+[node name="KillFeed" type="VBoxContainer" parent="Container" unique_id=1408568152]
 layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
@@ -118,7 +154,7 @@ offset_top = 20.0
 offset_right = -20.0
 offset_bottom = 200.0
 
-[node name="Scoreboard" type="PanelContainer" parent="Container" unique_id=264683831]
+[node name="Scoreboard" type="PanelContainer" parent="Container" unique_id=1507652652]
 visible = false
 layout_mode = 0
 anchor_left = 0.5
@@ -129,4 +165,4 @@ offset_left = -300.0
 offset_top = -200.0
 offset_right = 300.0
 offset_bottom = 200.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_6fi6k")
+theme_override_styles/panel = SubResource("StyleBoxFlat_hd3ao")
