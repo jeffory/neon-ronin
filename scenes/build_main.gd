@@ -2,23 +2,27 @@ extends SceneTree
 ## Scene builder — run: timeout 60 godot --headless --script scenes/build_main.gd
 
 func _initialize() -> void:
-	print("Generating: Main")
+	print("Generating: Main (dynamic level loading)")
 
 	var root := Node3D.new()
 	root.name = "Main"
 
-	# Instance Level
-	var level_scene: PackedScene = load("res://scenes/level.tscn")
-	var level = level_scene.instantiate()
-	level.name = "Level"
-	root.add_child(level)
+	# Attach main_controller.gd to root — handles level loading, bot/pickup spawning
+	var main_script = load("res://scripts/main_controller.gd")
+	if main_script:
+		root.set_script(main_script)
 
-	# Instance Player at spawn point 0
+	# Instance Player (repositioned at runtime by main_controller)
 	var player_scene: PackedScene = load("res://scenes/player.tscn")
 	var player = player_scene.instantiate()
 	player.name = "Player"
 	player.position = Vector3(0, 1, 0)
 	root.add_child(player)
+
+	# Attach player_controller.gd script override
+	var player_script = load("res://scripts/player_controller.gd")
+	if player_script:
+		player.set_script(player_script)
 
 	# Instance HUD
 	var hud_scene: PackedScene = load("res://scenes/hud.tscn")
@@ -26,54 +30,30 @@ func _initialize() -> void:
 	hud.name = "HUD"
 	root.add_child(hud)
 
+	# Attach hud_controller.gd script override
+	var hud_script = load("res://scripts/hud_controller.gd")
+	if hud_script:
+		hud.set_script(hud_script)
+
 	# Instance Pause Menu
 	var pause_scene: PackedScene = load("res://scenes/pause_menu.tscn")
 	if pause_scene:
 		var pause_menu = pause_scene.instantiate()
 		pause_menu.name = "PauseMenu"
 		root.add_child(pause_menu)
+		# Attach pause_menu.gd script override
+		var pause_script = load("res://scripts/pause_menu.gd")
+		if pause_script:
+			pause_menu.set_script(pause_script)
 
-	# Instance 4 bots at different spawn points
-	var bot_scene: PackedScene = load("res://scenes/bot.tscn")
-	var bot_names: Array[String] = ["Bot_Alpha", "Bot_Bravo", "Bot_Charlie", "Bot_Delta"]
-	var bot_spawns: Array[Vector3] = [
-		Vector3(14, 1, -10),
-		Vector3(-14, 1, 10),
-		Vector3(0, 1, -20),
-		Vector3(0, 1, 20),
-	]
+	# Instance DevConsole
+	var dev_scene: PackedScene = load("res://scenes/dev_console.tscn")
+	if dev_scene:
+		var dev_console = dev_scene.instantiate()
+		dev_console.name = "DevConsole"
+		root.add_child(dev_console)
 
-	for i in range(4):
-		var bot = bot_scene.instantiate()
-		bot.name = bot_names[i]
-		bot.position = bot_spawns[i]
-		# Set bot_name property for identification (set via script var)
-		root.add_child(bot)
-
-	# Instance pickups at pickup spots from MEMORY.md
-	var pickup_positions: Array = [
-		{"pos": Vector3(0, 0.5, -5), "type": "health"},
-		{"pos": Vector3(14, 0.5, 0), "type": "ammo"},
-		{"pos": Vector3(-14, 0.5, 0), "type": "health"},
-		{"pos": Vector3(0, 0.5, 15), "type": "ammo"},
-		{"pos": Vector3(2, 0.5, -15), "type": "health"},
-		{"pos": Vector3(-2, 0.5, 10), "type": "ammo"},
-	]
-
-	var health_scene: PackedScene = load("res://scenes/pickup_health.tscn")
-	var ammo_scene: PackedScene = load("res://scenes/pickup_ammo.tscn")
-
-	for i in range(pickup_positions.size()):
-		var pdata: Dictionary = pickup_positions[i]
-		var pickup: Node
-		if pdata["type"] == "health":
-			pickup = health_scene.instantiate()
-			pickup.name = "PickupHealth_%d" % i
-		else:
-			pickup = ammo_scene.instantiate()
-			pickup.name = "PickupAmmo_%d" % i
-		pickup.position = pdata["pos"]
-		root.add_child(pickup)
+	# No Level, bots, or pickups — these are spawned at runtime by main_controller.gd
 
 	# Save
 	_set_owners(root, root)

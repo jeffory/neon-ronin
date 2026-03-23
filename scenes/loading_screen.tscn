@@ -1,0 +1,71 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/loading_screen.gd" id="1_ep5rh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hprjd"]
+bg_color = Color(0.05, 0.05, 0.1, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.6, 0.8, 0.5)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku3bi"]
+bg_color = Color(0, 0.9, 1, 0.9)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="LoadingScreen" type="Control" unique_id=1304208060]
+layout_mode = 3
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_ep5rh")
+
+[node name="Background" type="ColorRect" parent="." unique_id=863320954]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.01, 0.01, 0.02, 1)
+
+[node name="CenterBox" type="VBoxContainer" parent="." unique_id=849156130]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -80.0
+offset_right = 200.0
+offset_bottom = 80.0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="LoadingLabel" type="Label" parent="CenterBox" unique_id=1514629806]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+text = "LOADING..."
+horizontal_alignment = 1
+
+[node name="LevelName" type="Label" parent="CenterBox" unique_id=1577976807]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.5, 0.8, 0.9, 1)
+text = "Loading level..."
+horizontal_alignment = 1
+
+[node name="LoadProgress" type="ProgressBar" parent="CenterBox" unique_id=2140495278]
+custom_minimum_size = Vector2(400, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_hprjd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ku3bi")
+show_percentage = false

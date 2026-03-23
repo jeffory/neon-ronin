@@ -61,23 +61,23 @@ func _initialize() -> void:
 	vbox.add_theme_constant_override("separation", 20)
 	root.add_child(vbox)
 
-	# ── New Game button ──
-	var new_game := Button.new()
-	new_game.name = "NewGameButton"
-	new_game.text = "NEW GAME"
-	new_game.custom_minimum_size = Vector2(280, 56)
-	new_game.add_theme_font_size_override("font_size", 22)
-	new_game.add_theme_color_override("font_color", Color(0, 1, 1))
-	new_game.add_theme_color_override("font_hover_color", Color(0.5, 1, 1))
-	new_game.add_theme_color_override("font_pressed_color", Color(1, 1, 1))
+	# ── Select Map button (replaces New Game) ──
+	var select_map := Button.new()
+	select_map.name = "SelectMapButton"
+	select_map.text = "SELECT MAP"
+	select_map.custom_minimum_size = Vector2(280, 56)
+	select_map.add_theme_font_size_override("font_size", 22)
+	select_map.add_theme_color_override("font_color", Color(0, 1, 1))
+	select_map.add_theme_color_override("font_hover_color", Color(0.5, 1, 1))
+	select_map.add_theme_color_override("font_pressed_color", Color(1, 1, 1))
 	var ng_normal := _make_button_style(Color(0.03, 0.03, 0.08, 0.85), Color(0, 0.8, 1, 0.5))
 	var ng_hover := _make_button_style(Color(0.05, 0.05, 0.12, 0.9), Color(0, 1, 1, 0.8))
 	var ng_pressed := _make_button_style(Color(0, 0.15, 0.2, 0.9), Color(0, 1, 1, 1.0))
-	new_game.add_theme_stylebox_override("normal", ng_normal)
-	new_game.add_theme_stylebox_override("hover", ng_hover)
-	new_game.add_theme_stylebox_override("pressed", ng_pressed)
-	new_game.add_theme_stylebox_override("focus", ng_hover)
-	vbox.add_child(new_game)
+	select_map.add_theme_stylebox_override("normal", ng_normal)
+	select_map.add_theme_stylebox_override("hover", ng_hover)
+	select_map.add_theme_stylebox_override("pressed", ng_pressed)
+	select_map.add_theme_stylebox_override("focus", ng_hover)
+	vbox.add_child(select_map)
 
 	# ── Settings button ──
 	var settings_btn := Button.new()
@@ -132,6 +132,83 @@ func _initialize() -> void:
 		root.add_child(settings_panel)
 	else:
 		push_warning("settings_panel.tscn not found — build it first")
+
+	# ── Level Select Panel (hidden by default) ──
+	var level_panel := PanelContainer.new()
+	level_panel.name = "LevelSelect"
+	level_panel.visible = false
+	level_panel.anchor_left = 0.5
+	level_panel.anchor_top = 0.4
+	level_panel.anchor_right = 0.5
+	level_panel.anchor_bottom = 0.4
+	level_panel.offset_left = -200
+	level_panel.offset_top = 0
+	level_panel.offset_right = 200
+	level_panel.offset_bottom = 320
+	var lp_style := _make_button_style(Color(0.02, 0.02, 0.06, 0.9), Color(0, 0.6, 0.8, 0.5))
+	lp_style.content_margin_left = 24
+	lp_style.content_margin_right = 24
+	lp_style.content_margin_top = 24
+	lp_style.content_margin_bottom = 24
+	level_panel.add_theme_stylebox_override("panel", lp_style)
+	root.add_child(level_panel)
+
+	var lp_vbox := VBoxContainer.new()
+	lp_vbox.name = "LevelVBox"
+	lp_vbox.add_theme_constant_override("separation", 16)
+	level_panel.add_child(lp_vbox)
+
+	var lp_title := Label.new()
+	lp_title.text = "SELECT MAP"
+	lp_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	lp_title.add_theme_font_size_override("font_size", 24)
+	lp_title.add_theme_color_override("font_color", Color(0, 1, 1))
+	lp_vbox.add_child(lp_title)
+
+	# Streets button
+	var streets_btn := Button.new()
+	streets_btn.name = "StreetsButton"
+	streets_btn.text = "STREETS\nCyberpunk City Alleyways"
+	streets_btn.custom_minimum_size = Vector2(340, 64)
+	streets_btn.add_theme_font_size_override("font_size", 18)
+	streets_btn.add_theme_color_override("font_color", Color(0, 1, 1))
+	streets_btn.add_theme_color_override("font_hover_color", Color(0.5, 1, 1))
+	streets_btn.add_theme_color_override("font_pressed_color", Color(1, 1, 1))
+	streets_btn.add_theme_stylebox_override("normal", _make_button_style(Color(0.03, 0.03, 0.08, 0.85), Color(0, 0.8, 1, 0.5)))
+	streets_btn.add_theme_stylebox_override("hover", _make_button_style(Color(0.05, 0.05, 0.12, 0.9), Color(0, 1, 1, 0.8)))
+	streets_btn.add_theme_stylebox_override("pressed", _make_button_style(Color(0, 0.15, 0.2, 0.9), Color(0, 1, 1, 1.0)))
+	streets_btn.add_theme_stylebox_override("focus", _make_button_style(Color(0.05, 0.05, 0.12, 0.9), Color(0, 1, 1, 0.8)))
+	lp_vbox.add_child(streets_btn)
+
+	# Skyscraper button
+	var sky_btn := Button.new()
+	sky_btn.name = "SkyscraperButton"
+	sky_btn.text = "SKYSCRAPER\nRooftop Sunset Showdown"
+	sky_btn.custom_minimum_size = Vector2(340, 64)
+	sky_btn.add_theme_font_size_override("font_size", 18)
+	sky_btn.add_theme_color_override("font_color", Color(1, 0.7, 0.3))
+	sky_btn.add_theme_color_override("font_hover_color", Color(1, 0.85, 0.5))
+	sky_btn.add_theme_color_override("font_pressed_color", Color(1, 1, 1))
+	sky_btn.add_theme_stylebox_override("normal", _make_button_style(Color(0.08, 0.04, 0.02, 0.85), Color(1, 0.6, 0.2, 0.5)))
+	sky_btn.add_theme_stylebox_override("hover", _make_button_style(Color(0.12, 0.06, 0.03, 0.9), Color(1, 0.8, 0.3, 0.8)))
+	sky_btn.add_theme_stylebox_override("pressed", _make_button_style(Color(0.15, 0.08, 0.02, 0.9), Color(1, 0.9, 0.4, 1.0)))
+	sky_btn.add_theme_stylebox_override("focus", _make_button_style(Color(0.12, 0.06, 0.03, 0.9), Color(1, 0.8, 0.3, 0.8)))
+	lp_vbox.add_child(sky_btn)
+
+	# Back button
+	var back_btn := Button.new()
+	back_btn.name = "LevelBackButton"
+	back_btn.text = "BACK"
+	back_btn.custom_minimum_size = Vector2(340, 48)
+	back_btn.add_theme_font_size_override("font_size", 18)
+	back_btn.add_theme_color_override("font_color", Color(0.5, 0.6, 0.7))
+	back_btn.add_theme_color_override("font_hover_color", Color(0, 1, 1))
+	back_btn.add_theme_color_override("font_pressed_color", Color(1, 1, 1))
+	back_btn.add_theme_stylebox_override("normal", _make_button_style(Color(0.03, 0.03, 0.08, 0.85), Color(0.3, 0.4, 0.5, 0.4)))
+	back_btn.add_theme_stylebox_override("hover", _make_button_style(Color(0.05, 0.05, 0.12, 0.9), Color(0, 1, 1, 0.8)))
+	back_btn.add_theme_stylebox_override("pressed", _make_button_style(Color(0, 0.15, 0.2, 0.9), Color(0, 1, 1, 1.0)))
+	back_btn.add_theme_stylebox_override("focus", _make_button_style(Color(0.05, 0.05, 0.12, 0.9), Color(0, 1, 1, 0.8)))
+	lp_vbox.add_child(back_btn)
 
 	# ── Subtitle ──
 	var subtitle := Label.new()

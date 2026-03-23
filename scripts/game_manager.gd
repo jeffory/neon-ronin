@@ -3,6 +3,7 @@ extends Node
 
 signal kill_registered(killer_name: String, victim_name: String)
 signal score_updated
+signal match_ended(winner_name: String)
 
 var scores: Dictionary = {}
 var spawn_points: Array[Vector3] = []
@@ -10,25 +11,60 @@ var pickup_spots: Array[Vector3] = []
 var _entities: Dictionary = {}  # name -> node reference
 var _nav_baked: bool = false
 
+# Multi-level state
+var current_level: int = 0
+var level_order: Array[String] = [
+	"res://scenes/level.tscn",
+	"res://scenes/level_skyscraper.tscn"
+]
+var score_limit: int = 20
+var match_active: bool = true
+var level_names: Dictionary = {
+	"res://scenes/level.tscn": "Streets",
+	"res://scenes/level_skyscraper.tscn": "Skyscraper"
+}
+
+func get_current_level_path() -> String:
+	return level_order[current_level]
+
+func get_current_level_name() -> String:
+	var path: String = get_current_level_path()
+	if level_names.has(path):
+		return level_names[path]
+	return "Unknown"
+
+func get_next_level_name() -> String:
+	var next_idx: int = (current_level + 1) % level_order.size()
+	var path: String = level_order[next_idx]
+	if level_names.has(path):
+		return level_names[path]
+	return "Unknown"
+
+var _level_loaded: bool = false
+
 func _ready() -> void:
-	# Spawn points from MEMORY.md
-	spawn_points = [
-		Vector3(0, 1, 0), Vector3(0, 1, -10), Vector3(0, 1, -20),
-		Vector3(0, 1, 10), Vector3(0, 1, 20), Vector3(2, 1, 3),
-		Vector3(-2, 1, -5), Vector3(15, 1, 5)
-	]
-	# Pickup spots from MEMORY.md
-	pickup_spots = [
-		Vector3(0, 0.5, -5), Vector3(14, 0.5, 0), Vector3(-14, 0.5, 0),
-		Vector3(0, 0.5, 15), Vector3(2, 0.5, -15), Vector3(-2, 0.5, 10)
-	]
-	# Bake navmesh after scene tree is ready
-	call_deferred("_bake_navmesh")
+	# Spawn points and pickup spots are now loaded dynamically
+	# from the scene tree via load_level_data().
+	# _process polls each frame until level is found, then stops checking.
+	pass
+
+func _process(_delta: float) -> void:
+	if not _level_loaded:
+		_try_auto_load_level()
+
+func _try_auto_load_level() -> void:
+	if _level_loaded:
+		return
+	var level_node: Node = _find_child_by_name(get_tree().root, "Level")
+	if level_node:
+		load_level_data(level_node)
+		_level_loaded = true
+		# Also bake navmesh now that level is ready
+		_bake_navmesh()
 
 func _bake_navmesh() -> void:
 	if _nav_baked:
 		return
-	# Find NavigationRegion3D in the scene tree
 	var nav_region = _find_navigation_region(get_tree().root)
 	if nav_region and nav_region is NavigationRegion3D:
 		nav_region.bake_navigation_mesh()
@@ -40,6 +76,33 @@ func _find_navigation_region(node: Node) -> Node:
 		return node
 	for child in node.get_children():
 		var found = _find_navigation_region(child)
+		if found:
+			return found
+	return null
+
+func load_level_data(level_root: Node) -> void:
+	spawn_points.clear()
+	pickup_spots.clear()
+	_nav_baked = false
+	# Walk scene tree for SpawnPoints Marker3D children
+	var sp_parent: Node = _find_child_by_name(level_root, "SpawnPoints")
+	if sp_parent:
+		for child in sp_parent.get_children():
+			if child is Marker3D:
+				spawn_points.append(child.global_position)
+	# Walk scene tree for PickupSpots Marker3D children
+	var pp_parent: Node = _find_child_by_name(level_root, "PickupSpots")
+	if pp_parent:
+		for child in pp_parent.get_children():
+			if child is Marker3D:
+				pickup_spots.append(child.global_position)
+	print("GameManager: Loaded %d spawn points, %d pickup spots from level" % [spawn_points.size(), pickup_spots.size()])
+
+func _find_child_by_name(root: Node, target_name: String) -> Node:
+	if root.name == target_name:
+		return root
+	for child in root.get_children():
+		var found: Node = _find_child_by_name(child, target_name)
 		if found:
 			return found
 	return null
@@ -58,6 +121,10 @@ func register_kill(killer_name: String, victim_name: String) -> void:
 	scores[victim_name]["deaths"] += 1
 	kill_registered.emit(killer_name, victim_name)
 	score_updated.emit()
+	# Check for match end condition
+	if match_active and scores[killer_name]["kills"] >= score_limit:
+		match_active = false
+		match_ended.emit(killer_name)
 
 func get_random_spawn_point() -> Vector3:
 	if spawn_points.is_empty():
@@ -102,3 +169,18 @@ func get_entity(entity_name: String) -> Node:
 	if _entities.has(entity_name):
 		return _entities[entity_name]
 	return null
+
+func advance_to_next_level() -> void:
+	current_level += 1
+	if current_level >= level_order.size():
+		current_level = 0  # Wrap around
+	_level_loaded = false  # Allow auto-detection of new level
+	print("GameManager: Advancing to level %d (%s)" % [current_level, level_order[current_level]])
+
+func reset_match() -> void:
+	match_active = true
+	for entity_name in scores:
+		scores[entity_name]["kills"] = 0
+		scores[entity_name]["deaths"] = 0
+	score_updated.emit()
+	print("GameManager: Match reset")

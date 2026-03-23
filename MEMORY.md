@@ -103,6 +103,30 @@
 - Impact sparks use GPUParticles3D with ParticleProcessMaterial, auto-cleanup after 0.5s
 - VQA issues about level geometry (primitive buildings, missing textures) are Task 1 concerns, not Task 2
 
+## Task 2 Refactor: Multi-Level GameManager
+
+### Changes
+- Removed hardcoded `spawn_points` and `pickup_spots` arrays from `_ready()`
+- Added `load_level_data(level_root)` that walks scene tree for SpawnPoints/PickupSpots Marker3D children
+- Auto-detection via `_process()` polling: scans for "Level" node in scene tree each frame until found, then stops
+- Added multi-level state: `current_level`, `level_order` array, `score_limit=20`, `match_active=true`, `level_names` dict
+- Added `match_ended(winner_name)` signal, emitted when any player reaches `score_limit` kills
+- Added `advance_to_next_level()` (increments `current_level`, wraps around, resets `_level_loaded` flag)
+- Added `reset_match()` (resets all scores to 0, re-enables match)
+- Navmesh baking now triggered after level data loads (not in `_ready()`)
+- `_bake_navmesh()` retained and called internally after `load_level_data()`
+
+### Compatibility
+- All existing public API preserved: `register_entity`, `register_kill`, `get_safest_spawn_point`, `get_random_spawn_point`, `get_scores`, `get_entity`
+- `spawn_points` and `pickup_spots` remain public vars (bot_controller.gd accesses `spawn_points` directly for patrol waypoints)
+- `kill_registered` and `score_updated` signals unchanged
+- Fallback to `Vector3(0, 1, 0)` when `spawn_points` is empty (before level loads)
+
+### Technical Notes
+- `_process()` polling approach chosen because: autoload `_ready()` fires before main scene loads, `tree_changed` signal was unreliable for deferred detection, and `process_frame` one-shot doesn't survive scene transitions
+- `_level_loaded` flag prevents redundant tree scanning after level is found
+- `advance_to_next_level()` resets `_level_loaded` so `_process` will re-scan for new level
+
 ## Task 4: Presentation Video
 
 ### Architecture
@@ -125,3 +149,101 @@
 - Camera pre-positioned in `_initialize()` for frame 0 (--write-movie renders before _process)
 - Manual look-at via atan2/asin to avoid `look_at()` issues during initialization
 - Bot kill feed is visible in the video, confirming combat AI is active during recording
+
+## Task 3: Dynamic Level Loading
+
+### Architecture
+- `main_controller.gd` attached to Main root (Node3D), handles all dynamic spawning
+- Level scene loaded from `GameManager.get_current_level_path()`, instanced as "Level" child
+- Bots and pickups spawned at runtime based on level Marker3D positions
+- Player, HUD, PauseMenu, DevConsole remain static in build_main.gd scene builder
+
+### Node Hierarchy (at runtime)
+- `Main` (Node3D + main_controller.gd)
+  - `Player` (CharacterBody3D + player_controller.gd) — static, repositioned at runtime
+  - `HUD` (CanvasLayer + hud_controller.gd) — static
+  - `PauseMenu` (CanvasLayer + pause_menu.gd) — static
+  - `DevConsole` (CanvasLayer + dev_console.gd) — static
+  - `Level` (Node3D) — dynamically loaded from GameManager.level_order
+  - `Bot_Alpha..Delta` (CharacterBody3D + bot_controller.gd) — dynamically spawned
+  - `PickupHealth_N` / `PickupAmmo_N` (Area3D + pickup.gd) — dynamically spawned
+
+### Spawning Flow
+1. `_ready()`: Load level scene, instance as "Level" child
+2. `_on_level_added()` (deferred): Call `GameManager.load_level_data()` with level instance
+3. `_spawn_entities()` (deferred): Reposition player, spawn 4 bots, spawn pickups alternating health/ammo
+4. Bots get `bot_controller.gd` via `set_script()` at spawn time
+5. Pickups get `pickup.gd` via `set_script()` at spawn time with type set via `set("pickup_type", ...)`
+
+### Match End
+- `match_ended` signal from GameManager pauses tree
+- Inline CanvasLayer overlay shows winner, final scores, escape hint
+- No separate match_end_screen.tscn needed
+
+### Technical Notes
+- `call_deferred` chain ensures global positions are valid before reading Marker3D positions
+- Bot collision: layer=2, mask=1|2|4 (set in bot_controller._ready() AND at spawn time)
+- Pickup collision: layer=0, mask=1|2 (set in pickup._ready())
+- HUD connects to Player via `get_parent().get_node_or_null("Player")` — Player must stay a direct child of Main
+- GameManager's `_process()` auto-detection still works as fallback (finds "Level" node in tree)
+
+## Task 4: Skyscraper Rooftop Level
+
+### Architecture
+- Level scene root is `Node3D` named "Level" with `level_skyscraper_materials.gd` attached
+- Two rooftops (A at X=-20, B at X=25) connected by a sky bridge, all at Y=40
+- Each rooftop has a door structure leading to a stairwell ramp descending to office floors at Y=36
+- Kill zone Area3D at Y=10 kills any entity that falls off the buildings
+
+### Node Hierarchy
+- `Level/WorldEnvironment` — sunset sky, ACES tonemap, warm fog, glow, SSAO
+- `Level/Sunlight` — warm orange DirectionalLight3D angled from the west
+- `Level/NavigationRegion3D/RooftopA/` — platform, parapets (east has gap for bridge), 5 AC units (GLB), door structure
+- `Level/NavigationRegion3D/RooftopB/` — platform, parapets (west has gap), helipad (CSGCylinder3D), walkways, railings, door structure
+- `Level/NavigationRegion3D/SkyBridge/` — bridge floor, glass side walls (semi-transparent), 3 cover pillars
+- `Level/NavigationRegion3D/OfficeA/` — 20x15m floor plate at Y=36, ceiling, outer walls, 2 partition walls with doorways, furniture (desks/chairs/monitors GLB), 6 SpotLight3D
+- `Level/NavigationRegion3D/OfficeB/` — 15x12m floor plate at Y=36, 2 rooms, furniture, 4 SpotLight3D
+- `Level/NavigationRegion3D/RampA`, `RampB` — sloped ramps connecting rooftops to offices (25° angle)
+- `Level/Facades/FacadeA`, `FacadeB` — tall CSGBox3D columns below rooftops with glass_window texture
+- `Level/KillZone` — Area3D at Y=10, 200x200m, kill_zone.gd kills entities on contact
+- `Level/SpawnPoints/Spawn_0..7` — 8 Marker3D at Y=41 (rooftops, bridge, office)
+- `Level/PickupSpots/Pickup_0..5` — 6 Marker3D at Y=40.5 or Y=37
+
+### Spawn Point Positions
+- Spawn_0: (-25, 41, -10), Spawn_1: (-15, 41, 8), Spawn_2: (-28, 41, 12)
+- Spawn_3: (30, 41, -5), Spawn_4: (20, 41, 5), Spawn_5: (18, 41, -10)
+- Spawn_6: (3.75, 41, 0), Spawn_7: (-18, 37, 5)
+
+### Pickup Spot Positions
+- Pickup_0: (-25, 40.5, 0), Pickup_1: (-30, 40.5, -10), Pickup_2: (30, 40.5, 5)
+- Pickup_3: (15, 40.5, -8), Pickup_4: (3.75, 40.5, 0), Pickup_5: (22, 37, 3)
+
+### Technical Notes
+- Fog enabled via `env.fog_enabled` and `env.fog_density` (not volumetric fog for this level)
+- Glass bridge walls use `TRANSPARENCY_ALPHA` with Color(0.3, 0.5, 0.8, 0.4)
+- Partition walls implemented as two CSGBox3D segments with 2m doorway gap
+- AC units, desks, chairs, monitors all instantiated from GLB files
+- kill_zone.gd connects body_entered signal, calls take_damage(9999) or sets health=0
+- GameManager already has level_skyscraper.tscn in level_order array (added in Task 3)
+
+## Task 8: Visual QA — Skyscraper Level
+
+### Issues Found and Fixed
+- **Broken textures**: All 7 skyscraper-specific textures (concrete_rooftop, glass_window, office_floor, office_wall, helipad_marking, metal_railing, sunset_sky) were JPEG files saved with `.png` extensions. Godot's PNG loader rejected them with "Not a PNG file" errors. Fixed by converting all to actual PNG format via ImageMagick.
+- **Skybox invisible**: Fog at density 0.005 with no `fog_sky_affect` setting washed out the panorama skybox entirely. Fixed by reducing fog_density to 0.003 and setting fog_sky_affect to 0.15.
+- **Skybox seam**: sunset_sky.png was 2752x1536 (not proper 2:1 equirectangular ratio). Resized to 3072x1536 and blended the wrap-around edges.
+- **Harsh shadows**: DirectionalLight3D shadow_blur increased from 2.0 to 5.0, ambient_light_energy increased from 0.5 to 0.7.
+- **Glass facade tiling**: Reduced glass_mat UV scale from (8,10,1) to (4,5,1) to reduce obvious texture repetition.
+
+### Remaining VQA Notes (not fixable without architectural changes)
+- AC units from GLB render dark in sunset backlighting — correct behavior, they ARE textured 3D models
+- Building bases are visible at overview zoom — intentional rooftop level design, buildings float above kill zone
+- Office interiors are large rooms with scattered furniture clusters — 10 desks, 10 chairs, 10 monitors across 5 clusters
+- reference.png is for the cyberpunk night city (level 1), NOT the skyscraper sunset level — VQA "thematic mismatch" is expected
+
+### Technical Notes
+- JPEG-as-PNG is a common issue from AI image generation services (Gemini) — always verify with `file` command
+- `fog_sky_affect` controls how much fog obscures the skybox panorama (0=none, 1=full) — essential for outdoor scenes
+- Equirectangular panoramas must be exactly 2:1 aspect ratio to wrap seamlessly
+- `--script` mode AND scene-mode both fail to load textures when .import files have `valid=false` — must delete broken .import files and reimport
+- Scene-based test (`.tscn` + attached `.gd`) works the same as `--script` for texture loading — the issue is the import cache, not the launch mode

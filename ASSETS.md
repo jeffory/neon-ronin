@@ -14,6 +14,10 @@
 | ammo_crate | Tactical ammunition box with orange accents | 0.3m | assets/img/ammo_crate.png | assets/glb/ammo_crate.glb |
 | trash_can | Simple cylindrical metal trash can with grime | 0.4m radius x 0.8m tall | assets/img/trash_can.png | assets/glb/trash_can.glb |
 | power_box | Wall-mounted electrical junction box with cables | 0.4m x 0.6m x 0.2m | assets/img/power_box.png | assets/glb/power_box.glb |
+| ac_unit | Industrial rooftop air conditioning unit with fan grill and pipes | 1.5m x 1.0m x 1.0m | assets/img/ac_unit.png | assets/glb/ac_unit.glb |
+| office_desk | Standard office desk with wood top and metal legs | 1.2m x 0.75m x 0.6m | assets/img/office_desk.png | assets/glb/office_desk.glb |
+| computer_monitor | Desktop LCD monitor on adjustable stand | 0.5m x 0.4m x 0.15m | assets/img/computer_monitor.png | assets/glb/computer_monitor.glb |
+| office_chair | Office rolling chair with mesh back and chrome base | 0.6m x 1.0m x 0.6m | assets/img/office_chair.png | assets/glb/office_chair.glb |
 
 ## Textures
 
@@ -30,6 +34,13 @@
 | shopfront_2 | Cyberpunk electronics shop with cyan neon 電子 | 4m x 4m | assets/img/shopfront_2.png |
 | shopfront_3 | Cyberpunk bar entrance with magenta neon 酒場 | 4m x 4m | assets/img/shopfront_3.png |
 | door_metal | Heavy security door with hazard stripes, keypad | 2m x 3.5m | assets/img/door_metal.png |
+| sunset_sky | Panoramic sunset skybox over city skyline | 2560x1440 | assets/img/sunset_sky.png |
+| concrete_rooftop | Weathered flat concrete rooftop surface | 4m tile | assets/img/concrete_rooftop.png |
+| metal_railing | Industrial metal railing with horizontal bars | 4m tile | assets/img/metal_railing.png |
+| glass_window | Reflective office building window panels in grid | 4m tile | assets/img/glass_window.png |
+| office_floor | Dark gray corporate carpet tile | 4m tile | assets/img/office_floor.png |
+| office_wall | Light beige-gray office interior wall surface | 4m tile | assets/img/office_wall.png |
+| helipad_marking | Yellow H-in-circle helipad marking on concrete | 4m tile | assets/img/helipad_marking.png |
 
 ## Backgrounds
 
