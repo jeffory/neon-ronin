@@ -36,14 +36,19 @@ jobs:
 
       - name: Setup export templates
         run: |
+          # Find where templates actually live in the container
+          echo "=== Searching for web export templates ==="
+          find / -name "web_*" -path "*/export_templates/*" 2>/dev/null | head -10
+          echo "=== HOME=$HOME ==="
+          # Link templates to where Godot expects them
           TEMPLATE_SRC="/root/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
           TEMPLATE_DST="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
-          echo "HOME=$HOME  SRC=$TEMPLATE_SRC  DST=$TEMPLATE_DST"
           mkdir -p "$(dirname "$TEMPLATE_DST")"
           if [ "$TEMPLATE_SRC" != "$TEMPLATE_DST" ]; then
             ln -sf "$TEMPLATE_SRC" "$TEMPLATE_DST"
           fi
-          ls -la "$TEMPLATE_DST/" | head -5
+          echo "=== Templates at DST ==="
+          ls -la "$TEMPLATE_DST/" 2>&1 | head -10
 
       - name: Import assets
         run: godot --headless --editor --quit 2>&1 || true
@@ -67,7 +72,7 @@ jobs:
       - name: Export web build
         run: |
           mkdir -p build/web
-          godot --headless --export-release "Web" build/web/index.html 2>&1
+          godot --headless --verbose --export-release "Web" build/web/index.html 2>&1
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
