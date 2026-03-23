@@ -38,6 +38,26 @@ jobs:
       - name: Import assets
         run: godot --headless --editor --quit 2>&1 || true
 
+      - name: Optimize textures for web
+        run: |
+          # Enable VRAM compression and limit bot textures to 2048px
+          # These are 4096x4096 uncompressed PNGs that bloat the .pck by ~250 MB
+          for f in assets/glb/bot/bot_*.png.import assets/glb/bot/Rifle\ Aiming\ Idle_*.png.import; do
+            if [ -f "$f" ]; then
+              sed -i 's/compress\/mode=0/compress\/mode=2/' "$f"
+              sed -i 's/process\/size_limit=0/process\/size_limit=2048/' "$f"
+            fi
+          done
+          # Compress sky/background textures
+          for f in assets/img/night_sky.png.import assets/img/title_bg.png.import assets/img/sunset_sky.png.import; do
+            if [ -f "$f" ]; then
+              sed -i 's/compress\/mode=0/compress\/mode=2/' "$f"
+              sed -i 's/process\/size_limit=0/process\/size_limit=2048/' "$f"
+            fi
+          done
+          # Re-import with new settings
+          godot --headless --editor --quit 2>&1 || true
+
       - name: Rebuild scenes
         run: |
           for script in \
