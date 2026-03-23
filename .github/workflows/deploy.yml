@@ -59,6 +59,14 @@ jobs:
           mkdir -p build/web
           godot --headless --export-release "Web" build/web/index.html 2>&1
 
+      - name: Add cross-origin isolation headers
+        run: |
+          cat > build/web/_headers << 'HEADERS'
+          /*
+            Cross-Origin-Opener-Policy: same-origin
+            Cross-Origin-Embedder-Policy: require-corp
+          HEADERS
+
       - name: Deploy to Netlify
         run: |
           apt-get install -y --no-install-recommends nodejs npm
