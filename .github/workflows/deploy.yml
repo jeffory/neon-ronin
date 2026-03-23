@@ -30,6 +30,11 @@ jobs:
         with:
           lfs: true
 
+      - name: Setup export templates
+        run: |
+          mkdir -p ~/.local/share/godot/export_templates/
+          ln -s /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable || true
+
       - name: Import assets
         run: godot --headless --editor --quit 2>&1 || true
 
