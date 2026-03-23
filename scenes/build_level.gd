@@ -7,6 +7,7 @@ func _initialize() -> void:
 
 	var root := Node3D.new()
 	root.name = "Level"
+	root.set_script(load("res://scripts/level_materials.gd"))
 
 	# ── WorldEnvironment ──
 	var world_env := WorldEnvironment.new()
@@ -22,12 +23,16 @@ func _initialize() -> void:
 
 	# Tonemap — ACES for cinematic neon look
 	env.tonemap_mode = Environment.TONE_MAPPER_ACES
-	env.tonemap_exposure = 0.9
+	env.tonemap_exposure = 1.8
 
-	# Ambient — very dark so neon pops
+	# Ambient — dark but visible
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	env.ambient_light_color = Color(0.02, 0.02, 0.05)
-	env.ambient_light_energy = 0.3
+	env.ambient_light_color = Color(0.06, 0.06, 0.1)
+	env.ambient_light_energy = 1.5
+
+	# Color adjustment (toggled at runtime for death effect)
+	env.adjustment_enabled = false
+	env.adjustment_saturation = 1.0
 
 	# Glow / Bloom — essential for neon
 	env.glow_enabled = true
@@ -44,7 +49,7 @@ func _initialize() -> void:
 
 	# Volumetric fog for atmosphere
 	env.volumetric_fog_enabled = true
-	env.volumetric_fog_density = 0.02
+	env.volumetric_fog_density = 0.01
 	env.volumetric_fog_albedo = Color(0.05, 0.05, 0.1)
 	env.volumetric_fog_emission = Color(0.01, 0.005, 0.02)
 	env.volumetric_fog_emission_energy = 0.5
@@ -70,7 +75,7 @@ func _initialize() -> void:
 	var moonlight := DirectionalLight3D.new()
 	moonlight.name = "Moonlight"
 	moonlight.light_color = Color(0.4, 0.45, 0.6)
-	moonlight.light_energy = 0.15
+	moonlight.light_energy = 1.15
 	moonlight.shadow_enabled = true
 	moonlight.shadow_bias = 0.05
 	moonlight.shadow_blur = 2.0
@@ -123,6 +128,8 @@ func _initialize() -> void:
 	ground.size = Vector3(64, 0.3, 64)
 	ground.position = Vector3(0, -0.15, 0)
 	ground.use_collision = true
+	ground.collision_layer = 4  # environment layer (layer 3)
+	ground.collision_mask = 0
 	ground.material = street_mat
 	nav_region.add_child(ground)
 
@@ -142,6 +149,8 @@ func _initialize() -> void:
 		wall.position = wpos
 		wall.size = wsize
 		wall.use_collision = true
+		wall.collision_layer = 4  # environment layer
+		wall.collision_mask = 0
 		# Dark building facade material for boundary walls
 		var bw_mat := StandardMaterial3D.new()
 		bw_mat.albedo_texture = load("res://assets/img/building_facade.png")
@@ -211,6 +220,8 @@ func _initialize() -> void:
 		building.size = bsize
 		building.position = Vector3(bpos.x, bsize.y * 0.5, bpos.z)
 		building.use_collision = true
+		building.collision_layer = 4  # environment layer
+		building.collision_mask = 0
 
 		var bmat := StandardMaterial3D.new()
 		bmat.albedo_texture = load("res://assets/img/building_facade.png")
@@ -431,13 +442,21 @@ func _initialize() -> void:
 		Vector3(3.5, 0, 15),
 		Vector3(-3.5, 0, -15),
 	]
+	var vend_tex: Texture2D = load("res://assets/img/vending_machine.png")
 	for vi in range(vending_positions.size()):
 		var vpos: Vector3 = vending_positions[vi]
+		# Face toward arena center: right-wall machines face -X, left-wall face +X
+		var face_angle: float = -PI / 2.0 if vpos.x > 0 else PI / 2.0
+
+		# Body — dark metallic box with collision
 		var vending := CSGBox3D.new()
 		vending.name = "Vending_%d" % vi
 		vending.size = Vector3(0.8, 1.8, 0.6)
 		vending.position = Vector3(vpos.x, 0.9, vpos.z)
+		vending.rotation.y = face_angle
 		vending.use_collision = true
+		vending.collision_layer = 4
+		vending.collision_mask = 0
 		var vend_mat := StandardMaterial3D.new()
 		vend_mat.albedo_color = Color(0.08, 0.08, 0.12)
 		vend_mat.metallic = 0.6
@@ -445,14 +464,42 @@ func _initialize() -> void:
 		vending.material = vend_mat
 		cover_node.add_child(vending)
 
-		# Vending machine glow strip
+		# Front face — textured quad, offset in the facing direction
+		if vend_tex:
+			var front := MeshInstance3D.new()
+			front.name = "VendingFront_%d" % vi
+			var quad := QuadMesh.new()
+			quad.size = Vector2(0.78, 1.78)  # Slightly inset from box edges
+			front.mesh = quad
+			var front_mat := StandardMaterial3D.new()
+			front_mat.albedo_texture = vend_tex
+			front_mat.emission_enabled = true
+			front_mat.emission_texture = vend_tex
+			front_mat.emission_energy_multiplier = 0.5
+			front_mat.metallic = 0.2
+			front_mat.roughness = 0.4
+			front.set_surface_override_material(0, front_mat)
+			var front_offset: float = 0.301
+			if vpos.x > 0:
+				front.position = Vector3(vpos.x - front_offset, 0.9, vpos.z)
+			else:
+				front.position = Vector3(vpos.x + front_offset, 0.9, vpos.z)
+			front.rotation.y = face_angle
+			cover_node.add_child(front)
+
+		# Vending machine glow light — in front of the textured face
 		var vend_light := OmniLight3D.new()
 		vend_light.name = "VendingLight_%d" % vi
-		vend_light.position = Vector3(vpos.x, 1.0, vpos.z)
+		var light_offset: float = 0.4
+		if vpos.x > 0:
+			vend_light.position = Vector3(vpos.x - light_offset, 1.0, vpos.z)
+		else:
+			vend_light.position = Vector3(vpos.x + light_offset, 1.0, vpos.z)
 		var vend_colors: Array = [Color(0.2, 1.0, 0.4), Color(1.0, 0.4, 0.1), Color(0.2, 0.6, 1.0), Color(1.0, 0.2, 0.8)]
 		vend_light.light_color = vend_colors[vi % 4]
-		vend_light.light_energy = 1.0
-		vend_light.omni_range = 3.0
+		vend_light.light_energy = 0.8
+		vend_light.omni_range = 2.5
+		vend_light.omni_attenuation = 1.5
 		vend_light.shadow_enabled = false
 		cover_node.add_child(vend_light)
 
@@ -470,6 +517,8 @@ func _initialize() -> void:
 		dumpster.size = Vector3(1.5, 1.0, 0.8)
 		dumpster.position = Vector3(dpos.x, 0.5, dpos.z)
 		dumpster.use_collision = true
+		dumpster.collision_layer = 4
+		dumpster.collision_mask = 0
 		var dump_mat := StandardMaterial3D.new()
 		dump_mat.albedo_color = Color(0.15, 0.18, 0.12)
 		dump_mat.roughness = 0.9
@@ -491,6 +540,8 @@ func _initialize() -> void:
 		crate.size = Vector3(0.6, 0.6, 0.6)
 		crate.position = Vector3(cpos.x, cpos.y + 0.3, cpos.z)
 		crate.use_collision = true
+		crate.collision_layer = 4
+		crate.collision_mask = 0
 		crate.material = cover_mat
 		cover_node.add_child(crate)
 
@@ -515,6 +566,8 @@ func _initialize() -> void:
 		var brrot: float = brd["rot"]
 		barrier.rotation_degrees = Vector3(0, brrot, 0)
 		barrier.use_collision = true
+		barrier.collision_layer = 4
+		barrier.collision_mask = 0
 		var barrier_mat := StandardMaterial3D.new()
 		barrier_mat.albedo_color = Color(0.2, 0.2, 0.22)
 		barrier_mat.roughness = 0.85
