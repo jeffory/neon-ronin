@@ -96,6 +96,22 @@ func _initialize() -> void:
 	facade_mat.albedo_texture = load("res://assets/img/building_facade.png")
 	facade_mat.uv1_scale = Vector3(1, 1, 1)  # will set per-building based on size
 
+	# Additional facade textures for variety
+	var facade_textures: Array = [
+		load("res://assets/img/building_facade.png"),
+		load("res://assets/img/building_facade_2.png"),
+		load("res://assets/img/building_facade_3.png"),
+	]
+
+	# Shopfront textures
+	var shopfront_textures: Array = [
+		load("res://assets/img/shopfront_1.png"),
+		load("res://assets/img/shopfront_2.png"),
+		load("res://assets/img/shopfront_3.png"),
+	]
+
+	var door_tex: Texture2D = load("res://assets/img/door_metal.png")
+
 	var cover_mat := StandardMaterial3D.new()
 	cover_mat.albedo_color = Color(0.12, 0.12, 0.15)
 	cover_mat.roughness = 0.7
@@ -224,7 +240,8 @@ func _initialize() -> void:
 		building.collision_mask = 0
 
 		var bmat := StandardMaterial3D.new()
-		bmat.albedo_texture = load("res://assets/img/building_facade.png")
+		var ftex: Texture2D = facade_textures[i % 3]
+		bmat.albedo_texture = ftex
 		bmat.uv1_scale = Vector3(bsize.x / 4.0, bsize.y / 4.0, 1)
 		building.material = bmat
 
@@ -574,6 +591,153 @@ func _initialize() -> void:
 		barrier.material = barrier_mat
 		cover_node.add_child(barrier)
 
+	# ── Trash Cans ──
+	var trash_scene: PackedScene = load("res://assets/glb/trash_can.glb")
+	var trash_positions: Array = [
+		Vector3(5, 0, -8),
+		Vector3(-5, 0, 3),
+		Vector3(12, 0, -5),
+		Vector3(-12, 0, 15),
+		Vector3(1, 0, -22),
+		Vector3(-1, 0, 22),
+		Vector3(16, 0, 5),
+		Vector3(-16, 0, -5),
+	]
+	if trash_scene:
+		for ti in range(trash_positions.size()):
+			var tpos: Vector3 = trash_positions[ti]
+			var trash = trash_scene.instantiate()
+			trash.name = "TrashCan_%d" % ti
+			# Scale to ~0.8m tall
+			var tmesh = _find_mesh_instance(trash)
+			if tmesh:
+				var taabb: AABB = tmesh.get_aabb()
+				var tlongest: float = maxf(maxf(taabb.size.x, taabb.size.y), taabb.size.z)
+				if tlongest > 0.001:
+					var tsf: float = 0.8 / tlongest
+					trash.scale = Vector3(tsf, tsf, tsf)
+			trash.position = Vector3(tpos.x, 0, tpos.z)
+			trash.rotation.y = randf() * TAU
+			cover_node.add_child(trash)
+
+	# ── Power Boxes (wall-mounted) ──
+	var pbox_scene: PackedScene = load("res://assets/glb/power_box.glb")
+	var power_box_placements: Array = [
+		{"pos": Vector3(4.0, 1.4, -18), "rot": -PI / 2.0},  # east wall, face -X
+		{"pos": Vector3(4.0, 1.4, 4), "rot": -PI / 2.0},
+		{"pos": Vector3(-4.0, 1.4, -10), "rot": PI / 2.0},  # west wall, face +X
+		{"pos": Vector3(-4.0, 1.4, 20), "rot": PI / 2.0},
+		{"pos": Vector3(16.0, 1.4, -14), "rot": -PI / 2.0},  # back alley east
+		{"pos": Vector3(-16.0, 1.4, 6), "rot": PI / 2.0},  # back alley west
+	]
+	if pbox_scene:
+		for pbi in range(power_box_placements.size()):
+			var pbd = power_box_placements[pbi]
+			var pbox = pbox_scene.instantiate()
+			pbox.name = "PowerBox_%d" % pbi
+			var pmesh = _find_mesh_instance(pbox)
+			if pmesh:
+				var paabb: AABB = pmesh.get_aabb()
+				var plongest: float = maxf(maxf(paabb.size.x, paabb.size.y), paabb.size.z)
+				if plongest > 0.001:
+					var psf: float = 0.5 / plongest
+					pbox.scale = Vector3(psf, psf, psf)
+			var pbpos: Vector3 = pbd["pos"]
+			var pbrot: float = pbd["rot"]
+			pbox.position = pbpos
+			pbox.rotation.y = pbrot
+			cover_node.add_child(pbox)
+
+			# Warning light
+			var warn_light := OmniLight3D.new()
+			warn_light.name = "PowerLight_%d" % pbi
+			warn_light.position = Vector3(pbpos.x, pbpos.y + 0.3, pbpos.z)
+			warn_light.light_color = Color(1.0, 0.3, 0.1)
+			warn_light.light_energy = 0.4
+			warn_light.omni_range = 1.5
+			warn_light.omni_attenuation = 2.0
+			warn_light.shadow_enabled = false
+			cover_node.add_child(warn_light)
+
+	# ── Metal Doors (on building facades) ──
+	var door_placements: Array = [
+		{"pos": Vector3(3.99, 1.1, -22), "rot": -PI / 2.0},   # east building
+		{"pos": Vector3(-3.99, 1.1, -14), "rot": PI / 2.0},    # west building
+		{"pos": Vector3(3.99, 1.1, 8), "rot": -PI / 2.0},      # east building
+		{"pos": Vector3(-3.99, 1.1, 6), "rot": PI / 2.0},      # west building
+		{"pos": Vector3(16.0, 1.1, -2), "rot": -PI / 2.0},     # back alley east
+		{"pos": Vector3(-16.0, 1.1, 2), "rot": PI / 2.0},      # back alley west
+	]
+	if door_tex:
+		for di in range(door_placements.size()):
+			var dd = door_placements[di]
+			var door_mesh := MeshInstance3D.new()
+			door_mesh.name = "Door_%d" % di
+			var dquad := QuadMesh.new()
+			dquad.size = Vector2(1.0, 2.2)
+			door_mesh.mesh = dquad
+			var dmat := StandardMaterial3D.new()
+			dmat.albedo_texture = door_tex
+			dmat.roughness = 0.6
+			dmat.metallic = 0.5
+			door_mesh.set_surface_override_material(0, dmat)
+			var dpos: Vector3 = dd["pos"]
+			var drot: float = dd["rot"]
+			door_mesh.position = dpos
+			door_mesh.rotation.y = drot
+			cover_node.add_child(door_mesh)
+
+	# ── Shopfronts (ground-floor building facades) ──
+	var shopfront_placements: Array = [
+		{"pos": Vector3(3.99, 1.5, -2), "rot": -PI / 2.0, "tex": 0},   # ramen shop, east main street
+		{"pos": Vector3(-3.99, 1.5, -4), "rot": PI / 2.0, "tex": 1},   # tech shop, west main street
+		{"pos": Vector3(3.99, 1.5, 18), "rot": -PI / 2.0, "tex": 2},   # bar, east south
+		{"pos": Vector3(-3.99, 1.5, 16), "rot": PI / 2.0, "tex": 0},   # ramen, west south
+	]
+	for si in range(shopfront_placements.size()):
+		var sd = shopfront_placements[si]
+		var stex_idx: int = sd["tex"]
+		var stex: Texture2D = shopfront_textures[stex_idx]
+		if not stex:
+			continue
+
+		var shop_mesh := MeshInstance3D.new()
+		shop_mesh.name = "Shopfront_%d" % si
+		var squad := QuadMesh.new()
+		squad.size = Vector2(3.5, 2.8)
+		shop_mesh.mesh = squad
+		var smat := StandardMaterial3D.new()
+		smat.albedo_texture = stex
+		smat.emission_enabled = true
+		smat.emission_texture = stex
+		smat.emission_energy_multiplier = 0.6
+		smat.roughness = 0.3
+		smat.metallic = 0.2
+		shop_mesh.set_surface_override_material(0, smat)
+		var spos: Vector3 = sd["pos"]
+		var srot: float = sd["rot"]
+		shop_mesh.position = spos
+		shop_mesh.rotation.y = srot
+		cover_node.add_child(shop_mesh)
+
+		# Shopfront glow light
+		var shop_light := OmniLight3D.new()
+		shop_light.name = "ShopLight_%d" % si
+		var light_colors: Array = [
+			Color(1.0, 0.6, 0.2),   # warm orange (ramen)
+			Color(0.2, 0.7, 1.0),   # cool blue (tech)
+			Color(0.8, 0.2, 0.6),   # magenta (bar)
+		]
+		shop_light.light_color = light_colors[stex_idx]
+		shop_light.light_energy = 1.0
+		shop_light.omni_range = 3.0
+		shop_light.omni_attenuation = 1.5
+		shop_light.shadow_enabled = false
+		# Position light in front of shopfront
+		var light_dir: float = -1.0 if spos.x > 0 else 1.0
+		shop_light.position = Vector3(spos.x + light_dir * 0.8, 1.5, spos.z)
+		cover_node.add_child(shop_light)
+
 	# ── Spawn Points ──
 	var spawn_points := Node3D.new()
 	spawn_points.name = "SpawnPoints"
@@ -644,3 +808,12 @@ func set_owner_on_new_nodes(node: Node, scene_owner: Node) -> void:
 		child.owner = scene_owner
 		if child.scene_file_path.is_empty():
 			set_owner_on_new_nodes(child, scene_owner)
+
+func _find_mesh_instance(node: Node) -> MeshInstance3D:
+	if node is MeshInstance3D:
+		return node
+	for child in node.get_children():
+		var found = _find_mesh_instance(child)
+		if found:
+			return found
+	return null
