@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+		<title>$GODOT_PROJECT_NAME</title>
+		<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+html, body, #canvas {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	color: white;
+	background-color: #050508;
+	overflow: hidden;
+	touch-action: none;
+}
+
+#canvas {
+	display: block;
+}
+
+#canvas:focus {
+	outline: none;
+}
+
+/* ── Loading overlay ── */
+#status {
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(ellipse at 50% 60%, #0a0a1a 0%, #050508 100%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	visibility: hidden;
+	z-index: 10;
+	transition: opacity 0.6s ease;
+}
+
+#status.fade-out {
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* Title */
+#loading-title {
+	font-family: 'Orbitron', sans-serif;
+	font-weight: 900;
+	font-size: clamp(2rem, 6vw, 4rem);
+	letter-spacing: 0.3em;
+	color: #00f0ff;
+	text-shadow:
+		0 0 10px #00f0ff,
+		0 0 30px #00f0ff88,
+		0 0 60px #00f0ff44;
+	margin-bottom: 3rem;
+	animation: title-pulse 3s ease-in-out infinite;
+}
+
+@keyframes title-pulse {
+	0%, 100% { opacity: 1; text-shadow: 0 0 10px #00f0ff, 0 0 30px #00f0ff88, 0 0 60px #00f0ff44; }
+	50% { opacity: 0.85; text-shadow: 0 0 5px #00f0ff, 0 0 15px #00f0ff66, 0 0 30px #00f0ff22; }
+}
+
+/* Progress bar container */
+#progress-container {
+	width: min(500px, 80vw);
+	position: relative;
+}
+
+#progress-track {
+	width: 100%;
+	height: 4px;
+	background: #1a1a2e;
+	border-radius: 2px;
+	overflow: hidden;
+	box-shadow: inset 0 0 4px #00000080;
+}
+
+#progress-fill {
+	height: 100%;
+	width: 0%;
+	background: linear-gradient(90deg, #ff00aa, #00f0ff);
+	border-radius: 2px;
+	box-shadow: 0 0 12px #00f0ff88, 0 0 24px #ff00aa44;
+	transition: width 0.2s ease-out;
+}
+
+/* Percentage text */
+#progress-text {
+	font-family: 'Orbitron', sans-serif;
+	font-weight: 400;
+	font-size: 0.85rem;
+	color: #8888aa;
+	letter-spacing: 0.15em;
+	text-align: center;
+	margin-top: 1rem;
+}
+
+/* Scanline overlay */
+#status::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: repeating-linear-gradient(
+		0deg,
+		transparent,
+		transparent 2px,
+		rgba(0, 0, 0, 0.03) 2px,
+		rgba(0, 0, 0, 0.03) 4px
+	);
+	pointer-events: none;
+}
+
+/* Error notice */
+#status-notice {
+	display: none;
+	background-color: #1a0a12;
+	border: 1px solid #ff00aa;
+	border-radius: 0.5rem;
+	color: #e0e0e0;
+	font-family: 'Orbitron', monospace;
+	font-size: 0.85rem;
+	line-height: 1.5;
+	margin: 2rem;
+	max-width: min(600px, 85vw);
+	padding: 1.5rem;
+	text-align: center;
+	box-shadow: 0 0 20px #ff00aa33;
+	z-index: 1;
+}
+
+/* Hide splash image — we use our own title instead */
+#status-splash {
+	display: none;
+}
+#status-progress {
+	display: none;
+}
+
+/* ── Click-to-play overlay ── */
+#click-to-play {
+	position: absolute;
+	inset: 0;
+	background: rgba(5, 5, 8, 0.85);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 20;
+	cursor: pointer;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.4s ease;
+}
+
+#click-to-play.visible {
+	opacity: 1;
+	visibility: visible;
+}
+
+#click-to-play.fade-out {
+	opacity: 0;
+	pointer-events: none;
+}
+
+#click-to-play-title {
+	font-family: 'Orbitron', sans-serif;
+	font-weight: 900;
+	font-size: clamp(2rem, 6vw, 4rem);
+	letter-spacing: 0.3em;
+	color: #00f0ff;
+	text-shadow:
+		0 0 10px #00f0ff,
+		0 0 30px #00f0ff88,
+		0 0 60px #00f0ff44;
+	margin-bottom: 2rem;
+}
+
+#click-to-play-prompt {
+	font-family: 'Orbitron', sans-serif;
+	font-weight: 400;
+	font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+	letter-spacing: 0.2em;
+	color: #ff00aa;
+	text-shadow: 0 0 8px #ff00aa88;
+	animation: prompt-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes prompt-pulse {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0.4; }
+}
+		</style>
+		$GODOT_HEAD_INCLUDE
+	</head>
+	<body>
+		<canvas id="canvas">
+			Your browser does not support the canvas tag.
+		</canvas>
+
+		<noscript>
+			Your browser does not support JavaScript.
+		</noscript>
+
+		<div id="status">
+			<img id="status-splash" class="$GODOT_SPLASH_CLASSES" src="$GODOT_SPLASH" alt="">
+			<progress id="status-progress"></progress>
+
+			<div id="loading-title">NEON RONIN</div>
+			<div id="progress-container">
+				<div id="progress-track">
+					<div id="progress-fill"></div>
+				</div>
+				<div id="progress-text">INITIALIZING...</div>
+			</div>
+
+			<div id="status-notice"></div>
+		</div>
+
+		<div id="click-to-play">
+			<div id="click-to-play-title">NEON RONIN</div>
+			<div id="click-to-play-prompt">CLICK TO PLAY</div>
+		</div>
+
+		<script src="$GODOT_URL"></script>
+		<script>
+const GODOT_CONFIG = $GODOT_CONFIG;
+const GODOT_THREADS_ENABLED = $GODOT_THREADS_ENABLED;
+
+// Remote asset support: set window.ASSET_BASE_URL before this script runs,
+// or pass ?assets=https://cdn.example.com/game/ as a query parameter.
+// Large files (.wasm, .pck) will be loaded from that URL instead of locally.
+const assetBaseURL = window.ASSET_BASE_URL
+	|| new URLSearchParams(window.location.search).get('assets')
+	|| '';
+
+if (assetBaseURL) {
+	const base = assetBaseURL.replace(/\/$/, '') + '/';
+	GODOT_CONFIG['executable'] = base + GODOT_CONFIG['executable'];
+	GODOT_CONFIG['mainPack'] = base + GODOT_CONFIG['mainPack'];
+}
+
+const engine = new Engine(GODOT_CONFIG);
+
+(function () {
+	const statusOverlay = document.getElementById('status');
+	const statusProgress = document.getElementById('status-progress');
+	const statusNotice = document.getElementById('status-notice');
+	const progressFill = document.getElementById('progress-fill');
+	const progressText = document.getElementById('progress-text');
+
+	let initializing = true;
+	let statusMode = '';
+
+	function setStatusMode(mode) {
+		if (statusMode === mode || !initializing) {
+			return;
+		}
+		if (mode === 'hidden') {
+			statusOverlay.classList.add('fade-out');
+			setTimeout(() => {
+				statusOverlay.remove();
+			}, 600);
+			initializing = false;
+			return;
+		}
+		statusOverlay.style.visibility = 'visible';
+		statusProgress.style.display = mode === 'progress' ? 'block' : 'none';
+		statusNotice.style.display = mode === 'notice' ? 'block' : 'none';
+		statusMode = mode;
+	}
+
+	function setStatusNotice(text) {
+		while (statusNotice.lastChild) {
+			statusNotice.removeChild(statusNotice.lastChild);
+		}
+		const lines = text.split('\n');
+		lines.forEach((line) => {
+			statusNotice.appendChild(document.createTextNode(line));
+			statusNotice.appendChild(document.createElement('br'));
+		});
+	}
+
+	function displayFailureNotice(err) {
+		console.error(err);
+		if (err instanceof Error) {
+			setStatusNotice(err.message);
+		} else if (typeof err === 'string') {
+			setStatusNotice(err);
+		} else {
+			setStatusNotice('An unknown error occurred.');
+		}
+		setStatusMode('notice');
+		initializing = false;
+	}
+
+	const missing = Engine.getMissingFeatures({
+		threads: GODOT_THREADS_ENABLED,
+	});
+
+	if (missing.length !== 0) {
+		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
+			let serviceWorkerRegistrationPromise;
+			try {
+				serviceWorkerRegistrationPromise = navigator.serviceWorker.getRegistration();
+			} catch (err) {
+				serviceWorkerRegistrationPromise = Promise.reject(new Error('Service worker registration failed.'));
+			}
+			Promise.race([
+				serviceWorkerRegistrationPromise.then((registration) => {
+					if (registration != null) {
+						return Promise.reject(new Error('Service worker already exists.'));
+					}
+					return registration;
+				}).then(() => engine.installServiceWorker()),
+				new Promise((resolve) => {
+					setTimeout(() => resolve(), 2000);
+				}),
+			]).then(() => {
+				window.location.reload();
+			}).catch((err) => {
+				console.error('Error while registering service worker:', err);
+			});
+		} else {
+			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
+			displayFailureNotice(missingMsg + missing.join('\n'));
+		}
+	} else {
+		setStatusMode('progress');
+		engine.startGame({
+			'onProgress': function (current, total) {
+				if (current > 0 && total > 0) {
+					const pct = Math.round((current / total) * 100);
+					progressFill.style.width = pct + '%';
+					progressText.textContent = 'LOADING... ' + pct + '%';
+					statusProgress.value = current;
+					statusProgress.max = total;
+				} else {
+					progressText.textContent = 'LOADING...';
+					statusProgress.removeAttribute('value');
+					statusProgress.removeAttribute('max');
+				}
+			},
+		}).then(() => {
+			progressFill.style.width = '100%';
+			progressText.textContent = 'READY';
+			setTimeout(() => {
+				setStatusMode('hidden');
+				// Show click-to-play overlay for pointer lock
+				const overlay = document.getElementById('click-to-play');
+				overlay.classList.add('visible');
+				overlay.addEventListener('click', function () {
+					overlay.classList.add('fade-out');
+					// Focus canvas so Godot receives the gesture for pointer lock
+					document.getElementById('canvas').focus();
+					setTimeout(() => overlay.remove(), 400);
+				}, { once: true });
+			}, 300);
+		}, displayFailureNotice);
+	}
+}());
+		</script>
+	</body>
+</html>
