@@ -30,10 +30,15 @@ jobs:
         with:
           lfs: true
 
+      - name: Install fontconfig
+        run: |
+          apt-get update && apt-get install -y --no-install-recommends fontconfig
+
       - name: Setup export templates
         run: |
           mkdir -p ~/.local/share/godot/export_templates/
           ln -s /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable || true
+          ls -la ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable/ | head -5
 
       - name: Import assets
         run: godot --headless --editor --quit 2>&1 || true
