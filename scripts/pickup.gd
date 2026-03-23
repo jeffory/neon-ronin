@@ -6,12 +6,22 @@ extends Area3D
 @export var respawn_time: float = 15.0
 
 var is_active: bool = true
+var _time: float = 0.0
+var _base_y: float = 0.0
 
 func _ready() -> void:
+	_base_y = position.y
 	body_entered.connect(_on_body_entered)
 	# Set collision to detect player and bots (layers 1 and 2)
 	collision_layer = 0  # Pickup doesn't need its own physics layer
 	collision_mask = 1 | 2  # Detect player (1) and enemies (2)
+
+func _process(delta: float) -> void:
+	if not is_active:
+		return
+	_time += delta
+	rotate_y(delta * 1.5)
+	position.y = _base_y + sin(_time * 2.0) * 0.1
 
 func _on_body_entered(body: Node3D) -> void:
 	if not is_active:

@@ -54,9 +54,10 @@ func _initialize() -> void:
 	var glow := OmniLight3D.new()
 	glow.name = "GlowLight"
 	glow.light_color = Color(1.0, 0.6, 0.1)
-	glow.light_energy = 1.5
-	glow.omni_range = 3.0
-	glow.position = Vector3(0, 0.5, 0)
+	glow.light_energy = 0.6
+	glow.omni_range = 1.5
+	glow.omni_attenuation = 2.0
+	glow.position = Vector3(0, 0.3, 0)
 	root.add_child(glow)
 
 	# Save

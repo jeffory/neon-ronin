@@ -5,19 +5,20 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_csu2n"]
 
-[node name="PickupHealth" type="Area3D" unique_id=120591905]
+[node name="PickupHealth" type="Area3D" unique_id=1126978401]
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_heve4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1460221111]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=42898430]
 shape = SubResource("SphereShape3D_csu2n")
 
 [node name="Model" type="Node3D" parent="." unique_id=1760301464 instance=ExtResource("2_twsja")]
 transform = Transform3D(0.29992023, 0, 0, 0, 0.29992023, 0, 0, 0, 0.29992023, 0, 0.3, 0)
 
-[node name="GlowLight" type="OmniLight3D" parent="." unique_id=549284436]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="GlowLight" type="OmniLight3D" parent="." unique_id=795839485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 light_color = Color(0.1, 1, 0.3, 1)
-light_energy = 1.5
-omni_range = 3.0
+light_energy = 0.6
+omni_range = 1.5
+omni_attenuation = 2.0
