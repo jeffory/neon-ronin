@@ -36,9 +36,14 @@ jobs:
 
       - name: Setup export templates
         run: |
-          mkdir -p ~/.local/share/godot/export_templates/
-          ln -s /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable || true
-          ls -la ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable/ | head -5
+          TEMPLATE_SRC="/root/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          TEMPLATE_DST="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          echo "HOME=$HOME  SRC=$TEMPLATE_SRC  DST=$TEMPLATE_DST"
+          mkdir -p "$(dirname "$TEMPLATE_DST")"
+          if [ "$TEMPLATE_SRC" != "$TEMPLATE_DST" ]; then
+            ln -sf "$TEMPLATE_SRC" "$TEMPLATE_DST"
+          fi
+          ls -la "$TEMPLATE_DST/" | head -5
 
       - name: Import assets
         run: godot --headless --editor --quit 2>&1 || true
