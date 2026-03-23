@@ -40,7 +40,7 @@ func _apply_textures_recursive(node: Node, concrete_tex: Texture2D, glass_tex: T
 	if node is CSGBox3D or node is CSGCylinder3D:
 		var csg_node = node
 		# Determine texture by node name
-		if nname.begins_with("Platform") or nname.begins_with("Ramp") or nname.begins_with("BridgeFloor"):
+		if nname.begins_with("Platform") or nname.begins_with("Ramp") or nname.begins_with("BridgeFloor") or nname.begins_with("Stair"):
 			_ensure_texture(csg_node, concrete_tex)
 		elif nname.begins_with("Facade"):
 			_ensure_texture(csg_node, glass_tex)

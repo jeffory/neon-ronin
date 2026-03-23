@@ -192,22 +192,22 @@
 ### Architecture
 - Level scene root is `Node3D` named "Level" with `level_skyscraper_materials.gd` attached
 - Two rooftops (A at X=-20, B at X=25) connected by a sky bridge, all at Y=40
-- Each rooftop has a door structure leading to a stairwell ramp descending to office floors at Y=36
+- Each rooftop has a door structure leading to stairs (16 steps, 0.25m rise each) descending from Y=40 to Y=36
 - Kill zone Area3D at Y=10 kills any entity that falls off the buildings
 
 ### Node Hierarchy
 - `Level/WorldEnvironment` — sunset sky, ACES tonemap, warm fog, glow, SSAO
 - `Level/Sunlight` — warm orange DirectionalLight3D angled from the west
-- `Level/NavigationRegion3D/RooftopA/` — platform, parapets (east has gap for bridge), 5 AC units (GLB), door structure
-- `Level/NavigationRegion3D/RooftopB/` — platform, parapets (west has gap), helipad (CSGCylinder3D), walkways, railings, door structure
+- `Level/NavigationRegion3D/RooftopA/` — platform, parapets (east has gap for bridge), 5 AC units (GLB), door structure, 6 crates (CrateA_0..5, some stacked)
+- `Level/NavigationRegion3D/RooftopB/` — platform, parapets (west has gap), helipad (CSGCylinder3D), walkways, railings, door structure, 6 crates (CrateB_0..5, some stacked)
 - `Level/NavigationRegion3D/SkyBridge/` — bridge floor, glass side walls (semi-transparent), 3 cover pillars
-- `Level/NavigationRegion3D/OfficeA/` — 20x15m floor plate at Y=36, ceiling, outer walls, 2 partition walls with doorways, furniture (desks/chairs/monitors GLB), 6 SpotLight3D
-- `Level/NavigationRegion3D/OfficeB/` — 15x12m floor plate at Y=36, 2 rooms, furniture, 4 SpotLight3D
-- `Level/NavigationRegion3D/RampA`, `RampB` — sloped ramps connecting rooftops to offices (25° angle)
+- `Level/NavigationRegion3D/OfficeA/` — 20x15m floor plate at Y=36, ceiling, outer walls, 2 partition walls with doorways, furniture (desks/chairs/monitors GLB), 6 SpotLight3D, 2 water coolers + 2 plants in corners
+- `Level/NavigationRegion3D/OfficeB/` — 15x12m floor plate at Y=36, 2 rooms, furniture, 4 SpotLight3D, 2 water coolers + 2 plants in corners
+- `Level/NavigationRegion3D/StairsA`, `StairsB` — 16-step staircases (CSGBox3D steps) connecting rooftops to offices, replacing former ramps
 - `Level/Facades/FacadeA`, `FacadeB` — tall CSGBox3D columns below rooftops with glass_window texture
 - `Level/KillZone` — Area3D at Y=10, 200x200m, kill_zone.gd kills entities on contact
 - `Level/SpawnPoints/Spawn_0..7` — 8 Marker3D at Y=41 (rooftops, bridge, office)
-- `Level/PickupSpots/Pickup_0..5` — 6 Marker3D at Y=40.5 or Y=37
+- `Level/PickupSpots/Pickup_0..7` — 8 Marker3D at Y=40.5 or Y=37 (2 added on sky bridge)
 
 ### Spawn Point Positions
 - Spawn_0: (-25, 41, -10), Spawn_1: (-15, 41, 8), Spawn_2: (-28, 41, 12)
@@ -216,6 +216,7 @@
 
 ### Pickup Spot Positions
 - Pickup_0: (-25, 40.5, 0), Pickup_1: (-30, 40.5, -10), Pickup_2: (30, 40.5, 5)
+- Pickup_6: (-2, 40.5, 0) [sky bridge west], Pickup_7: (9, 40.5, 0) [sky bridge east]
 - Pickup_3: (15, 40.5, -8), Pickup_4: (3.75, 40.5, 0), Pickup_5: (22, 37, 3)
 
 ### Technical Notes
@@ -247,3 +248,19 @@
 - Equirectangular panoramas must be exactly 2:1 aspect ratio to wrap seamlessly
 - `--script` mode AND scene-mode both fail to load textures when .import files have `valid=false` — must delete broken .import files and reimport
 - Scene-based test (`.tscn` + attached `.gd`) works the same as `--script` for texture loading — the issue is the import cache, not the launch mode
+
+## Ceiling Stairwell Gap Fix
+
+### Problem
+- CSGCombiner3D with CSGBox3D OPERATION_SUBTRACTION creates a visual hole in the ceiling but the collision mesh remains solid — player cannot pass through
+- CSG boolean subtraction does not update the collision shape to match the visual subtraction
+
+### Solution
+- Replaced CSGCombiner3D ceilings with split CSGBox3D segments arranged around the stairwell opening, leaving a physical gap
+- Same pattern as parapet walls (ParapetA_East_N/S with gap for bridge)
+- Each segment is a standalone CSGBox3D with use_collision=true, collision_layer=4, collision_mask=0, material=office_wall_mat
+- Segments are direct children of office_a/office_b (NOT inside a CSGCombiner3D)
+
+### Lesson Learned
+- CSG boolean subtraction in Godot does NOT reliably cut collision meshes — only visual geometry
+- For passable openings, always use split geometry with physical gaps instead of boolean subtraction

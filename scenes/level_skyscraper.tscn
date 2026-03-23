@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" path="res://assets/img/concrete_rooftop.png" id="3_5dbkf"]
 [ext_resource type="PackedScene" path="res://assets/glb/ac_unit.glb" id="4_0bbol"]
 [ext_resource type="Texture2D" path="res://assets/img/building_facade.png" id="5_htr6c"]
-[ext_resource type="Texture2D" path="res://assets/img/office_floor.png" id="6_de1tj"]
-[ext_resource type="Texture2D" path="res://assets/img/office_wall.png" id="7_lc27l"]
+[ext_resource type="Texture2D" path="res://assets/img/office_wall.png" id="6_de1tj"]
+[ext_resource type="Texture2D" path="res://assets/img/office_floor.png" id="7_lc27l"]
 [ext_resource type="PackedScene" path="res://assets/glb/office_desk.glb" id="8_sure7"]
 [ext_resource type="PackedScene" path="res://assets/glb/office_chair.glb" id="9_cnltc"]
 [ext_resource type="PackedScene" path="res://assets/glb/computer_monitor.glb" id="10_2bl0s"]
@@ -61,46 +61,98 @@ roughness = 0.9
 albedo_texture = ExtResource("5_htr6c")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32jib"]
-albedo_texture = ExtResource("6_de1tj")
-roughness = 0.6
-uv1_scale = Vector3(4, 3, 1)
+albedo_color = Color(0.45, 0.35, 0.2, 1)
+roughness = 0.9
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwema"]
-albedo_texture = ExtResource("7_lc27l")
+albedo_texture = ExtResource("6_de1tj")
 roughness = 0.7
 uv1_scale = Vector3(2, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_seiws"]
+albedo_texture = ExtResource("7_lc27l")
+roughness = 0.6
+uv1_scale = Vector3(4, 3, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cg252"]
+transparency = 1
+albedo_color = Color(0.5, 0.7, 0.9, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnu16"]
+albedo_color = Color(0.5, 0.3, 0.15, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lscxk"]
+albedo_color = Color(0.15, 0.5, 0.15, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxju8"]
+transparency = 1
+albedo_color = Color(0.5, 0.7, 0.9, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tx6o3"]
+albedo_color = Color(0.5, 0.3, 0.15, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdb51"]
+albedo_color = Color(0.15, 0.5, 0.15, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvo4q"]
 albedo_texture = ExtResource("11_idpll")
 roughness = 0.9
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cg252"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qst2h"]
 albedo_texture = ExtResource("12_r6vmu")
 metallic = 0.7
 roughness = 0.4
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnu16"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bg4mk"]
+transparency = 1
+albedo_color = Color(0.5, 0.7, 0.9, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7w7qp"]
+albedo_color = Color(0.5, 0.3, 0.15, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n8vn8"]
+albedo_color = Color(0.15, 0.5, 0.15, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kw7j"]
+transparency = 1
+albedo_color = Color(0.5, 0.7, 0.9, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbj54"]
+albedo_color = Color(0.5, 0.3, 0.15, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6uvlc"]
+albedo_color = Color(0.15, 0.5, 0.15, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_esp1v"]
 transparency = 1
 albedo_color = Color(0.3, 0.5, 0.8, 0.4)
 metallic = 0.3
 roughness = 0.05
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lscxk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abw8w"]
 albedo_texture = ExtResource("13_v22tl")
 metallic = 0.8
 roughness = 0.1
 uv1_scale = Vector3(4, 5, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lxju8"]
-size = Vector3(200, 1, 200)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ajk8g"]
+size = Vector3(200, 40, 200)
 
-[node name="Level" type="Node3D" unique_id=954965871]
+[node name="Level" type="Node3D" unique_id=1655777640]
 script = ExtResource("1_t7h86")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=502676940]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=496987295]
 environment = SubResource("Environment_2t4c6")
 
-[node name="Sunlight" type="DirectionalLight3D" parent="." unique_id=1517828887]
+[node name="Sunlight" type="DirectionalLight3D" parent="." unique_id=1131052614]
 transform = Transform3D(0.8660254, 0.17101006, -0.4698463, 0, 0.9396926, 0.34202012, 0.5, -0.2961981, 0.81379765, 0, 0, 0)
 light_color = Color(1, 0.7, 0.3, 1)
 light_energy = 1.5
@@ -108,20 +160,44 @@ shadow_enabled = true
 shadow_bias = 0.05
 shadow_blur = 5.0
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=603471459]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1296251961]
 navigation_mesh = SubResource("NavigationMesh_apxyq")
 
-[node name="RooftopA" type="Node3D" parent="NavigationRegion3D" unique_id=2125936702]
+[node name="RooftopA" type="Node3D" parent="NavigationRegion3D" unique_id=410163489]
 
-[node name="PlatformA" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=1036242602]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 39.5, 0)
+[node name="PlatformA_N" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=471978760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 39.5, -5.25)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
-size = Vector3(30, 1, 30)
+size = Vector3(30, 1, 19.5)
 material = SubResource("StandardMaterial3D_wib1y")
 
-[node name="ParapetA_North" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=1214346077]
+[node name="PlatformA_S" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=854731963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 39.5, 12.25)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(30, 1, 5.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="PlatformA_W" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=779000173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.25, 39.5, 7)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(21.5, 1, 5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="PlatformA_E" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=781537794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 39.5, 7)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(5.5, 1, 5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="ParapetA_North" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=995120128]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 40.5, -15)
 use_collision = true
 collision_layer = 4
@@ -129,7 +205,7 @@ collision_mask = 0
 size = Vector3(30, 1, 0.3)
 material = SubResource("StandardMaterial3D_n1oi2")
 
-[node name="ParapetA_South" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=1758168403]
+[node name="ParapetA_South" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=2117601727]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 40.5, 15)
 use_collision = true
 collision_layer = 4
@@ -137,7 +213,7 @@ collision_mask = 0
 size = Vector3(30, 1, 0.3)
 material = SubResource("StandardMaterial3D_n1oi2")
 
-[node name="ParapetA_West" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=1127123115]
+[node name="ParapetA_West" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=489300247]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 40.5, 0)
 use_collision = true
 collision_layer = 4
@@ -145,7 +221,7 @@ collision_mask = 0
 size = Vector3(0.3, 1, 30)
 material = SubResource("StandardMaterial3D_n1oi2")
 
-[node name="ParapetA_East_N" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=101809243]
+[node name="ParapetA_East_N" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=343374512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 40.5, -8.5)
 use_collision = true
 collision_layer = 4
@@ -153,7 +229,7 @@ collision_mask = 0
 size = Vector3(0.3, 1, 13)
 material = SubResource("StandardMaterial3D_n1oi2")
 
-[node name="ParapetA_East_S" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=1998665355]
+[node name="ParapetA_East_S" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=2085863023]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 40.5, 8.5)
 use_collision = true
 collision_layer = 4
@@ -164,30 +240,22 @@ material = SubResource("StandardMaterial3D_n1oi2")
 [node name="ACUnit_0" type="Node3D" parent="NavigationRegion3D/RooftopA" unique_id=601589061 instance=ExtResource("4_0bbol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 40, -8)
 
-[node name="ACUnit_1" type="Node3D" parent="NavigationRegion3D/RooftopA" unique_id=331665614 instance=ExtResource("4_0bbol")]
+[node name="ACUnit_1" type="Node3D" parent="NavigationRegion3D/RooftopA" unique_id=1044170208 instance=ExtResource("4_0bbol")]
 transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, -28, 40, 5)
 
-[node name="ACUnit_2" type="Node3D" parent="NavigationRegion3D/RooftopA" unique_id=1735777646 instance=ExtResource("4_0bbol")]
+[node name="ACUnit_2" type="Node3D" parent="NavigationRegion3D/RooftopA" unique_id=472679996 instance=ExtResource("4_0bbol")]
 transform = Transform3D(0.9848077, 0, -0.17364818, 0, 1, 0, 0.17364818, 0, 0.9848077, -15, 40, -12)
 
-[node name="ACUnit_3" type="Node3D" parent="NavigationRegion3D/RooftopA" unique_id=16386767 instance=ExtResource("4_0bbol")]
+[node name="ACUnit_3" type="Node3D" parent="NavigationRegion3D/RooftopA" unique_id=378845188 instance=ExtResource("4_0bbol")]
 transform = Transform3D(0.90630776, 0, 0.42261827, 0, 1, 0, -0.42261827, 0, 0.90630776, -18, 40, 10)
 
-[node name="ACUnit_4" type="Node3D" parent="NavigationRegion3D/RooftopA" unique_id=1483891696 instance=ExtResource("4_0bbol")]
+[node name="ACUnit_4" type="Node3D" parent="NavigationRegion3D/RooftopA" unique_id=416259118 instance=ExtResource("4_0bbol")]
 transform = Transform3D(0.9961947, 0, -0.08715574, 0, 1, 0, 0.08715574, 0, 0.9961947, -30, 40, 0)
 
-[node name="DoorStructA" type="Node3D" parent="NavigationRegion3D/RooftopA" unique_id=903738127]
+[node name="DoorStructA" type="Node3D" parent="NavigationRegion3D/RooftopA" unique_id=1070657745]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 40, 8)
 
-[node name="DoorStructA_Back" type="CSGBox3D" parent="NavigationRegion3D/RooftopA/DoorStructA" unique_id=1203870571]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1.4)
-use_collision = true
-collision_layer = 4
-collision_mask = 0
-size = Vector3(3, 3, 0.2)
-material = SubResource("StandardMaterial3D_1kdiu")
-
-[node name="DoorStructA_Left" type="CSGBox3D" parent="NavigationRegion3D/RooftopA/DoorStructA" unique_id=1401189513]
+[node name="DoorStructA_Left" type="CSGBox3D" parent="NavigationRegion3D/RooftopA/DoorStructA" unique_id=687423569]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 1.5, 0)
 use_collision = true
 collision_layer = 4
@@ -195,7 +263,7 @@ collision_mask = 0
 size = Vector3(0.2, 3, 3)
 material = SubResource("StandardMaterial3D_1kdiu")
 
-[node name="DoorStructA_Right" type="CSGBox3D" parent="NavigationRegion3D/RooftopA/DoorStructA" unique_id=705659293]
+[node name="DoorStructA_Right" type="CSGBox3D" parent="NavigationRegion3D/RooftopA/DoorStructA" unique_id=484086468]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 1.5, 0)
 use_collision = true
 collision_layer = 4
@@ -203,7 +271,7 @@ collision_mask = 0
 size = Vector3(0.2, 3, 3)
 material = SubResource("StandardMaterial3D_1kdiu")
 
-[node name="DoorStructA_Roof" type="CSGBox3D" parent="NavigationRegion3D/RooftopA/DoorStructA" unique_id=1203259435]
+[node name="DoorStructA_Roof" type="CSGBox3D" parent="NavigationRegion3D/RooftopA/DoorStructA" unique_id=514414803]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, 0)
 use_collision = true
 collision_layer = 4
@@ -211,33 +279,235 @@ collision_mask = 0
 size = Vector3(3, 0.2, 3)
 material = SubResource("StandardMaterial3D_1kdiu")
 
-[node name="RampA" type="CSGBox3D" parent="NavigationRegion3D" unique_id=758827942]
-transform = Transform3D(1, 0, 0, 0, 0.90630776, -0.42261827, 0, 0.42261827, 0.90630776, -12, 38, 10.5)
+[node name="CrateA_0" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=1537058226]
+transform = Transform3D(0.9801021, 0, -0.19849381, 0, 1, 0, 0.19849381, 0, 0.9801021, -28, 40.75, -12)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
-size = Vector3(2, 0.2, 5)
+size = Vector3(1.5, 1.5, 1.5)
+material = SubResource("StandardMaterial3D_32jib")
+
+[node name="CrateA_1" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=1416413972]
+transform = Transform3D(0.98718375, 0, -0.15958788, 0, 1, 0, 0.15958788, 0, 0.98718375, -28, 42.15, -12)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(0.6, 0.6, 0.6)
+material = SubResource("StandardMaterial3D_32jib")
+
+[node name="CrateA_2" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=1294651302]
+transform = Transform3D(0.97083336, 0, -0.2397553, 0, 1, 0, 0.2397553, 0, 0.97083336, -16, 40.4, -13)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(0.8, 0.8, 0.8)
+material = SubResource("StandardMaterial3D_32jib")
+
+[node name="CrateA_3" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=167037146]
+transform = Transform3D(0.9977992, 0, -0.066307455, 0, 1, 0, 0.066307455, 0, 0.9977992, -32, 40.6, 5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(1.2, 1.2, 1.2)
+material = SubResource("StandardMaterial3D_32jib")
+
+[node name="CrateA_4" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=1577630871]
+transform = Transform3D(0.9738974, 0, 0.22698872, 0, 1, 0, -0.22698872, 0, 0.9738974, -32, 41.7, 5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(0.7, 0.7, 0.7)
+material = SubResource("StandardMaterial3D_32jib")
+
+[node name="CrateA_5" type="CSGBox3D" parent="NavigationRegion3D/RooftopA" unique_id=680759712]
+transform = Transform3D(0.995516, 0, -0.09459332, 0, 1, 0, 0.09459332, 0, 0.995516, -33, 40.4, -5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(0.8, 0.8, 1.2)
+material = SubResource("StandardMaterial3D_32jib")
+
+[node name="StairsA" type="Node3D" parent="NavigationRegion3D" unique_id=664062671]
+
+[node name="StairA_0" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=956939817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 39.625, 8)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
 material = SubResource("StandardMaterial3D_wib1y")
 
-[node name="OfficeA" type="Node3D" parent="NavigationRegion3D" unique_id=93428039]
+[node name="StairA_1" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=1510491388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 39.375, 7.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
 
-[node name="FloorA" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=950898862]
+[node name="StairA_2" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=1763475729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 39.125, 7)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairA_3" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=229836425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 38.875, 6.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairA_4" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=952796540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 38.625, 6)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairA_5" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=43427892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 38.375, 5.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairA_6" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=1456453049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 38.125, 5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairA_7" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=382061375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 37.875, 4.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairA_8" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=1415117314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 37.625, 4)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairA_9" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=1840666942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 37.375, 3.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairA_10" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=265375766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 37.125, 3)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairA_11" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=885606880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 36.875, 2.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairA_12" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=1784943418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 36.625, 2)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairA_13" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=191320304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 36.375, 1.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairA_14" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=250128422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 36.125, 1)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairA_15" type="CSGBox3D" parent="NavigationRegion3D/StairsA" unique_id=364532096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 35.875, 0.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairwellA_West" type="CSGBox3D" parent="NavigationRegion3D" unique_id=285840673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 38, 4)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(0.2, 4, 8)
+material = SubResource("StandardMaterial3D_mwema")
+
+[node name="StairwellA_East" type="CSGBox3D" parent="NavigationRegion3D" unique_id=139853780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 38, 4)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(0.2, 4, 8)
+material = SubResource("StandardMaterial3D_mwema")
+
+[node name="OfficeA" type="Node3D" parent="NavigationRegion3D" unique_id=1676548049]
+
+[node name="FloorA" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=1146216904]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 35.75, 0)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
 size = Vector3(20, 0.5, 15)
-material = SubResource("StandardMaterial3D_32jib")
+material = SubResource("StandardMaterial3D_seiws")
 
-[node name="CeilingA" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=76440415]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 39.7, 0)
+[node name="CeilingA_North" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=1345427408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 39.7, -1)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
-size = Vector3(20, 0.3, 15)
+size = Vector3(20, 0.3, 13)
 material = SubResource("StandardMaterial3D_mwema")
 
-[node name="OfficeA_WallN" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=3144087]
+[node name="CeilingA_SW" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=84574368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.75, 39.7, 6.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(16.5, 0.3, 2)
+material = SubResource("StandardMaterial3D_mwema")
+
+[node name="CeilingA_SE" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=143614965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.25, 39.7, 6.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(0.5, 0.3, 2)
+material = SubResource("StandardMaterial3D_mwema")
+
+[node name="OfficeA_WallN" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=654198017]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 37.85, -7.4)
 use_collision = true
 collision_layer = 4
@@ -245,7 +515,7 @@ collision_mask = 0
 size = Vector3(20, 3.7, 0.2)
 material = SubResource("StandardMaterial3D_mwema")
 
-[node name="OfficeA_WallS" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=1991509891]
+[node name="OfficeA_WallS" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=1589321944]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 37.85, 7.4)
 use_collision = true
 collision_layer = 4
@@ -253,7 +523,7 @@ collision_mask = 0
 size = Vector3(20, 3.7, 0.2)
 material = SubResource("StandardMaterial3D_mwema")
 
-[node name="OfficeA_WallW" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=1335798020]
+[node name="OfficeA_WallW" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=1287944848]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 37.85, 0)
 use_collision = true
 collision_layer = 4
@@ -261,7 +531,7 @@ collision_mask = 0
 size = Vector3(0.2, 3.7, 15)
 material = SubResource("StandardMaterial3D_mwema")
 
-[node name="OfficeA_WallE" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=1830540721]
+[node name="OfficeA_WallE" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=13956839]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 37.85, 0)
 use_collision = true
 collision_layer = 4
@@ -269,7 +539,7 @@ collision_mask = 0
 size = Vector3(0.2, 3.7, 15)
 material = SubResource("StandardMaterial3D_mwema")
 
-[node name="OfficeA_Part1_L" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=1125036819]
+[node name="OfficeA_Part1_L" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=668311747]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5, 37.85, -2.5)
 use_collision = true
 collision_layer = 4
@@ -277,7 +547,7 @@ collision_mask = 0
 size = Vector3(9, 3.7, 0.15)
 material = SubResource("StandardMaterial3D_mwema")
 
-[node name="OfficeA_Part1_R" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=752280152]
+[node name="OfficeA_Part1_R" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=1952250983]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 37.85, -2.5)
 use_collision = true
 collision_layer = 4
@@ -285,7 +555,7 @@ collision_mask = 0
 size = Vector3(9, 3.7, 0.15)
 material = SubResource("StandardMaterial3D_mwema")
 
-[node name="OfficeA_Part2_L" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=590515344]
+[node name="OfficeA_Part2_L" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=351860575]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5, 37.85, 2.5)
 use_collision = true
 collision_layer = 4
@@ -293,7 +563,7 @@ collision_mask = 0
 size = Vector3(9, 3.7, 0.15)
 material = SubResource("StandardMaterial3D_mwema")
 
-[node name="OfficeA_Part2_R" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=2121479467]
+[node name="OfficeA_Part2_R" type="CSGBox3D" parent="NavigationRegion3D/OfficeA" unique_id=186849332]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 37.85, 2.5)
 use_collision = true
 collision_layer = 4
@@ -310,52 +580,52 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 36, -4.2)
 [node name="OfficeA_Room0_Monitor_0" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1943838829 instance=ExtResource("10_2bl0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 36.8, -5)
 
-[node name="OfficeA_Room0_Desk_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=398225188 instance=ExtResource("8_sure7")]
+[node name="OfficeA_Room0_Desk_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=996081811 instance=ExtResource("8_sure7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 36, -5)
 
-[node name="OfficeA_Room0_Chair_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=324627796 instance=ExtResource("9_cnltc")]
+[node name="OfficeA_Room0_Chair_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=302622026 instance=ExtResource("9_cnltc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 36, -4.2)
 
-[node name="OfficeA_Room0_Monitor_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=433949140 instance=ExtResource("10_2bl0s")]
+[node name="OfficeA_Room0_Monitor_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1137149255 instance=ExtResource("10_2bl0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 36.8, -5)
 
-[node name="OfficeA_Room1_Desk_0" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=2139124966 instance=ExtResource("8_sure7")]
+[node name="OfficeA_Room1_Desk_0" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=471469408 instance=ExtResource("8_sure7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 36, 0)
 
-[node name="OfficeA_Room1_Chair_0" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1023658445 instance=ExtResource("9_cnltc")]
+[node name="OfficeA_Room1_Chair_0" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1327002348 instance=ExtResource("9_cnltc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 36, 0.8)
 
-[node name="OfficeA_Room1_Monitor_0" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=2020741565 instance=ExtResource("10_2bl0s")]
+[node name="OfficeA_Room1_Monitor_0" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1043695988 instance=ExtResource("10_2bl0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 36.8, 0)
 
-[node name="OfficeA_Room1_Desk_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=273908492 instance=ExtResource("8_sure7")]
+[node name="OfficeA_Room1_Desk_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=791156278 instance=ExtResource("8_sure7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 36, 0)
 
-[node name="OfficeA_Room1_Chair_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=2126413509 instance=ExtResource("9_cnltc")]
+[node name="OfficeA_Room1_Chair_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=2131227592 instance=ExtResource("9_cnltc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 36, 0.8)
 
-[node name="OfficeA_Room1_Monitor_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1911950550 instance=ExtResource("10_2bl0s")]
+[node name="OfficeA_Room1_Monitor_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1817809878 instance=ExtResource("10_2bl0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 36.8, 0)
 
-[node name="OfficeA_Room2_Desk_0" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1722716162 instance=ExtResource("8_sure7")]
+[node name="OfficeA_Room2_Desk_0" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=611496008 instance=ExtResource("8_sure7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 36, 5)
 
-[node name="OfficeA_Room2_Chair_0" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1475714154 instance=ExtResource("9_cnltc")]
+[node name="OfficeA_Room2_Chair_0" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1843364142 instance=ExtResource("9_cnltc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 36, 5.8)
 
-[node name="OfficeA_Room2_Monitor_0" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1072298494 instance=ExtResource("10_2bl0s")]
+[node name="OfficeA_Room2_Monitor_0" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1319688405 instance=ExtResource("10_2bl0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 36.8, 5)
 
-[node name="OfficeA_Room2_Desk_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=32529598 instance=ExtResource("8_sure7")]
+[node name="OfficeA_Room2_Desk_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1890473901 instance=ExtResource("8_sure7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 36, 5)
 
-[node name="OfficeA_Room2_Chair_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1182507085 instance=ExtResource("9_cnltc")]
+[node name="OfficeA_Room2_Chair_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=2082427930 instance=ExtResource("9_cnltc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 36, 5.8)
 
-[node name="OfficeA_Room2_Monitor_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1412427814 instance=ExtResource("10_2bl0s")]
+[node name="OfficeA_Room2_Monitor_1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=459642700 instance=ExtResource("10_2bl0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 36.8, 5)
 
-[node name="OfficeA_Light_0" type="SpotLight3D" parent="NavigationRegion3D/OfficeA" unique_id=1170858676]
+[node name="OfficeA_Light_0" type="SpotLight3D" parent="NavigationRegion3D/OfficeA" unique_id=1830453044]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22, 39.5, -5)
 light_color = Color(1, 0.95, 0.9, 1)
 light_energy = 2.0
@@ -363,7 +633,7 @@ shadow_enabled = true
 spot_range = 6.0
 spot_angle = 60.0
 
-[node name="OfficeA_Light_1" type="SpotLight3D" parent="NavigationRegion3D/OfficeA" unique_id=2049258187]
+[node name="OfficeA_Light_1" type="SpotLight3D" parent="NavigationRegion3D/OfficeA" unique_id=99255529]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -16, 39.5, -5)
 light_color = Color(1, 0.95, 0.9, 1)
 light_energy = 2.0
@@ -371,7 +641,7 @@ shadow_enabled = true
 spot_range = 6.0
 spot_angle = 60.0
 
-[node name="OfficeA_Light_2" type="SpotLight3D" parent="NavigationRegion3D/OfficeA" unique_id=1681422770]
+[node name="OfficeA_Light_2" type="SpotLight3D" parent="NavigationRegion3D/OfficeA" unique_id=1467488909]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22, 39.5, 0)
 light_color = Color(1, 0.95, 0.9, 1)
 light_energy = 2.0
@@ -379,7 +649,7 @@ shadow_enabled = true
 spot_range = 6.0
 spot_angle = 60.0
 
-[node name="OfficeA_Light_3" type="SpotLight3D" parent="NavigationRegion3D/OfficeA" unique_id=1333751847]
+[node name="OfficeA_Light_3" type="SpotLight3D" parent="NavigationRegion3D/OfficeA" unique_id=2139811339]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -16, 39.5, 0)
 light_color = Color(1, 0.95, 0.9, 1)
 light_energy = 2.0
@@ -387,7 +657,7 @@ shadow_enabled = true
 spot_range = 6.0
 spot_angle = 60.0
 
-[node name="OfficeA_Light_4" type="SpotLight3D" parent="NavigationRegion3D/OfficeA" unique_id=1092252502]
+[node name="OfficeA_Light_4" type="SpotLight3D" parent="NavigationRegion3D/OfficeA" unique_id=1410411346]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22, 39.5, 5)
 light_color = Color(1, 0.95, 0.9, 1)
 light_energy = 2.0
@@ -395,7 +665,7 @@ shadow_enabled = true
 spot_range = 6.0
 spot_angle = 60.0
 
-[node name="OfficeA_Light_5" type="SpotLight3D" parent="NavigationRegion3D/OfficeA" unique_id=1922568485]
+[node name="OfficeA_Light_5" type="SpotLight3D" parent="NavigationRegion3D/OfficeA" unique_id=1021899597]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -16, 39.5, 5)
 light_color = Color(1, 0.95, 0.9, 1)
 light_energy = 2.0
@@ -403,17 +673,111 @@ shadow_enabled = true
 spot_range = 6.0
 spot_angle = 60.0
 
-[node name="RooftopB" type="Node3D" parent="NavigationRegion3D" unique_id=1115993069]
+[node name="OfficeA_WaterCooler0" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=692433743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 36, -6.5)
 
-[node name="PlatformB" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=566392889]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 39.5, 0)
+[node name="OfficeA_WaterCooler0_Body" type="CSGBox3D" parent="NavigationRegion3D/OfficeA/OfficeA_WaterCooler0" unique_id=1970978868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
-size = Vector3(25, 1, 25)
+size = Vector3(0.35, 1, 0.35)
 material = SubResource("StandardMaterial3D_wib1y")
 
-[node name="ParapetB_North" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=1286136496]
+[node name="OfficeA_WaterCooler0_Jug" type="CSGCylinder3D" parent="NavigationRegion3D/OfficeA/OfficeA_WaterCooler0" unique_id=565768007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18, 0)
+radius = 0.12
+height = 0.35
+material = SubResource("StandardMaterial3D_cg252")
+
+[node name="OfficeA_Plant0" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=447059149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 36, -6.5)
+
+[node name="OfficeA_Plant0_Pot" type="CSGCylinder3D" parent="NavigationRegion3D/OfficeA/OfficeA_Plant0" unique_id=467281102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+radius = 0.2
+height = 0.35
+material = SubResource("StandardMaterial3D_dnu16")
+
+[node name="OfficeA_Plant0_Foliage" type="CSGCylinder3D" parent="NavigationRegion3D/OfficeA/OfficeA_Plant0" unique_id=1462631291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+radius = 0.3
+height = 0.5
+material = SubResource("StandardMaterial3D_lscxk")
+
+[node name="OfficeA_WaterCooler1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=769889390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 36, 6.5)
+
+[node name="OfficeA_WaterCooler1_Body" type="CSGBox3D" parent="NavigationRegion3D/OfficeA/OfficeA_WaterCooler1" unique_id=343218939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(0.35, 1, 0.35)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="OfficeA_WaterCooler1_Jug" type="CSGCylinder3D" parent="NavigationRegion3D/OfficeA/OfficeA_WaterCooler1" unique_id=360951279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18, 0)
+radius = 0.12
+height = 0.35
+material = SubResource("StandardMaterial3D_lxju8")
+
+[node name="OfficeA_Plant1" type="Node3D" parent="NavigationRegion3D/OfficeA" unique_id=1393357130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 36, 6.5)
+
+[node name="OfficeA_Plant1_Pot" type="CSGCylinder3D" parent="NavigationRegion3D/OfficeA/OfficeA_Plant1" unique_id=1338873667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+radius = 0.2
+height = 0.35
+material = SubResource("StandardMaterial3D_tx6o3")
+
+[node name="OfficeA_Plant1_Foliage" type="CSGCylinder3D" parent="NavigationRegion3D/OfficeA/OfficeA_Plant1" unique_id=634437584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+radius = 0.3
+height = 0.5
+material = SubResource("StandardMaterial3D_tdb51")
+
+[node name="RooftopB" type="Node3D" parent="NavigationRegion3D" unique_id=2026589368]
+
+[node name="PlatformB_N" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=1155671355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 39.5, -5.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(25, 1, 14)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="PlatformB_S" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=745178334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 39.5, 9.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(25, 1, 6)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="PlatformB_W" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=207322876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 39.5, 4)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(6, 1, 5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="PlatformB_E" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=360019574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 39.5, 4)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(16, 1, 5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="ParapetB_North" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=1575955013]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 40.5, -12.5)
 use_collision = true
 collision_layer = 4
@@ -421,7 +785,7 @@ collision_mask = 0
 size = Vector3(25, 1, 0.3)
 material = SubResource("StandardMaterial3D_n1oi2")
 
-[node name="ParapetB_South" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=782676704]
+[node name="ParapetB_South" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=73079599]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 40.5, 12.5)
 use_collision = true
 collision_layer = 4
@@ -429,7 +793,7 @@ collision_mask = 0
 size = Vector3(25, 1, 0.3)
 material = SubResource("StandardMaterial3D_n1oi2")
 
-[node name="ParapetB_East" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=656474207]
+[node name="ParapetB_East" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=1044346580]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5, 40.5, 0)
 use_collision = true
 collision_layer = 4
@@ -437,7 +801,7 @@ collision_mask = 0
 size = Vector3(0.3, 1, 25)
 material = SubResource("StandardMaterial3D_n1oi2")
 
-[node name="ParapetB_West_N" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=704006054]
+[node name="ParapetB_West_N" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=56837178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 40.5, -7.25)
 use_collision = true
 collision_layer = 4
@@ -445,7 +809,7 @@ collision_mask = 0
 size = Vector3(0.3, 1, 10.5)
 material = SubResource("StandardMaterial3D_n1oi2")
 
-[node name="ParapetB_West_S" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=2086547821]
+[node name="ParapetB_West_S" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=1266806035]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 40.5, 7.25)
 use_collision = true
 collision_layer = 4
@@ -453,75 +817,67 @@ collision_mask = 0
 size = Vector3(0.3, 1, 10.5)
 material = SubResource("StandardMaterial3D_n1oi2")
 
-[node name="Helipad" type="CSGCylinder3D" parent="NavigationRegion3D/RooftopB" unique_id=1746425935]
+[node name="Helipad" type="CSGCylinder3D" parent="NavigationRegion3D/RooftopB" unique_id=1717952641]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 40.05, -5)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
 radius = 4.0
 height = 0.1
-material = SubResource("StandardMaterial3D_seiws")
+material = SubResource("StandardMaterial3D_uvo4q")
 
-[node name="WalkwayNorth" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=1283595931]
+[node name="WalkwayNorth" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=970227371]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 40.05, -11.5)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
 size = Vector3(25, 0.15, 2)
-material = SubResource("StandardMaterial3D_cg252")
+material = SubResource("StandardMaterial3D_qst2h")
 
-[node name="WalkwayEast" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=783393032]
+[node name="WalkwayEast" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=771825262]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5, 40.05, 0)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
 size = Vector3(2, 0.15, 25)
-material = SubResource("StandardMaterial3D_cg252")
+material = SubResource("StandardMaterial3D_qst2h")
 
-[node name="Railing_0" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=442344207]
+[node name="Railing_0" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=1748034167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 40.55, -12.45)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
 size = Vector3(25, 1, 0.05)
-material = SubResource("StandardMaterial3D_cg252")
+material = SubResource("StandardMaterial3D_qst2h")
 
-[node name="Railing_1" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=125859516]
+[node name="Railing_1" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=2041913514]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 40.55, -10.55)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
 size = Vector3(25, 1, 0.05)
-material = SubResource("StandardMaterial3D_cg252")
+material = SubResource("StandardMaterial3D_qst2h")
 
-[node name="Railing_2" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=645513369]
+[node name="Railing_2" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=1316027905]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.45, 40.55, 0)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
 size = Vector3(0.05, 1, 25)
-material = SubResource("StandardMaterial3D_cg252")
+material = SubResource("StandardMaterial3D_qst2h")
 
-[node name="Railing_3" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=881956663]
+[node name="Railing_3" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=888342953]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.55, 40.55, 0)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
 size = Vector3(0.05, 1, 25)
-material = SubResource("StandardMaterial3D_cg252")
+material = SubResource("StandardMaterial3D_qst2h")
 
-[node name="DoorStructB" type="Node3D" parent="NavigationRegion3D/RooftopB" unique_id=2086193598]
+[node name="DoorStructB" type="Node3D" parent="NavigationRegion3D/RooftopB" unique_id=1690126966]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 40, 5)
 
-[node name="DoorStructB_Back" type="CSGBox3D" parent="NavigationRegion3D/RooftopB/DoorStructB" unique_id=663326173]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1.4)
-use_collision = true
-collision_layer = 4
-collision_mask = 0
-size = Vector3(3, 3, 0.2)
-material = SubResource("StandardMaterial3D_1kdiu")
-
-[node name="DoorStructB_Left" type="CSGBox3D" parent="NavigationRegion3D/RooftopB/DoorStructB" unique_id=1295955440]
+[node name="DoorStructB_Left" type="CSGBox3D" parent="NavigationRegion3D/RooftopB/DoorStructB" unique_id=1646789481]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 1.5, 0)
 use_collision = true
 collision_layer = 4
@@ -529,7 +885,7 @@ collision_mask = 0
 size = Vector3(0.2, 3, 3)
 material = SubResource("StandardMaterial3D_1kdiu")
 
-[node name="DoorStructB_Right" type="CSGBox3D" parent="NavigationRegion3D/RooftopB/DoorStructB" unique_id=1135579035]
+[node name="DoorStructB_Right" type="CSGBox3D" parent="NavigationRegion3D/RooftopB/DoorStructB" unique_id=1170379350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 1.5, 0)
 use_collision = true
 collision_layer = 4
@@ -537,7 +893,7 @@ collision_mask = 0
 size = Vector3(0.2, 3, 3)
 material = SubResource("StandardMaterial3D_1kdiu")
 
-[node name="DoorStructB_Roof" type="CSGBox3D" parent="NavigationRegion3D/RooftopB/DoorStructB" unique_id=318285398]
+[node name="DoorStructB_Roof" type="CSGBox3D" parent="NavigationRegion3D/RooftopB/DoorStructB" unique_id=1516052383]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, 0)
 use_collision = true
 collision_layer = 4
@@ -545,33 +901,234 @@ collision_mask = 0
 size = Vector3(3, 0.2, 3)
 material = SubResource("StandardMaterial3D_1kdiu")
 
-[node name="RampB" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1844523049]
-transform = Transform3D(1, 0, 0, 0, 0.90630776, -0.42261827, 0, 0.42261827, 0.90630776, 20, 38, 7.5)
+[node name="CrateB_0" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=114551353]
+transform = Transform3D(0.97006994, 0, 0.2428256, 0, 1, 0, -0.2428256, 0, 0.97006994, 35, 40.75, 8)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
-size = Vector3(2, 0.2, 5)
+size = Vector3(1.5, 1.5, 1.5)
+material = SubResource("StandardMaterial3D_32jib")
+
+[node name="CrateB_1" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=1865070865]
+transform = Transform3D(0.99303776, 0, -0.117796496, 0, 1, 0, 0.117796496, 0, 0.99303776, 35, 42.15, 8)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(0.8, 0.6, 0.8)
+material = SubResource("StandardMaterial3D_32jib")
+
+[node name="CrateB_2" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=628415000]
+transform = Transform3D(0.9677819, 0, -0.25179002, 0, 1, 0, 0.25179002, 0, 0.9677819, 18, 40.5, -11)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+material = SubResource("StandardMaterial3D_32jib")
+
+[node name="CrateB_3" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=1568079307]
+transform = Transform3D(0.9878273, 0, -0.15555446, 0, 1, 0, 0.15555446, 0, 0.9878273, 33, 40.4, -10)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(0.7, 0.8, 0.7)
+material = SubResource("StandardMaterial3D_32jib")
+
+[node name="CrateB_4" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=1231935426]
+transform = Transform3D(0.9997781, 0, -0.021065632, 0, 1, 0, 0.021065632, 0, 0.9997781, 15, 40.6, 10)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(1.2, 1.2, 1)
+material = SubResource("StandardMaterial3D_32jib")
+
+[node name="CrateB_5" type="CSGBox3D" parent="NavigationRegion3D/RooftopB" unique_id=1938073702]
+transform = Transform3D(0.9903508, 0, -0.13858329, 0, 1, 0, 0.13858329, 0, 0.9903508, 15, 41.7, 10)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(0.6, 0.6, 0.6)
+material = SubResource("StandardMaterial3D_32jib")
+
+[node name="StairsB" type="Node3D" parent="NavigationRegion3D" unique_id=1776026255]
+
+[node name="StairB_0" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=802256287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 39.625, 5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
 material = SubResource("StandardMaterial3D_wib1y")
 
-[node name="OfficeB" type="Node3D" parent="NavigationRegion3D" unique_id=955240299]
+[node name="StairB_1" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=1952276157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 39.375, 4.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
 
-[node name="FloorB" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=1426758878]
+[node name="StairB_2" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=845154536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 39.125, 4)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairB_3" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=239055372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 38.875, 3.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairB_4" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=958548894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 38.625, 3)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairB_5" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=203653234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 38.375, 2.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairB_6" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=1187946794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 38.125, 2)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairB_7" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=851057575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 37.875, 1.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairB_8" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=124724703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 37.625, 1)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairB_9" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=1117111300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 37.375, 0.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairB_10" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=947123961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 37.125, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairB_11" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=162521451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 36.875, -0.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairB_12" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=1793623720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 36.625, -1)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairB_13" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=464661409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 36.375, -1.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairB_14" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=1701109299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 36.125, -2)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairB_15" type="CSGBox3D" parent="NavigationRegion3D/StairsB" unique_id=1001150548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 35.875, -2.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(2, 0.25, 0.5)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="StairwellB_West" type="CSGBox3D" parent="NavigationRegion3D" unique_id=441594652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 38, 1)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(0.2, 4, 8)
+material = SubResource("StandardMaterial3D_mwema")
+
+[node name="StairwellB_East" type="CSGBox3D" parent="NavigationRegion3D" unique_id=356872552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 38, 1)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(0.2, 4, 8)
+material = SubResource("StandardMaterial3D_mwema")
+
+[node name="OfficeB" type="Node3D" parent="NavigationRegion3D" unique_id=1498317227]
+
+[node name="FloorB" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=463665572]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 35.75, 0)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
 size = Vector3(15, 0.5, 12)
-material = SubResource("StandardMaterial3D_32jib")
+material = SubResource("StandardMaterial3D_seiws")
 
-[node name="CeilingB" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=504940019]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 39.7, 0)
+[node name="CeilingB_North" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=145252837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 39.7, -2.25)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
-size = Vector3(15, 0.3, 12)
+size = Vector3(15, 0.3, 7.5)
 material = SubResource("StandardMaterial3D_mwema")
 
-[node name="OfficeB_WallN" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=124941187]
+[node name="CeilingB_SW" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=179538239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 39.7, 3.75)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(1, 0.3, 4.5)
+material = SubResource("StandardMaterial3D_mwema")
+
+[node name="CeilingB_SE" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=864556946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 39.7, 3.75)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(11, 0.3, 4.5)
+material = SubResource("StandardMaterial3D_mwema")
+
+[node name="OfficeB_WallN" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=1038781290]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 37.85, -5.9)
 use_collision = true
 collision_layer = 4
@@ -579,7 +1136,7 @@ collision_mask = 0
 size = Vector3(15, 3.7, 0.2)
 material = SubResource("StandardMaterial3D_mwema")
 
-[node name="OfficeB_WallS" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=288749228]
+[node name="OfficeB_WallS" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=84354350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 37.85, 5.9)
 use_collision = true
 collision_layer = 4
@@ -587,7 +1144,7 @@ collision_mask = 0
 size = Vector3(15, 3.7, 0.2)
 material = SubResource("StandardMaterial3D_mwema")
 
-[node name="OfficeB_WallW" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=1980893267]
+[node name="OfficeB_WallW" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=318736845]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 37.85, 0)
 use_collision = true
 collision_layer = 4
@@ -595,7 +1152,7 @@ collision_mask = 0
 size = Vector3(0.2, 3.7, 12)
 material = SubResource("StandardMaterial3D_mwema")
 
-[node name="OfficeB_WallE" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=336277088]
+[node name="OfficeB_WallE" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=899349562]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 37.85, 0)
 use_collision = true
 collision_layer = 4
@@ -603,7 +1160,7 @@ collision_mask = 0
 size = Vector3(0.2, 3.7, 12)
 material = SubResource("StandardMaterial3D_mwema")
 
-[node name="OfficeB_Part1_L" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=1280585966]
+[node name="OfficeB_Part1_L" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=252935175]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.75, 37.85, 0)
 use_collision = true
 collision_layer = 4
@@ -611,7 +1168,7 @@ collision_mask = 0
 size = Vector3(6.5, 3.7, 0.15)
 material = SubResource("StandardMaterial3D_mwema")
 
-[node name="OfficeB_Part1_R" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=1645631468]
+[node name="OfficeB_Part1_R" type="CSGBox3D" parent="NavigationRegion3D/OfficeB" unique_id=1958077468]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.25, 37.85, 0)
 use_collision = true
 collision_layer = 4
@@ -619,43 +1176,43 @@ collision_mask = 0
 size = Vector3(6.5, 3.7, 0.15)
 material = SubResource("StandardMaterial3D_mwema")
 
-[node name="OfficeB_Room0_Desk_0" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=1516487601 instance=ExtResource("8_sure7")]
+[node name="OfficeB_Room0_Desk_0" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=484006532 instance=ExtResource("8_sure7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 36, -3)
 
-[node name="OfficeB_Room0_Chair_0" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=1192075015 instance=ExtResource("9_cnltc")]
+[node name="OfficeB_Room0_Chair_0" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=1514405163 instance=ExtResource("9_cnltc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 36, -2.2)
 
-[node name="OfficeB_Room0_Monitor_0" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=231568974 instance=ExtResource("10_2bl0s")]
+[node name="OfficeB_Room0_Monitor_0" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=1076129926 instance=ExtResource("10_2bl0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 36.8, -3)
 
-[node name="OfficeB_Room0_Desk_1" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=1247984872 instance=ExtResource("8_sure7")]
+[node name="OfficeB_Room0_Desk_1" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=159006944 instance=ExtResource("8_sure7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 36, -3)
 
-[node name="OfficeB_Room0_Chair_1" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=1982227043 instance=ExtResource("9_cnltc")]
+[node name="OfficeB_Room0_Chair_1" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=637844689 instance=ExtResource("9_cnltc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 36, -2.2)
 
-[node name="OfficeB_Room0_Monitor_1" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=1431131471 instance=ExtResource("10_2bl0s")]
+[node name="OfficeB_Room0_Monitor_1" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=20569692 instance=ExtResource("10_2bl0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 36.8, -3)
 
-[node name="OfficeB_Room1_Desk_0" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=7751793 instance=ExtResource("8_sure7")]
+[node name="OfficeB_Room1_Desk_0" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=834821220 instance=ExtResource("8_sure7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 36, 3)
 
-[node name="OfficeB_Room1_Chair_0" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=71861078 instance=ExtResource("9_cnltc")]
+[node name="OfficeB_Room1_Chair_0" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=2046456104 instance=ExtResource("9_cnltc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 36, 3.8)
 
-[node name="OfficeB_Room1_Monitor_0" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=1217393237 instance=ExtResource("10_2bl0s")]
+[node name="OfficeB_Room1_Monitor_0" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=898569468 instance=ExtResource("10_2bl0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 36.8, 3)
 
-[node name="OfficeB_Room1_Desk_1" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=187360452 instance=ExtResource("8_sure7")]
+[node name="OfficeB_Room1_Desk_1" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=1347641993 instance=ExtResource("8_sure7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 36, 3)
 
-[node name="OfficeB_Room1_Chair_1" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=1351089031 instance=ExtResource("9_cnltc")]
+[node name="OfficeB_Room1_Chair_1" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=216473460 instance=ExtResource("9_cnltc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 36, 3.8)
 
-[node name="OfficeB_Room1_Monitor_1" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=1262463198 instance=ExtResource("10_2bl0s")]
+[node name="OfficeB_Room1_Monitor_1" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=1567113868 instance=ExtResource("10_2bl0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 36.8, 3)
 
-[node name="OfficeB_Light_0" type="SpotLight3D" parent="NavigationRegion3D/OfficeB" unique_id=1459390159]
+[node name="OfficeB_Light_0" type="SpotLight3D" parent="NavigationRegion3D/OfficeB" unique_id=1427791421]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 22, 39.5, -3)
 light_color = Color(1, 0.95, 0.9, 1)
 light_energy = 2.0
@@ -663,7 +1220,7 @@ shadow_enabled = true
 spot_range = 6.0
 spot_angle = 60.0
 
-[node name="OfficeB_Light_1" type="SpotLight3D" parent="NavigationRegion3D/OfficeB" unique_id=378738574]
+[node name="OfficeB_Light_1" type="SpotLight3D" parent="NavigationRegion3D/OfficeB" unique_id=1935447143]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 28, 39.5, -3)
 light_color = Color(1, 0.95, 0.9, 1)
 light_energy = 2.0
@@ -671,7 +1228,7 @@ shadow_enabled = true
 spot_range = 6.0
 spot_angle = 60.0
 
-[node name="OfficeB_Light_2" type="SpotLight3D" parent="NavigationRegion3D/OfficeB" unique_id=511376437]
+[node name="OfficeB_Light_2" type="SpotLight3D" parent="NavigationRegion3D/OfficeB" unique_id=2069398308]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 22, 39.5, 3)
 light_color = Color(1, 0.95, 0.9, 1)
 light_energy = 2.0
@@ -679,7 +1236,7 @@ shadow_enabled = true
 spot_range = 6.0
 spot_angle = 60.0
 
-[node name="OfficeB_Light_3" type="SpotLight3D" parent="NavigationRegion3D/OfficeB" unique_id=1246431671]
+[node name="OfficeB_Light_3" type="SpotLight3D" parent="NavigationRegion3D/OfficeB" unique_id=473266997]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 28, 39.5, 3)
 light_color = Color(1, 0.95, 0.9, 1)
 light_energy = 2.0
@@ -687,9 +1244,79 @@ shadow_enabled = true
 spot_range = 6.0
 spot_angle = 60.0
 
-[node name="SkyBridge" type="Node3D" parent="NavigationRegion3D" unique_id=1323222680]
+[node name="OfficeB_WaterCooler0" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=618497009]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 36, -5)
 
-[node name="BridgeFloor" type="CSGBox3D" parent="NavigationRegion3D/SkyBridge" unique_id=1587696793]
+[node name="OfficeB_WaterCooler0_Body" type="CSGBox3D" parent="NavigationRegion3D/OfficeB/OfficeB_WaterCooler0" unique_id=289877084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(0.35, 1, 0.35)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="OfficeB_WaterCooler0_Jug" type="CSGCylinder3D" parent="NavigationRegion3D/OfficeB/OfficeB_WaterCooler0" unique_id=2048634116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18, 0)
+radius = 0.12
+height = 0.35
+material = SubResource("StandardMaterial3D_bg4mk")
+
+[node name="OfficeB_Plant0" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=154698397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5, 36, -5)
+
+[node name="OfficeB_Plant0_Pot" type="CSGCylinder3D" parent="NavigationRegion3D/OfficeB/OfficeB_Plant0" unique_id=2451690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+radius = 0.2
+height = 0.35
+material = SubResource("StandardMaterial3D_7w7qp")
+
+[node name="OfficeB_Plant0_Foliage" type="CSGCylinder3D" parent="NavigationRegion3D/OfficeB/OfficeB_Plant0" unique_id=782377019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+radius = 0.3
+height = 0.5
+material = SubResource("StandardMaterial3D_n8vn8")
+
+[node name="OfficeB_WaterCooler1" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=817237858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 36, 5)
+
+[node name="OfficeB_WaterCooler1_Body" type="CSGBox3D" parent="NavigationRegion3D/OfficeB/OfficeB_WaterCooler1" unique_id=2097334857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(0.35, 1, 0.35)
+material = SubResource("StandardMaterial3D_wib1y")
+
+[node name="OfficeB_WaterCooler1_Jug" type="CSGCylinder3D" parent="NavigationRegion3D/OfficeB/OfficeB_WaterCooler1" unique_id=1603646013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18, 0)
+radius = 0.12
+height = 0.35
+material = SubResource("StandardMaterial3D_4kw7j")
+
+[node name="OfficeB_Plant1" type="Node3D" parent="NavigationRegion3D/OfficeB" unique_id=1342460687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5, 36, 5)
+
+[node name="OfficeB_Plant1_Pot" type="CSGCylinder3D" parent="NavigationRegion3D/OfficeB/OfficeB_Plant1" unique_id=1505318792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+radius = 0.2
+height = 0.35
+material = SubResource("StandardMaterial3D_dbj54")
+
+[node name="OfficeB_Plant1_Foliage" type="CSGCylinder3D" parent="NavigationRegion3D/OfficeB/OfficeB_Plant1" unique_id=1494389127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+radius = 0.3
+height = 0.5
+material = SubResource("StandardMaterial3D_6uvlc")
+
+[node name="SkyBridge" type="Node3D" parent="NavigationRegion3D" unique_id=468962989]
+
+[node name="BridgeFloor" type="CSGBox3D" parent="NavigationRegion3D/SkyBridge" unique_id=1687948832]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 39.75, 0)
 use_collision = true
 collision_layer = 4
@@ -697,23 +1324,23 @@ collision_mask = 0
 size = Vector3(17.5, 0.5, 4)
 material = SubResource("StandardMaterial3D_wib1y")
 
-[node name="BridgeGlass_North" type="CSGBox3D" parent="NavigationRegion3D/SkyBridge" unique_id=782872857]
+[node name="BridgeGlass_North" type="CSGBox3D" parent="NavigationRegion3D/SkyBridge" unique_id=1199303039]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 40.75, -1.95)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
 size = Vector3(17.5, 1.5, 0.1)
-material = SubResource("StandardMaterial3D_dnu16")
+material = SubResource("StandardMaterial3D_esp1v")
 
-[node name="BridgeGlass_South" type="CSGBox3D" parent="NavigationRegion3D/SkyBridge" unique_id=1065029094]
+[node name="BridgeGlass_South" type="CSGBox3D" parent="NavigationRegion3D/SkyBridge" unique_id=166876295]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 40.75, 1.95)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
 size = Vector3(17.5, 1.5, 0.1)
-material = SubResource("StandardMaterial3D_dnu16")
+material = SubResource("StandardMaterial3D_esp1v")
 
-[node name="BridgePillar_0" type="CSGBox3D" parent="NavigationRegion3D/SkyBridge" unique_id=1936995884]
+[node name="BridgePillar_0" type="CSGBox3D" parent="NavigationRegion3D/SkyBridge" unique_id=1879261259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 40, 0)
 use_collision = true
 collision_layer = 4
@@ -721,7 +1348,7 @@ collision_mask = 0
 size = Vector3(0.5, 2, 0.5)
 material = SubResource("StandardMaterial3D_n1oi2")
 
-[node name="BridgePillar_1" type="CSGBox3D" parent="NavigationRegion3D/SkyBridge" unique_id=1572342616]
+[node name="BridgePillar_1" type="CSGBox3D" parent="NavigationRegion3D/SkyBridge" unique_id=426752427]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 40, 0)
 use_collision = true
 collision_layer = 4
@@ -729,7 +1356,7 @@ collision_mask = 0
 size = Vector3(0.5, 2, 0.5)
 material = SubResource("StandardMaterial3D_n1oi2")
 
-[node name="BridgePillar_2" type="CSGBox3D" parent="NavigationRegion3D/SkyBridge" unique_id=432148190]
+[node name="BridgePillar_2" type="CSGBox3D" parent="NavigationRegion3D/SkyBridge" unique_id=1472665351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 40, 0)
 use_collision = true
 collision_layer = 4
@@ -737,75 +1364,81 @@ collision_mask = 0
 size = Vector3(0.5, 2, 0.5)
 material = SubResource("StandardMaterial3D_n1oi2")
 
-[node name="Facades" type="Node3D" parent="." unique_id=1930514634]
+[node name="Facades" type="Node3D" parent="." unique_id=1415498900]
 
-[node name="FacadeA" type="CSGBox3D" parent="Facades" unique_id=1891230484]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 19.5, 0)
+[node name="FacadeA" type="CSGBox3D" parent="Facades" unique_id=2091175628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 17.5, 0)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
-size = Vector3(30, 40, 30)
-material = SubResource("StandardMaterial3D_lscxk")
+size = Vector3(30, 36, 30)
+material = SubResource("StandardMaterial3D_abw8w")
 
-[node name="FacadeB" type="CSGBox3D" parent="Facades" unique_id=1817789405]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 19.5, 0)
+[node name="FacadeB" type="CSGBox3D" parent="Facades" unique_id=1405522129]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 17.5, 0)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
-size = Vector3(25, 40, 25)
-material = SubResource("StandardMaterial3D_lscxk")
+size = Vector3(25, 36, 25)
+material = SubResource("StandardMaterial3D_abw8w")
 
-[node name="KillZone" type="Area3D" parent="." unique_id=2051215718]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+[node name="KillZone" type="Area3D" parent="." unique_id=950639810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("14_n3apa")
 
-[node name="KillZoneShape" type="CollisionShape3D" parent="KillZone" unique_id=207607300]
-shape = SubResource("BoxShape3D_lxju8")
+[node name="KillZoneShape" type="CollisionShape3D" parent="KillZone" unique_id=1652654043]
+shape = SubResource("BoxShape3D_ajk8g")
 
-[node name="SpawnPoints" type="Node3D" parent="." unique_id=798155190]
+[node name="SpawnPoints" type="Node3D" parent="." unique_id=1754858993]
 
-[node name="Spawn_0" type="Marker3D" parent="SpawnPoints" unique_id=1951863540]
+[node name="Spawn_0" type="Marker3D" parent="SpawnPoints" unique_id=1705787108]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 41, -10)
 
-[node name="Spawn_1" type="Marker3D" parent="SpawnPoints" unique_id=1589460778]
+[node name="Spawn_1" type="Marker3D" parent="SpawnPoints" unique_id=86294692]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 41, 8)
 
-[node name="Spawn_2" type="Marker3D" parent="SpawnPoints" unique_id=2117226575]
+[node name="Spawn_2" type="Marker3D" parent="SpawnPoints" unique_id=1710885295]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 41, 12)
 
-[node name="Spawn_3" type="Marker3D" parent="SpawnPoints" unique_id=1306334202]
+[node name="Spawn_3" type="Marker3D" parent="SpawnPoints" unique_id=1760635464]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 41, -5)
 
-[node name="Spawn_4" type="Marker3D" parent="SpawnPoints" unique_id=833461127]
+[node name="Spawn_4" type="Marker3D" parent="SpawnPoints" unique_id=2076094107]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 41, 5)
 
-[node name="Spawn_5" type="Marker3D" parent="SpawnPoints" unique_id=185961304]
+[node name="Spawn_5" type="Marker3D" parent="SpawnPoints" unique_id=1719834648]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 41, -10)
 
-[node name="Spawn_6" type="Marker3D" parent="SpawnPoints" unique_id=1330300823]
+[node name="Spawn_6" type="Marker3D" parent="SpawnPoints" unique_id=1808550889]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 41, 0)
 
-[node name="Spawn_7" type="Marker3D" parent="SpawnPoints" unique_id=2126682614]
+[node name="Spawn_7" type="Marker3D" parent="SpawnPoints" unique_id=27633050]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 37, 5)
 
-[node name="PickupSpots" type="Node3D" parent="." unique_id=1851478808]
+[node name="PickupSpots" type="Node3D" parent="." unique_id=1444533981]
 
-[node name="Pickup_0" type="Marker3D" parent="PickupSpots" unique_id=1329607161]
+[node name="Pickup_0" type="Marker3D" parent="PickupSpots" unique_id=1467122405]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 40.5, 0)
 
-[node name="Pickup_1" type="Marker3D" parent="PickupSpots" unique_id=1709049898]
+[node name="Pickup_1" type="Marker3D" parent="PickupSpots" unique_id=1743468379]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 40.5, -10)
 
-[node name="Pickup_2" type="Marker3D" parent="PickupSpots" unique_id=154169784]
+[node name="Pickup_2" type="Marker3D" parent="PickupSpots" unique_id=557570034]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 40.5, 5)
 
-[node name="Pickup_3" type="Marker3D" parent="PickupSpots" unique_id=482877976]
+[node name="Pickup_3" type="Marker3D" parent="PickupSpots" unique_id=960572548]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 40.5, -8)
 
-[node name="Pickup_4" type="Marker3D" parent="PickupSpots" unique_id=1732209118]
+[node name="Pickup_4" type="Marker3D" parent="PickupSpots" unique_id=153662960]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 40.5, 0)
 
-[node name="Pickup_5" type="Marker3D" parent="PickupSpots" unique_id=1450874485]
+[node name="Pickup_5" type="Marker3D" parent="PickupSpots" unique_id=788428727]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 37, 3)
+
+[node name="Pickup_6" type="Marker3D" parent="PickupSpots" unique_id=134705638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 40.5, 0)
+
+[node name="Pickup_7" type="Marker3D" parent="PickupSpots" unique_id=1335420226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 40.5, 0)
