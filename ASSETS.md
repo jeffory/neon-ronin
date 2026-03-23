@@ -12,6 +12,8 @@
 | bot | Cyberpunk armored soldier with neon-lit panels | 1.8m tall | assets/img/bot.png | assets/glb/bot.glb |
 | health_pickup | Glowing med-kit with green cross symbol | 0.3m | assets/img/health_pickup.png | assets/glb/health_pickup.glb |
 | ammo_crate | Tactical ammunition box with orange accents | 0.3m | assets/img/ammo_crate.png | assets/glb/ammo_crate.glb |
+| trash_can | Simple cylindrical metal trash can with grime | 0.4m radius x 0.8m tall | assets/img/trash_can.png | assets/glb/trash_can.glb |
+| power_box | Wall-mounted electrical junction box with cables | 0.4m x 0.6m x 0.2m | assets/img/power_box.png | assets/glb/power_box.glb |
 
 ## Textures
 
@@ -22,6 +24,12 @@
 | neon_sign_3 | Purple/violet Japanese neon advertisement | 1m x 0.5m | assets/img/neon_sign_3.png |
 | building_facade | Dark concrete/steel industrial surface | 4m tile | assets/img/building_facade.png |
 | street | Wet asphalt with puddle reflections | 4m tile | assets/img/street.png |
+| building_facade_2 | Industrial metal panels with pipes, grilles, rivets | 4m tile | assets/img/building_facade_2.png |
+| building_facade_3 | Concrete wall with Japanese graffiti, peeling posters | 4m tile | assets/img/building_facade_3.png |
+| shopfront_1 | Neon ramen shop with orange/red kanji ラーメン | 4m x 4m | assets/img/shopfront_1.png |
+| shopfront_2 | Cyberpunk electronics shop with cyan neon 電子 | 4m x 4m | assets/img/shopfront_2.png |
+| shopfront_3 | Cyberpunk bar entrance with magenta neon 酒場 | 4m x 4m | assets/img/shopfront_3.png |
+| door_metal | Heavy security door with hazard stripes, keypad | 2m x 3.5m | assets/img/door_metal.png |
 
 ## Backgrounds
 
