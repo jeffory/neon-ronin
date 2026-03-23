@@ -50,12 +50,7 @@ func _update_sensitivity(value: float) -> void:
 	_effective_sensitivity = SettingsManager.get_effective_sensitivity()
 
 func _get_game_manager() -> Node:
-	# Autoloads are children of root
-	var root_node = get_tree().root
-	for child in root_node.get_children():
-		if child.name == "GameManager":
-			return child
-	return null
+	return get_node_or_null("/root/GameManager")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

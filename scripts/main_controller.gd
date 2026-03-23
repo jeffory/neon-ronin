@@ -246,8 +246,4 @@ func _transition_to_next_map() -> void:
 	get_tree().change_scene_to_file("res://scenes/loading_screen.tscn")
 
 func _get_game_manager() -> Node:
-	var root_node: Node = get_tree().root
-	for child in root_node.get_children():
-		if child.name == "GameManager":
-			return child
-	return null
+	return get_node_or_null("/root/GameManager")

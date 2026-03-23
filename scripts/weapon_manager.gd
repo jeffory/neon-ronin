@@ -350,31 +350,4 @@ func _play_reload_anim(reload_time: float) -> void:
 	_active_tween.tween_property(model, "rotation:z", 0.0, up_time).set_ease(Tween.EASE_OUT)
 
 func _spawn_impact(pos: Vector3, normal: Vector3) -> void:
-	# Create a brief spark particle at impact point
-	var particles := GPUParticles3D.new()
-	particles.name = "Impact"
-	particles.emitting = true
-	particles.one_shot = true
-	particles.amount = 8
-	particles.lifetime = 0.3
-	particles.explosiveness = 1.0
-
-	var mat := ParticleProcessMaterial.new()
-	mat.direction = Vector3(normal.x, normal.y, normal.z)
-	mat.spread = 30.0
-	mat.initial_velocity_min = 3.0
-	mat.initial_velocity_max = 6.0
-	mat.gravity = Vector3(0, -9.8, 0)
-	mat.color = Color(1.0, 0.8, 0.3)
-	particles.process_material = mat
-
-	# Small sphere mesh for particles
-	var draw_pass := SphereMesh.new()
-	draw_pass.radius = 0.02
-	draw_pass.height = 0.04
-	particles.draw_pass_1 = draw_pass
-
-	get_tree().root.add_child(particles)
-	particles.global_position = pos
-	# Auto cleanup
-	get_tree().create_timer(0.5).timeout.connect(particles.queue_free)
+	EffectPool.spawn_impact(pos, normal, false)

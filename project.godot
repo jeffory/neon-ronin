@@ -18,6 +18,8 @@ config/features=PackedStringArray("4.6")
 
 GameManager="*res://scripts/game_manager.gd"
 SettingsManager="*res://scripts/settings_manager.gd"
+WebPerformance="*res://scripts/web_performance.gd"
+EffectPool="*res://scripts/effect_pool.gd"
 
 [display]
 

@@ -28,6 +28,9 @@ var _gravity: float = 0.0
 var _target_eval_timer: float = 0.0
 var _fire_timer: float = 0.0
 var _patrol_timer: float = 0.0
+var _nav_query_timer: float = 0.0
+var _cached_nav_pos: Vector3 = Vector3.ZERO
+const NAV_QUERY_INTERVAL: float = 0.1  # 10 Hz instead of every physics frame
 var _state_timer: float = 0.0
 
 # Weapon selection: 0=handgun, 1=rifle, 2=shotgun
@@ -104,11 +107,7 @@ func _ready() -> void:
 	_pick_patrol_target()
 
 func _get_game_manager() -> Node:
-	var root_node = get_tree().root
-	for child in root_node.get_children():
-		if child.name == "GameManager":
-			return child
-	return null
+	return get_node_or_null("/root/GameManager")
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -125,6 +124,7 @@ func _physics_process(delta: float) -> void:
 	_fire_timer -= delta
 	_patrol_timer -= delta
 	_state_timer += delta
+	_nav_query_timer -= delta
 
 	# Target evaluation every 0.5s
 	if _target_eval_timer <= 0.0:
@@ -237,6 +237,12 @@ func _change_state(new_state: State) -> void:
 	current_state = new_state
 	_state_timer = 0.0
 
+func _get_nav_position() -> Vector3:
+	if _nav_query_timer <= 0.0:
+		_nav_query_timer = NAV_QUERY_INTERVAL
+		_cached_nav_pos = nav_agent.get_next_path_position()
+	return _cached_nav_pos
+
 func _process_patrol(delta: float) -> void:
 	if nav_agent.is_navigation_finished():
 		_patrol_timer -= delta
@@ -244,7 +250,7 @@ func _process_patrol(delta: float) -> void:
 			_pick_patrol_target()
 		return
 
-	var next_pos: Vector3 = nav_agent.get_next_path_position()
+	var next_pos: Vector3 = _get_nav_position()
 	var direction: Vector3 = (next_pos - global_position).normalized()
 	direction.y = 0.0
 	if direction.length() > 0.01:
@@ -264,7 +270,7 @@ func _process_chase(delta: float) -> void:
 	if nav_agent.is_navigation_finished():
 		return
 
-	var next_pos: Vector3 = nav_agent.get_next_path_position()
+	var next_pos: Vector3 = _get_nav_position()
 	var direction: Vector3 = (next_pos - global_position).normalized()
 	direction.y = 0.0
 	if direction.length() > 0.01:
@@ -312,7 +318,7 @@ func _process_retreat(delta: float) -> void:
 			_pick_retreat_position()
 		return
 
-	var next_pos: Vector3 = nav_agent.get_next_path_position()
+	var next_pos: Vector3 = _get_nav_position()
 	var direction: Vector3 = (next_pos - global_position).normalized()
 	direction.y = 0.0
 	if direction.length() > 0.01:
@@ -397,46 +403,10 @@ func _fire_at_target() -> void:
 			_spawn_impact(result["position"], result["normal"])
 
 func _spawn_impact(pos: Vector3, normal: Vector3) -> void:
-	var particles := GPUParticles3D.new()
-	particles.name = "BotImpact"
-	particles.emitting = true
-	particles.one_shot = true
-	particles.amount = 6
-	particles.lifetime = 0.25
-	particles.explosiveness = 1.0
-
-	var mat := ParticleProcessMaterial.new()
-	mat.direction = Vector3(normal.x, normal.y, normal.z)
-	mat.spread = 25.0
-	mat.initial_velocity_min = 2.0
-	mat.initial_velocity_max = 5.0
-	mat.gravity = Vector3(0, -9.8, 0)
-	mat.color = Color(1.0, 0.6, 0.2)
-	particles.process_material = mat
-
-	var draw_pass := SphereMesh.new()
-	draw_pass.radius = 0.015
-	draw_pass.height = 0.03
-	particles.draw_pass_1 = draw_pass
-
-	get_tree().root.add_child(particles)
-	particles.global_position = pos
-	get_tree().create_timer(0.5).timeout.connect(particles.queue_free)
+	EffectPool.spawn_impact(pos, normal, true)
 
 func _spawn_muzzle_flash(pos: Vector3) -> void:
-	# Bright flash light
-	var flash := OmniLight3D.new()
-	flash.name = "MuzzleFlash"
-	flash.light_color = Color(1.0, 0.7, 0.2)
-	flash.light_energy = 4.0
-	flash.omni_range = 6.0
-	flash.omni_attenuation = 2.0
-	get_tree().root.add_child(flash)
-	flash.global_position = pos
-	# Fade out quickly
-	var tween: Tween = flash.create_tween()
-	tween.tween_property(flash, "light_energy", 0.0, 0.08)
-	tween.tween_callback(flash.queue_free)
+	EffectPool.spawn_muzzle_flash(pos)
 
 	# Spark particles at muzzle
 	var particles := GPUParticles3D.new()
