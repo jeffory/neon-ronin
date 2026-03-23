@@ -1,0 +1,114 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+env:
+  GODOT_VERSION: "4.6.1"
+
+jobs:
+  validate:
+    name: Validate Scripts
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.6.1
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Import assets
+        run: godot --headless --editor --quit 2>&1 || true
+
+      - name: Validate project
+        run: |
+          timeout 30 godot --headless --quit 2>&1 | tee /tmp/validate.log
+          # Fail on script errors (not RID leaks or navmesh warnings)
+          if grep -i "SCRIPT ERROR\|Parse Error\|Cannot load" /tmp/validate.log; then
+            echo "::error::Script errors detected"
+            exit 1
+          fi
+
+  rebuild-scenes:
+    name: Rebuild Scenes
+    runs-on: ubuntu-latest
+    needs: validate
+    container:
+      image: barichello/godot-ci:4.6.1
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Import assets
+        run: godot --headless --editor --quit 2>&1 || true
+
+      - name: Rebuild all scenes
+        run: |
+          set -e
+          for script in \
+            scenes/build_bot.gd \
+            scenes/build_player.gd \
+            scenes/build_pickup_ammo.gd \
+            scenes/build_pickup_health.gd \
+            scenes/build_level.gd \
+            scenes/build_hud.gd \
+            scenes/build_main.gd \
+            scenes/build_title.gd; do
+            echo "::group::Building $script"
+            timeout 120 godot --headless --script "$script" 2>&1
+            echo "::endgroup::"
+          done
+
+      - name: Verify scenes exist
+        run: |
+          for scene in bot player pickup_ammo pickup_health level hud main title_screen; do
+            if [ ! -f "scenes/${scene}.tscn" ]; then
+              echo "::error::Missing scene: scenes/${scene}.tscn"
+              exit 1
+            fi
+          done
+          echo "All scenes built successfully"
+
+  export-web:
+    name: Export Web Build
+    runs-on: ubuntu-latest
+    needs: rebuild-scenes
+    container:
+      image: barichello/godot-ci:4.6.1
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Import assets
+        run: godot --headless --editor --quit 2>&1 || true
+
+      - name: Rebuild scenes
+        run: |
+          for script in \
+            scenes/build_bot.gd \
+            scenes/build_player.gd \
+            scenes/build_pickup_ammo.gd \
+            scenes/build_pickup_health.gd \
+            scenes/build_level.gd \
+            scenes/build_hud.gd \
+            scenes/build_main.gd \
+            scenes/build_title.gd; do
+            timeout 120 godot --headless --script "$script" 2>&1
+          done
+
+      - name: Export
+        run: |
+          mkdir -p build/web
+          godot --headless --export-release "Web" build/web/index.html 2>&1
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-build
+          path: build/web/
+          retention-days: 14
