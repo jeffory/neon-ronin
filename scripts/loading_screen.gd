@@ -33,29 +33,28 @@ func _process(delta: float) -> void:
 	_elapsed += delta
 	if not _load_requested:
 		return
+	# If resource already loaded, just wait for min display time then transition
+	if _load_finished:
+		if _elapsed >= _min_display_time and _loaded_resource:
+			var packed: PackedScene = _loaded_resource as PackedScene
+			if packed:
+				get_tree().change_scene_to_packed(packed)
+			else:
+				push_error("LoadingScreen: Loaded resource is not a PackedScene")
+				get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
+		return
 	# Poll loading status
 	var progress_arr: Array = []
 	var status: int = ResourceLoader.load_threaded_get_status(_target_scene_path, progress_arr)
-	# Update progress bar
 	if progress_arr.size() > 0:
-		var pct: float = progress_arr[0] * 100.0
-		progress_bar.value = pct
+		progress_bar.value = progress_arr[0] * 100.0
 	match status:
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-			pass  # Keep polling
+			pass
 		ResourceLoader.THREAD_LOAD_LOADED:
 			progress_bar.value = 100.0
-			if not _load_finished:
-				_load_finished = true
-				_loaded_resource = ResourceLoader.load_threaded_get(_target_scene_path)
-			# Wait for minimum display time so the screen doesn't flash
-			if _elapsed >= _min_display_time and _loaded_resource:
-				var packed: PackedScene = _loaded_resource as PackedScene
-				if packed:
-					get_tree().change_scene_to_packed(packed)
-				else:
-					push_error("LoadingScreen: Loaded resource is not a PackedScene")
-					get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
+			_load_finished = true
+			_loaded_resource = ResourceLoader.load_threaded_get(_target_scene_path)
 		ResourceLoader.THREAD_LOAD_FAILED:
 			push_error("LoadingScreen: Threaded load FAILED for %s" % _target_scene_path)
 			get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
