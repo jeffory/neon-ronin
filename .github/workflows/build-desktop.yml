@@ -1,0 +1,92 @@
+name: Build Desktop
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+env:
+  GODOT_VERSION: "4.6.1"
+
+jobs:
+  build-scenes:
+    name: Rebuild Scenes
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.6.1
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Import assets
+        run: godot --headless --editor --quit 2>&1 || true
+
+      - name: Rebuild all scenes
+        run: |
+          set -e
+          for script in \
+            scenes/build_bot.gd \
+            scenes/build_player.gd \
+            scenes/build_pickup_ammo.gd \
+            scenes/build_pickup_health.gd \
+            scenes/build_level.gd \
+            scenes/build_hud.gd \
+            scenes/build_main.gd \
+            scenes/build_title.gd; do
+            timeout 120 godot --headless --script "$script" 2>&1
+          done
+
+      - name: Upload rebuilt project
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-with-scenes
+          path: .
+          retention-days: 1
+
+  export:
+    name: Export ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    needs: build-scenes
+    container:
+      image: barichello/godot-ci:4.6.1
+    strategy:
+      matrix:
+        include:
+          - name: Linux
+            preset: Linux
+            path: build/linux
+            artifact: neon-ronin-linux
+          - name: Windows
+            preset: Windows Desktop
+            path: build/windows
+            artifact: neon-ronin-windows
+          - name: macOS
+            preset: macOS
+            path: build/macos
+            artifact: neon-ronin-macos
+    steps:
+      - name: Download project
+        uses: actions/download-artifact@v4
+        with:
+          name: project-with-scenes
+
+      - name: Setup export templates
+        run: |
+          mkdir -p ~/.local/share/godot/export_templates/
+          ln -s /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable || true
+
+      - name: Import assets
+        run: godot --headless --editor --quit 2>&1 || true
+
+      - name: Export
+        run: |
+          mkdir -p "${{ matrix.path }}"
+          godot --headless --export-release "${{ matrix.preset }}" 2>&1
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: ${{ matrix.path }}/
+          retention-days: 14
