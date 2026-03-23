@@ -41,7 +41,7 @@ var _aim_spread: float = 0.04  # Bot inaccuracy
 # Animation
 var _model_node: Node3D = null
 var _model_base_y: float = 0.0
-const _MODEL_Y_ROTATION: float = PI  # Mixamo FBX faces +Z; rotate to align with Godot -Z forward
+const _MODEL_Y_ROTATION: float = PI - deg_to_rad(45)  # Mixamo FBX faces +Z; rotate to align with Godot -Z forward + offset for model orientation
 var _anim_player: AnimationPlayer = null
 var _current_anim: String = ""
 var _death_anims: Array[String] = ["death_1", "death_2", "death_3", "death_4"]
