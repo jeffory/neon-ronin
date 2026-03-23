@@ -33,8 +33,8 @@ func _initialize() -> void:
 	raycast.position = Vector3(0, 1.6, 0)
 	root.add_child(raycast)
 
-	# Load bot GLB model
-	var bot_scene: PackedScene = load("res://assets/glb/bot.glb")
+	# Load bot FBX model (rigged Mixamo character)
+	var bot_scene: PackedScene = load("res://assets/glb/bot/bot.fbx")
 	if bot_scene:
 		var bot_model = bot_scene.instantiate()
 		bot_model.name = "BotModel"

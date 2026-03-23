@@ -3,6 +3,9 @@ extends CharacterBody3D
 
 signal died(entity_name: String)
 signal health_changed(hp: int)
+signal damage_taken(attacker_position: Vector3)
+signal respawn_ready
+signal respawned
 
 @export var speed: float = 5.0
 @export var sprint_speed: float = 8.0
@@ -26,6 +29,9 @@ var _head_default_y: float = 1.6
 var _head_slide_y: float = 0.8
 var _last_attacker: String = ""
 var _gravity: float = 0.0
+var _bob_time: float = 0.0
+var _weapon_rest_pos: Vector3 = Vector3(0.25, -0.25, -0.4)
+var _respawn_ready: bool = false
 
 func _ready() -> void:
 	_gravity = float(ProjectSettings.get_setting("physics/3d/default_gravity"))
@@ -47,6 +53,10 @@ func _get_game_manager() -> Node:
 
 func _input(event: InputEvent) -> void:
 	if is_dead:
+		if _respawn_ready and event is InputEventMouseButton:
+			var mb: InputEventMouseButton = event
+			if mb.button_index == MOUSE_BUTTON_LEFT and mb.pressed:
+				_respawn()
 		return
 	if event is InputEventMouseMotion:
 		# Horizontal rotation on body
@@ -89,6 +99,9 @@ func _physics_process(delta: float) -> void:
 	# Head height interpolation
 	var target_y: float = _head_slide_y if is_sliding else _head_default_y
 	head.position.y = lerpf(head.position.y, target_y, 10.0 * delta)
+
+	# Weapon bob
+	_apply_weapon_bob(delta)
 
 	move_and_slide()
 
@@ -139,6 +152,24 @@ func _check_mantle() -> void:
 		velocity.x = -wall_normal.x * 3.0
 		velocity.z = -wall_normal.z * 3.0
 
+func _apply_weapon_bob(delta: float) -> void:
+	if not weapon_holder:
+		return
+	var horiz_speed: float = Vector2(velocity.x, velocity.z).length()
+	if horiz_speed > 0.5 and is_on_floor() and not is_sliding:
+		var freq: float = 16.0 if is_sprinting else 12.0
+		_bob_time += delta * freq
+		var bob_y: float = sin(_bob_time) * 0.03
+		var bob_x: float = cos(_bob_time * 0.5) * 0.015
+		weapon_holder.position = Vector3(
+			_weapon_rest_pos.x + bob_x,
+			_weapon_rest_pos.y + bob_y,
+			_weapon_rest_pos.z
+		)
+	else:
+		_bob_time = 0.0
+		weapon_holder.position = weapon_holder.position.lerp(_weapon_rest_pos, 10.0 * delta)
+
 func take_damage(amount: int, attacker_name: String) -> void:
 	if is_dead:
 		return
@@ -147,8 +178,20 @@ func take_damage(amount: int, attacker_name: String) -> void:
 	if current_health < 0:
 		current_health = 0
 	health_changed.emit(current_health)
+	# Emit damage direction for HUD indicator
+	var attacker_pos: Vector3 = _find_attacker_position(attacker_name)
+	if attacker_pos != Vector3.ZERO:
+		damage_taken.emit(attacker_pos)
 	if current_health <= 0:
 		_die()
+
+func _find_attacker_position(attacker_name: String) -> Vector3:
+	var main_node = get_parent()
+	if main_node:
+		for child in main_node.get_children():
+			if child is CharacterBody3D and child.name == attacker_name:
+				return child.global_position
+	return Vector3.ZERO
 
 func heal(amount: int) -> void:
 	if is_dead:
@@ -161,33 +204,67 @@ func _die() -> void:
 	visible = false
 	# Disable collision
 	$CollisionShape3D.set_deferred("disabled", true)
+	# B&W death effect
+	_set_death_effect(true)
 	# Register kill
 	var gm = _get_game_manager()
 	if gm:
 		gm.register_kill(_last_attacker, "Player")
 	died.emit("Player")
-	# Respawn after 2 seconds
-	get_tree().create_timer(2.0).timeout.connect(_respawn)
+	# Allow respawn after 1 second (player must click)
+	get_tree().create_timer(1.0).timeout.connect(func():
+		if is_instance_valid(self) and is_dead:
+			_respawn_ready = true
+			respawn_ready.emit()
+	)
 
 func _respawn() -> void:
+	_respawn_ready = false
 	var gm = _get_game_manager()
 	var spawn_pos: Vector3 = Vector3(0, 1, 0)
 	if gm:
-		spawn_pos = gm.get_random_spawn_point()
+		spawn_pos = gm.get_safest_spawn_point()
 	global_position = spawn_pos
 	current_health = max_health
 	is_dead = false
 	visible = true
 	$CollisionShape3D.set_deferred("disabled", false)
 	health_changed.emit(current_health)
+	_set_death_effect(false)
+	respawned.emit()
 
 func respawn(pos: Vector3) -> void:
+	_respawn_ready = false
 	global_position = pos
 	current_health = max_health
 	is_dead = false
 	visible = true
 	$CollisionShape3D.set_deferred("disabled", false)
 	health_changed.emit(current_health)
+	_set_death_effect(false)
+	respawned.emit()
+
+func _find_world_env(node: Node) -> WorldEnvironment:
+	if node is WorldEnvironment:
+		return node
+	for child in node.get_children():
+		var found: WorldEnvironment = _find_world_env(child)
+		if found:
+			return found
+	return null
+
+func _set_death_effect(enabled: bool) -> void:
+	var world_env: WorldEnvironment = _find_world_env(get_tree().root)
+	if not world_env or not world_env.environment:
+		return
+	var env: Environment = world_env.environment
+	env.adjustment_enabled = true
+	var tween: Tween = create_tween()
+	if enabled:
+		tween.tween_method(func(val: float): env.adjustment_saturation = val, 1.0, 0.0, 0.5)
+	else:
+		tween.tween_method(func(val: float): env.adjustment_saturation = val, 0.0, 1.0, 0.3)
+		tween.tween_callback(func(): env.adjustment_enabled = false)
 
 func add_ammo_to_current_weapon() -> void:
 	var wm = weapon_holder as Node3D

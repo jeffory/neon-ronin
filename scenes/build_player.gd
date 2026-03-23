@@ -41,6 +41,19 @@ func _initialize() -> void:
 	weapon_holder.position = Vector3(0.25, -0.15, -0.4)
 	camera.add_child(weapon_holder)
 
+	# Flashlight — blue-tinted SpotLight3D attached to camera
+	var flashlight := SpotLight3D.new()
+	flashlight.name = "Flashlight"
+	flashlight.light_color = Color(0.6, 0.8, 1.0)
+	flashlight.light_energy = 2.5
+	flashlight.spot_range = 30.0
+	flashlight.spot_angle = 25.0
+	flashlight.spot_angle_attenuation = 0.8
+	flashlight.shadow_enabled = true
+	flashlight.position = Vector3(0, 0, 0)
+	flashlight.rotation_degrees = Vector3(0, 0, 0)  # Points forward (-Z) with camera
+	camera.add_child(flashlight)
+
 	# Weapon raycast (for line-of-sight, used by weapon_manager)
 	var raycast := RayCast3D.new()
 	raycast.name = "WeaponRaycast"

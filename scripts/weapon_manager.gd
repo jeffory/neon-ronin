@@ -17,6 +17,10 @@ var _weapon_models: Array[Node3D] = []
 var _flash_light: OmniLight3D = null
 var _flash_timer: float = 0.0
 
+# Animation state
+var _is_switching: bool = false
+var _active_tween: Tween = null
+
 func _ready() -> void:
 	# Define weapons: handgun, rifle, shotgun
 	weapons = [
@@ -85,6 +89,8 @@ func _ready() -> void:
 				if longest > 0.001:
 					var sf: float = w["target_scale"] / longest
 					model.scale = Vector3(sf, sf, sf)
+			# Tripo3D models face +Z; rotate so barrel points forward (-Z in Godot)
+			model.rotation_degrees.y = 90.0
 			model.visible = (i == 0)
 			add_child(model)
 			_weapon_models.append(model)
@@ -161,25 +167,45 @@ func switch_weapon(index: int) -> void:
 		return
 	if _is_reloading:
 		_is_reloading = false
+	if _is_switching:
+		return
 
-	# Hide current model
-	if current_weapon < _weapon_models.size() and _weapon_models[current_weapon]:
-		_weapon_models[current_weapon].visible = false
+	_is_switching = true
+	_kill_tween()
 
+	var old_model: Node3D = null
+	if current_weapon < _weapon_models.size():
+		old_model = _weapon_models[current_weapon]
+
+	var new_index: int = index
 	current_weapon = index
-
-	# Show new model
-	if current_weapon < _weapon_models.size() and _weapon_models[current_weapon]:
-		_weapon_models[current_weapon].visible = true
-
 	var w: Dictionary = weapons[current_weapon]
 	weapon_switched.emit(w["name"])
 	ammo_changed.emit(w["mag_current"], w["reserve"])
-	_fire_timer = 0.15  # Small swap delay
+	_fire_timer = 0.3
 	_spread_buildup = 0.0
 
+	# Animate: slide old weapon down, then slide new weapon up
+	_active_tween = create_tween()
+	if old_model:
+		_active_tween.tween_property(old_model, "position:y", -0.3, 0.12).set_ease(Tween.EASE_IN)
+	_active_tween.tween_callback(func():
+		if old_model:
+			old_model.visible = false
+			old_model.position.y = 0.0
+		var new_model: Node3D = null
+		if new_index < _weapon_models.size():
+			new_model = _weapon_models[new_index]
+		if new_model:
+			new_model.position.y = -0.3
+			new_model.visible = true
+	)
+	if new_index < _weapon_models.size() and _weapon_models[new_index]:
+		_active_tween.tween_property(_weapon_models[new_index], "position:y", 0.0, 0.12).set_ease(Tween.EASE_OUT)
+	_active_tween.tween_callback(func(): _is_switching = false)
+
 func fire() -> void:
-	if _is_reloading or _fire_timer > 0.0:
+	if _is_reloading or _is_switching or _fire_timer > 0.0:
 		return
 
 	var w: Dictionary = weapons[current_weapon]
@@ -236,6 +262,9 @@ func fire() -> void:
 	_flash_light.visible = true
 	_flash_timer = 0.05
 
+	# Fire recoil animation
+	_play_recoil()
+
 	ammo_changed.emit(w["mag_current"], w["reserve"])
 
 func _get_parent_body() -> CharacterBody3D:
@@ -247,13 +276,14 @@ func _get_parent_body() -> CharacterBody3D:
 	return null
 
 func reload() -> void:
-	if _is_reloading:
+	if _is_reloading or _is_switching:
 		return
 	var w: Dictionary = weapons[current_weapon]
 	if w["mag_current"] >= w["mag_size"] or w["reserve"] <= 0:
 		return
 	_is_reloading = true
 	_reload_timer = w["reload_time"]
+	_play_reload_anim(w["reload_time"])
 
 func _finish_reload() -> void:
 	_is_reloading = false
@@ -275,6 +305,49 @@ func add_ammo(weapon_index: int, amount: int) -> void:
 		if weapon_index == current_weapon:
 			var w: Dictionary = weapons[current_weapon]
 			ammo_changed.emit(w["mag_current"], w["reserve"])
+
+func _kill_tween() -> void:
+	if _active_tween and _active_tween.is_valid():
+		_active_tween.kill()
+	_active_tween = null
+
+func _play_recoil() -> void:
+	var model: Node3D = null
+	if current_weapon < _weapon_models.size():
+		model = _weapon_models[current_weapon]
+	if not model or _is_switching:
+		return
+	# Quick kick back and rotate up, then return
+	var recoil_tween: Tween = create_tween()
+	recoil_tween.set_parallel(true)
+	recoil_tween.tween_property(model, "position:z", model.position.z + 0.03, 0.04).set_ease(Tween.EASE_OUT)
+	recoil_tween.tween_property(model, "rotation:x", model.rotation.x + deg_to_rad(-5.0), 0.04).set_ease(Tween.EASE_OUT)
+	recoil_tween.set_parallel(false)
+	recoil_tween.tween_property(model, "position:z", 0.0, 0.08).set_ease(Tween.EASE_IN)
+	recoil_tween.tween_property(model, "rotation:x", 0.0, 0.08).set_ease(Tween.EASE_IN)
+
+func _play_reload_anim(reload_time: float) -> void:
+	var model: Node3D = null
+	if current_weapon < _weapon_models.size():
+		model = _weapon_models[current_weapon]
+	if not model:
+		return
+	_kill_tween()
+	var down_time: float = 0.25
+	var up_time: float = 0.25
+	var hold_time: float = maxf(reload_time - down_time - up_time, 0.1)
+	_active_tween = create_tween()
+	# Drop weapon down and rotate
+	_active_tween.set_parallel(true)
+	_active_tween.tween_property(model, "position:y", -0.25, down_time).set_ease(Tween.EASE_IN)
+	_active_tween.tween_property(model, "rotation:z", deg_to_rad(25.0), down_time).set_ease(Tween.EASE_IN)
+	_active_tween.set_parallel(false)
+	# Hold
+	_active_tween.tween_interval(hold_time)
+	# Bring back up
+	_active_tween.set_parallel(true)
+	_active_tween.tween_property(model, "position:y", 0.0, up_time).set_ease(Tween.EASE_OUT)
+	_active_tween.tween_property(model, "rotation:z", 0.0, up_time).set_ease(Tween.EASE_OUT)
 
 func _spawn_impact(pos: Vector3, normal: Vector3) -> void:
 	# Create a brief spark particle at impact point
@@ -301,7 +374,7 @@ func _spawn_impact(pos: Vector3, normal: Vector3) -> void:
 	draw_pass.height = 0.04
 	particles.draw_pass_1 = draw_pass
 
-	particles.global_position = pos
 	get_tree().root.add_child(particles)
+	particles.global_position = pos
 	# Auto cleanup
 	get_tree().create_timer(0.5).timeout.connect(particles.queue_free)
