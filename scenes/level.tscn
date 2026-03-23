@@ -2132,13 +2132,13 @@ emission_enabled = true
 emission_energy_multiplier = 0.6
 emission_texture = ExtResource("14_7agi7")
 
-[node name="Level" type="Node3D" unique_id=1766324801]
+[node name="Level" type="Node3D" unique_id=253610154]
 script = ExtResource("1_arp2o")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=245034475]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=491047441]
 environment = SubResource("Environment_v3why")
 
-[node name="Moonlight" type="DirectionalLight3D" parent="." unique_id=685702838]
+[node name="Moonlight" type="DirectionalLight3D" parent="." unique_id=1574741078]
 transform = Transform3D(0.8660254, 0.40957603, -0.28678823, 0, 0.57357645, 0.81915206, 0.5, -0.7094065, 0.49673176, 0, 0, 0)
 light_color = Color(0.4, 0.45, 0.6, 1)
 light_energy = 1.15
@@ -2147,10 +2147,10 @@ shadow_bias = 0.05
 shadow_blur = 2.0
 sky_mode = 1
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=108045106]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=464127887]
 navigation_mesh = SubResource("NavigationMesh_asl66")
 
-[node name="Ground" type="CSGBox3D" parent="NavigationRegion3D" unique_id=923196838]
+[node name="Ground" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1323362864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
 use_collision = true
 collision_layer = 4
@@ -2158,7 +2158,7 @@ collision_mask = 0
 size = Vector3(64, 0.3, 64)
 material = SubResource("StandardMaterial3D_2jdvr")
 
-[node name="BoundaryWall_0" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1722739794]
+[node name="BoundaryWall_0" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1804296250]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -32)
 use_collision = true
 collision_layer = 4
@@ -2166,7 +2166,7 @@ collision_mask = 0
 size = Vector3(64, 10, 0.5)
 material = SubResource("StandardMaterial3D_q4oe8")
 
-[node name="BoundaryWall_1" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1339985013]
+[node name="BoundaryWall_1" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1550313558]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 32)
 use_collision = true
 collision_layer = 4
@@ -2174,7 +2174,7 @@ collision_mask = 0
 size = Vector3(64, 10, 0.5)
 material = SubResource("StandardMaterial3D_svjb4")
 
-[node name="BoundaryWall_2" type="CSGBox3D" parent="NavigationRegion3D" unique_id=2120368822]
+[node name="BoundaryWall_2" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1932547192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 5, 0)
 use_collision = true
 collision_layer = 4
@@ -2182,7 +2182,7 @@ collision_mask = 0
 size = Vector3(0.5, 10, 64)
 material = SubResource("StandardMaterial3D_c1pbi")
 
-[node name="BoundaryWall_3" type="CSGBox3D" parent="NavigationRegion3D" unique_id=52331494]
+[node name="BoundaryWall_3" type="CSGBox3D" parent="NavigationRegion3D" unique_id=926970169]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 5, 0)
 use_collision = true
 collision_layer = 4
@@ -2190,9 +2190,9 @@ collision_mask = 0
 size = Vector3(0.5, 10, 64)
 material = SubResource("StandardMaterial3D_535f6")
 
-[node name="Buildings" type="Node3D" parent="NavigationRegion3D" unique_id=544834329]
+[node name="Buildings" type="Node3D" parent="NavigationRegion3D" unique_id=1533874930]
 
-[node name="Building_0" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1984161314]
+[node name="Building_0" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1588037612]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 10, -22)
 use_collision = true
 collision_layer = 4
@@ -2200,78 +2200,78 @@ collision_mask = 0
 size = Vector3(8, 20, 8)
 material = SubResource("StandardMaterial3D_50fbu")
 
-[node name="NeonSign_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=638812565]
+[node name="NeonSign_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1300374327]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.247552, 5.132909, -26.05)
 mesh = SubResource("QuadMesh_0fmhk")
 surface_material_override/0 = SubResource("StandardMaterial3D_iafhg")
 
-[node name="NeonLight_0_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=2081730259]
+[node name="NeonLight_0_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1456695846]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.247552, 5.132909, -26.55)
 light_color = Color(1, 0.2, 0.6, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=129870902]
+[node name="NeonSign_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2100382159]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.248539, 9.85752, -26.05)
 mesh = SubResource("QuadMesh_cr74b")
 surface_material_override/0 = SubResource("StandardMaterial3D_uhfbm")
 
-[node name="NeonLight_0_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=844795118]
+[node name="NeonLight_0_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=424894332]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.248539, 9.85752, -26.55)
 light_color = Color(0.2, 0.8, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_0_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2089779816]
+[node name="NeonSign_0_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=500898383]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.657807, 5.830522, -17.95)
 mesh = SubResource("QuadMesh_lqb7q")
 surface_material_override/0 = SubResource("StandardMaterial3D_ok3ci")
 
-[node name="NeonLight_0_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1707483535]
+[node name="NeonLight_0_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1101295717]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.657807, 5.830522, -17.45)
 light_color = Color(0.7, 0.3, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_0_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1166504778]
+[node name="Window_0_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1799171473]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.03, 2.5, -19.925516)
 mesh = SubResource("QuadMesh_hv3ux")
 surface_material_override/0 = SubResource("StandardMaterial3D_j4eoh")
 
-[node name="Window_0_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=676509719]
+[node name="Window_0_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1165646713]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.68189, 2.5, -26.03)
 mesh = SubResource("QuadMesh_bhb1k")
 surface_material_override/0 = SubResource("StandardMaterial3D_tcyu4")
 
-[node name="Window_0_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=636866609]
+[node name="Window_0_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=300520064]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9014554, 6, -17.97)
 mesh = SubResource("QuadMesh_vmndo")
 surface_material_override/0 = SubResource("StandardMaterial3D_bo6tc")
 
-[node name="Window_0_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=334910775]
+[node name="Window_0_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=100809205]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.03, 13, -23.880693)
 mesh = SubResource("QuadMesh_7iqcu")
 surface_material_override/0 = SubResource("StandardMaterial3D_v4d4p")
 
-[node name="Window_0_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=181046782]
+[node name="Window_0_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1587794343]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9931183, 13, -17.97)
 mesh = SubResource("QuadMesh_30hdq")
 surface_material_override/0 = SubResource("StandardMaterial3D_3fqns")
 
-[node name="Window_0_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=810414712]
+[node name="Window_0_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=979828144]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.03, 16.5, -20.895405)
 mesh = SubResource("QuadMesh_sc620")
 surface_material_override/0 = SubResource("StandardMaterial3D_421lv")
 
-[node name="Window_0_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=192627725]
+[node name="Window_0_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1348234484]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5066495, 16.5, -17.97)
 mesh = SubResource("QuadMesh_oksur")
 surface_material_override/0 = SubResource("StandardMaterial3D_jide8")
 
-[node name="Building_1" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=184973165]
+[node name="Building_1" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1079607475]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 13, -12)
 use_collision = true
 collision_layer = 4
@@ -2279,98 +2279,98 @@ collision_mask = 0
 size = Vector3(10, 26, 7)
 material = SubResource("StandardMaterial3D_4h8xp")
 
-[node name="NeonSign_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=483749903]
+[node name="NeonSign_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1100450945]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.95, 5.798642, -10.748889)
 mesh = SubResource("QuadMesh_ql8jr")
 surface_material_override/0 = SubResource("StandardMaterial3D_5ga6x")
 
-[node name="NeonLight_1_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=858694040]
+[node name="NeonLight_1_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=951134055]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.45, 5.798642, -10.748889)
 light_color = Color(1, 0.5, 0.1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=620445461]
+[node name="NeonSign_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2063947033]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.05, 10.951277, -12.6893635)
 mesh = SubResource("QuadMesh_nj2gj")
 surface_material_override/0 = SubResource("StandardMaterial3D_msn66")
 
-[node name="NeonLight_1_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1309687765]
+[node name="NeonLight_1_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=66975968]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.55, 10.951277, -12.6893635)
 light_color = Color(1, 0.2, 0.6, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_1_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1774707866]
+[node name="NeonSign_1_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1995865366]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.518627, 10.309947, -15.55)
 mesh = SubResource("QuadMesh_xmwm8")
 surface_material_override/0 = SubResource("StandardMaterial3D_jydfl")
 
-[node name="NeonLight_1_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=179449637]
+[node name="NeonLight_1_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=536856085]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.518627, 10.309947, -16.05)
 light_color = Color(0.2, 0.8, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_1_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1509922647]
+[node name="Window_1_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1461391698]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.97, 2.5, -13.300755)
 mesh = SubResource("QuadMesh_u0n8q")
 surface_material_override/0 = SubResource("StandardMaterial3D_d5irf")
 
-[node name="Window_1_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1043139480]
+[node name="Window_1_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1009406272]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.430308, 2.5, -15.53)
 mesh = SubResource("QuadMesh_ltwek")
 surface_material_override/0 = SubResource("StandardMaterial3D_vry8j")
 
-[node name="Window_1_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2082898168]
+[node name="Window_1_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=96500338]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.03, 6, -14.032129)
 mesh = SubResource("QuadMesh_idnaj")
 surface_material_override/0 = SubResource("StandardMaterial3D_vwqyp")
 
-[node name="Window_1_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2014749713]
+[node name="Window_1_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=633091811]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.362107, 6, -8.47)
 mesh = SubResource("QuadMesh_smfc2")
 surface_material_override/0 = SubResource("StandardMaterial3D_s1acf")
 
-[node name="Window_1_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=194159445]
+[node name="Window_1_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1032796695]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.97, 9.5, -14.02111)
 mesh = SubResource("QuadMesh_u5upv")
 surface_material_override/0 = SubResource("StandardMaterial3D_om2me")
 
-[node name="Window_1_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=980415610]
+[node name="Window_1_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=234826373]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.016631, 9.5, -15.53)
 mesh = SubResource("QuadMesh_iij8i")
 surface_material_override/0 = SubResource("StandardMaterial3D_4qdnu")
 
-[node name="Window_1_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=202591901]
+[node name="Window_1_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1529040225]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.673094, 13, -15.53)
 mesh = SubResource("QuadMesh_7kuto")
 surface_material_override/0 = SubResource("StandardMaterial3D_k1glb")
 
-[node name="Window_1_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=509310988]
+[node name="Window_1_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1807878134]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.981568, 16.5, -15.53)
 mesh = SubResource("QuadMesh_clbla")
 surface_material_override/0 = SubResource("StandardMaterial3D_ebg7i")
 
-[node name="Window_1_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=728920540]
+[node name="Window_1_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1544354861]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.03, 20, -11.581438)
 mesh = SubResource("QuadMesh_iobf8")
 surface_material_override/0 = SubResource("StandardMaterial3D_kbk4x")
 
-[node name="Window_1_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=845009210]
+[node name="Window_1_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1573057667]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.998153, 20, -8.47)
 mesh = SubResource("QuadMesh_p1qlp")
 surface_material_override/0 = SubResource("StandardMaterial3D_1sbqr")
 
-[node name="Window_1_6_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1898414960]
+[node name="Window_1_6_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1100378587]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.020578, 23.5, -15.53)
 mesh = SubResource("QuadMesh_bdomq")
 surface_material_override/0 = SubResource("StandardMaterial3D_tvrmj")
 
-[node name="Building_2" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=837915145]
+[node name="Building_2" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1469212713]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 8, -2)
 use_collision = true
 collision_layer = 4
@@ -2378,61 +2378,61 @@ collision_mask = 0
 size = Vector3(8, 16, 8)
 material = SubResource("StandardMaterial3D_7ujeh")
 
-[node name="NeonSign_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1998902312]
+[node name="NeonSign_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=115373833]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4669733, 8.026909, 2.05)
 mesh = SubResource("QuadMesh_5bunc")
 surface_material_override/0 = SubResource("StandardMaterial3D_ty36l")
 
-[node name="NeonLight_2_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=415156489]
+[node name="NeonLight_2_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=39679970]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4669733, 8.026909, 2.55)
 light_color = Color(0.7, 0.3, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1518634949]
+[node name="NeonSign_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1154853189]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.439356, 9.682882, 2.05)
 mesh = SubResource("QuadMesh_speit")
 surface_material_override/0 = SubResource("StandardMaterial3D_wb1uj")
 
-[node name="NeonLight_2_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=132650945]
+[node name="NeonLight_2_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=856092014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.439356, 9.682882, 2.55)
 light_color = Color(1, 0.5, 0.1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_2_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1751415511]
+[node name="Window_2_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=413622462]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.97, 2.5, -3.527324)
 mesh = SubResource("QuadMesh_sy37w")
 surface_material_override/0 = SubResource("StandardMaterial3D_f55ft")
 
-[node name="Window_2_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2071957943]
+[node name="Window_2_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1993106145]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.03, 6, -0.17824036)
 mesh = SubResource("QuadMesh_ovgnb")
 surface_material_override/0 = SubResource("StandardMaterial3D_kwu62")
 
-[node name="Window_2_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=324723504]
+[node name="Window_2_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=621743317]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.03, 9.5, -4.0206294)
 mesh = SubResource("QuadMesh_y73rr")
 surface_material_override/0 = SubResource("StandardMaterial3D_i7b3e")
 
-[node name="Window_2_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=288302455]
+[node name="Window_2_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1085112294]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.752337, 9.5, 2.03)
 mesh = SubResource("QuadMesh_vfkgb")
 surface_material_override/0 = SubResource("StandardMaterial3D_1ep04")
 
-[node name="Window_2_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=427661771]
+[node name="Window_2_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2065640590]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.03, 13, -2.24678)
 mesh = SubResource("QuadMesh_236yy")
 surface_material_override/0 = SubResource("StandardMaterial3D_xrpag")
 
-[node name="Window_2_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1113323934]
+[node name="Window_2_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=621880362]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.622285, 13, -6.03)
 mesh = SubResource("QuadMesh_4a5sc")
 surface_material_override/0 = SubResource("StandardMaterial3D_w33q4")
 
-[node name="Building_3" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1489703755]
+[node name="Building_3" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1877279576]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 11, 8)
 use_collision = true
 collision_layer = 4
@@ -2440,76 +2440,76 @@ collision_mask = 0
 size = Vector3(10, 22, 7)
 material = SubResource("StandardMaterial3D_s2ybf")
 
-[node name="NeonSign_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=91755234]
+[node name="NeonSign_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=157341143]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.95, 13.073522, 6.1906514)
 mesh = SubResource("QuadMesh_dk6qd")
 surface_material_override/0 = SubResource("StandardMaterial3D_nfwxq")
 
-[node name="NeonLight_3_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1437800562]
+[node name="NeonLight_3_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=749436350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.45, 13.073522, 6.1906514)
 light_color = Color(1, 0.2, 0.6, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=179306442]
+[node name="NeonSign_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=165430838]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.288287, 8.974366, 11.55)
 mesh = SubResource("QuadMesh_jptc6")
 surface_material_override/0 = SubResource("StandardMaterial3D_5fap2")
 
-[node name="NeonLight_3_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1914375238]
+[node name="NeonLight_3_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=111800217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.288287, 8.974366, 12.05)
 light_color = Color(0.2, 0.8, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_3_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=978962175]
+[node name="Window_3_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1668217405]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.97, 2.5, 9.063559)
 mesh = SubResource("QuadMesh_1d5u2")
 surface_material_override/0 = SubResource("StandardMaterial3D_fdwjd")
 
-[node name="Window_3_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=430748325]
+[node name="Window_3_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=223116202]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.97, 9.5, 7.291484)
 mesh = SubResource("QuadMesh_gxvwf")
 surface_material_override/0 = SubResource("StandardMaterial3D_hgjl6")
 
-[node name="Window_3_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=602935925]
+[node name="Window_3_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=359686189]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7280984, 9.5, 11.53)
 mesh = SubResource("QuadMesh_fkalo")
 surface_material_override/0 = SubResource("StandardMaterial3D_tmks3")
 
-[node name="Window_3_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=907133604]
+[node name="Window_3_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1705827470]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.03, 13, 10.087428)
 mesh = SubResource("QuadMesh_appgx")
 surface_material_override/0 = SubResource("StandardMaterial3D_0g86u")
 
-[node name="Window_3_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1002477931]
+[node name="Window_3_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=365120307]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.67065, 13, 4.47)
 mesh = SubResource("QuadMesh_y2y7i")
 surface_material_override/0 = SubResource("StandardMaterial3D_iri6o")
 
-[node name="Window_3_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1222153573]
+[node name="Window_3_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=564584345]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.03, 16.5, 7.644781)
 mesh = SubResource("QuadMesh_albe2")
 surface_material_override/0 = SubResource("StandardMaterial3D_pmw43")
 
-[node name="Window_3_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=987303552]
+[node name="Window_3_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=706171423]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.54869, 16.5, 11.53)
 mesh = SubResource("QuadMesh_d3p7y")
 surface_material_override/0 = SubResource("StandardMaterial3D_plen7")
 
-[node name="Window_3_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=579150350]
+[node name="Window_3_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=188852153]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.03, 20, 8.368318)
 mesh = SubResource("QuadMesh_epb10")
 surface_material_override/0 = SubResource("StandardMaterial3D_5ikxq")
 
-[node name="Window_3_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1110281531]
+[node name="Window_3_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=725505473]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.883961, 20, 4.47)
 mesh = SubResource("QuadMesh_sr7al")
 surface_material_override/0 = SubResource("StandardMaterial3D_cv87a")
 
-[node name="Building_4" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=429573806]
+[node name="Building_4" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1776708906]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 9, 18)
 use_collision = true
 collision_layer = 4
@@ -2517,71 +2517,71 @@ collision_mask = 0
 size = Vector3(8, 18, 8)
 material = SubResource("StandardMaterial3D_54w2y")
 
-[node name="NeonSign_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1207325289]
+[node name="NeonSign_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=928971596]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.05, 10.630069, 16.570673)
 mesh = SubResource("QuadMesh_s7enw")
 surface_material_override/0 = SubResource("StandardMaterial3D_n5gcj")
 
-[node name="NeonLight_4_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=844437774]
+[node name="NeonLight_4_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=792474143]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.55, 10.630069, 16.570673)
 light_color = Color(0.7, 0.3, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=589667824]
+[node name="NeonSign_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=499786883]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.95, 12.423425, 17.429476)
 mesh = SubResource("QuadMesh_jud3p")
 surface_material_override/0 = SubResource("StandardMaterial3D_5ndhr")
 
-[node name="NeonLight_4_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=467230859]
+[node name="NeonLight_4_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1229386723]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.45, 12.423425, 17.429476)
 light_color = Color(1, 0.5, 0.1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_4_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=306407319]
+[node name="Window_4_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1332319412]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.97, 2.5, 15.725212)
 mesh = SubResource("QuadMesh_ss5me")
 surface_material_override/0 = SubResource("StandardMaterial3D_6t3ch")
 
-[node name="Window_4_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1216635264]
+[node name="Window_4_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1749669030]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6948733, 2.5, 22.03)
 mesh = SubResource("QuadMesh_1l6te")
 surface_material_override/0 = SubResource("StandardMaterial3D_b3ejn")
 
-[node name="Window_4_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1702099762]
+[node name="Window_4_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=137342242]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.97, 6, 16.552761)
 mesh = SubResource("QuadMesh_pn2dd")
 surface_material_override/0 = SubResource("StandardMaterial3D_c1c2k")
 
-[node name="Window_4_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=885146461]
+[node name="Window_4_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1035924352]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.493404, 6, 22.03)
 mesh = SubResource("QuadMesh_qbjlx")
 surface_material_override/0 = SubResource("StandardMaterial3D_30o8g")
 
-[node name="Window_4_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1853059245]
+[node name="Window_4_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=707923969]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8759146, 9.5, 22.03)
 mesh = SubResource("QuadMesh_jvf0p")
 surface_material_override/0 = SubResource("StandardMaterial3D_p7frq")
 
-[node name="Window_4_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1213024369]
+[node name="Window_4_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=261352250]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.97, 13, 19.835733)
 mesh = SubResource("QuadMesh_g3e2o")
 surface_material_override/0 = SubResource("StandardMaterial3D_slf4x")
 
-[node name="Window_4_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1531879599]
+[node name="Window_4_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1393134953]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.03, 16.5, 16.335354)
 mesh = SubResource("QuadMesh_ys6ug")
 surface_material_override/0 = SubResource("StandardMaterial3D_ypo2r")
 
-[node name="Window_4_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1289542946]
+[node name="Window_4_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1786321286]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.430723, 16.5, 22.03)
 mesh = SubResource("QuadMesh_vnpc5")
 surface_material_override/0 = SubResource("StandardMaterial3D_db5hv")
 
-[node name="Building_5" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=90592475]
+[node name="Building_5" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1234848996]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 7, 26)
 use_collision = true
 collision_layer = 4
@@ -2589,34 +2589,34 @@ collision_mask = 0
 size = Vector3(10, 14, 6)
 material = SubResource("StandardMaterial3D_ttpyg")
 
-[node name="NeonSign_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1293719533]
+[node name="NeonSign_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1241063398]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.416002, 8.463677, 29.05)
 mesh = SubResource("QuadMesh_6cpub")
 surface_material_override/0 = SubResource("StandardMaterial3D_ffpg5")
 
-[node name="NeonLight_5_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1014533793]
+[node name="NeonLight_5_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1198545198]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.416002, 8.463677, 29.55)
 light_color = Color(1, 0.2, 0.6, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_5_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1398227234]
+[node name="Window_5_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1559096291]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.97, 2.5, 26.713562)
 mesh = SubResource("QuadMesh_43d7i")
 surface_material_override/0 = SubResource("StandardMaterial3D_xcbo0")
 
-[node name="Window_5_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1528558056]
+[node name="Window_5_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1098393460]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.026748, 2.5, 29.03)
 mesh = SubResource("QuadMesh_cutyp")
 surface_material_override/0 = SubResource("StandardMaterial3D_8xc4d")
 
-[node name="Window_5_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1112879864]
+[node name="Window_5_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1615293662]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.97, 6, 25.611238)
 mesh = SubResource("QuadMesh_83thi")
 surface_material_override/0 = SubResource("StandardMaterial3D_ikv53")
 
-[node name="Building_6" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1695783993]
+[node name="Building_6" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=448903871]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 12, -24)
 use_collision = true
 collision_layer = 4
@@ -2624,88 +2624,88 @@ collision_mask = 0
 size = Vector3(8, 24, 8)
 material = SubResource("StandardMaterial3D_koa75")
 
-[node name="NeonSign_6_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=915193529]
+[node name="NeonSign_6_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1271620019]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.05, 3.0753803, -23.129192)
 mesh = SubResource("QuadMesh_2op70")
 surface_material_override/0 = SubResource("StandardMaterial3D_3xenl")
 
-[node name="NeonLight_6_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1020233443]
+[node name="NeonLight_6_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1281510838]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.55, 3.0753803, -23.129192)
 light_color = Color(0.2, 0.8, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_6_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=569009915]
+[node name="NeonSign_6_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=456575244]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.270399, 5.569108, -28.05)
 mesh = SubResource("QuadMesh_rgio3")
 surface_material_override/0 = SubResource("StandardMaterial3D_yynpt")
 
-[node name="NeonLight_6_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=933838260]
+[node name="NeonLight_6_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=52005085]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.270399, 5.569108, -28.55)
 light_color = Color(0.7, 0.3, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_6_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1653714600]
+[node name="NeonSign_6_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=141884259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.72813, 3.770623, -19.95)
 mesh = SubResource("QuadMesh_v65ao")
 surface_material_override/0 = SubResource("StandardMaterial3D_3ppff")
 
-[node name="NeonLight_6_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=203320605]
+[node name="NeonLight_6_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1097849509]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.72813, 3.770623, -19.45)
 light_color = Color(1, 0.5, 0.1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_6_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1198756830]
+[node name="Window_6_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1985676818]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.247318, 2.5, -28.03)
 mesh = SubResource("QuadMesh_gwyuy")
 surface_material_override/0 = SubResource("StandardMaterial3D_xwsfi")
 
-[node name="Window_6_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=712913279]
+[node name="Window_6_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1985118817]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.03, 6, -22.500195)
 mesh = SubResource("QuadMesh_cwhec")
 surface_material_override/0 = SubResource("StandardMaterial3D_d5ouc")
 
-[node name="Window_6_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=874792853]
+[node name="Window_6_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=176495459]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.2553816, 9.5, -28.03)
 mesh = SubResource("QuadMesh_vwvcq")
 surface_material_override/0 = SubResource("StandardMaterial3D_6bfqh")
 
-[node name="Window_6_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1816494840]
+[node name="Window_6_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1766258280]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.97, 13, -22.714424)
 mesh = SubResource("QuadMesh_rrs1e")
 surface_material_override/0 = SubResource("StandardMaterial3D_g31u5")
 
-[node name="Window_6_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=126020747]
+[node name="Window_6_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1610138009]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6747317, 13, -19.97)
 mesh = SubResource("QuadMesh_dcfgc")
 surface_material_override/0 = SubResource("StandardMaterial3D_td5iv")
 
-[node name="Window_6_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1862227307]
+[node name="Window_6_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=225285623]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.97, 16.5, -24.476328)
 mesh = SubResource("QuadMesh_4fwy4")
 surface_material_override/0 = SubResource("StandardMaterial3D_l5p7p")
 
-[node name="Window_6_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=749410743]
+[node name="Window_6_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2121758098]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.140606, 16.5, -28.03)
 mesh = SubResource("QuadMesh_rbs36")
 surface_material_override/0 = SubResource("StandardMaterial3D_vky28")
 
-[node name="Window_6_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1897741496]
+[node name="Window_6_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=530612703]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.03, 20, -25.636805)
 mesh = SubResource("QuadMesh_d635u")
 surface_material_override/0 = SubResource("StandardMaterial3D_vbci2")
 
-[node name="Window_6_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1823778534]
+[node name="Window_6_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=626392713]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.9847736, 20, -28.03)
 mesh = SubResource("QuadMesh_kpr2a")
 surface_material_override/0 = SubResource("StandardMaterial3D_1lic4")
 
-[node name="Building_7" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1013711906]
+[node name="Building_7" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1223459921]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 9, -14)
 use_collision = true
 collision_layer = 4
@@ -2713,56 +2713,56 @@ collision_mask = 0
 size = Vector3(10, 18, 7)
 material = SubResource("StandardMaterial3D_pudow")
 
-[node name="NeonSign_7_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2082989701]
+[node name="NeonSign_7_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=113129066]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.05, 4.3203464, -13.293937)
 mesh = SubResource("QuadMesh_2bamd")
 surface_material_override/0 = SubResource("StandardMaterial3D_apeb7")
 
-[node name="NeonLight_7_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=2073251454]
+[node name="NeonLight_7_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1935257476]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.55, 4.3203464, -13.293937)
 light_color = Color(1, 0.2, 0.6, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_7_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1864575548]
+[node name="NeonSign_7_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1462870591]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.666361, 3.9287734, -17.55)
 mesh = SubResource("QuadMesh_12ntp")
 surface_material_override/0 = SubResource("StandardMaterial3D_wdhet")
 
-[node name="NeonLight_7_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=27704387]
+[node name="NeonLight_7_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=211118744]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.666361, 3.9287734, -18.05)
 light_color = Color(0.2, 0.8, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_7_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=487797753]
+[node name="Window_7_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=371609222]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.03, 2.5, -12.725207)
 mesh = SubResource("QuadMesh_ih21g")
 surface_material_override/0 = SubResource("StandardMaterial3D_txx7v")
 
-[node name="Window_7_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1550090324]
+[node name="Window_7_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=982136118]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.03, 6, -14.716978)
 mesh = SubResource("QuadMesh_hwvlq")
 surface_material_override/0 = SubResource("StandardMaterial3D_i81it")
 
-[node name="Window_7_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1270605263]
+[node name="Window_7_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=286654744]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.03, 9.5, -12.427335)
 mesh = SubResource("QuadMesh_sp3fe")
 surface_material_override/0 = SubResource("StandardMaterial3D_4xhkh")
 
-[node name="Window_7_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1788340068]
+[node name="Window_7_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1394706855]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.2839155, 13, -17.53)
 mesh = SubResource("QuadMesh_pgq2r")
 surface_material_override/0 = SubResource("StandardMaterial3D_3qi2c")
 
-[node name="Window_7_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=599227303]
+[node name="Window_7_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=737796936]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.03, 16.5, -15.808459)
 mesh = SubResource("QuadMesh_s4840")
 surface_material_override/0 = SubResource("StandardMaterial3D_sywrj")
 
-[node name="Building_8" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1796325085]
+[node name="Building_8" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1711751491]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 14, -4)
 use_collision = true
 collision_layer = 4
@@ -2770,76 +2770,76 @@ collision_mask = 0
 size = Vector3(8, 28, 8)
 material = SubResource("StandardMaterial3D_0cf4c")
 
-[node name="NeonSign_8_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1729308584]
+[node name="NeonSign_8_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=596617116]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.534172, 13.417596, 0.05)
 mesh = SubResource("QuadMesh_kbixy")
 surface_material_override/0 = SubResource("StandardMaterial3D_yki33")
 
-[node name="NeonLight_8_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=333947963]
+[node name="NeonLight_8_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=868911346]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.534172, 13.417596, 0.55)
 light_color = Color(0.7, 0.3, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_8_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=141947216]
+[node name="NeonSign_8_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2008517010]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.95, 9.126801, -2.937005)
 mesh = SubResource("QuadMesh_5o4kg")
 surface_material_override/0 = SubResource("StandardMaterial3D_ip2dk")
 
-[node name="NeonLight_8_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1499924240]
+[node name="NeonLight_8_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=2066419231]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45, 9.126801, -2.937005)
 light_color = Color(1, 0.5, 0.1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_8_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1509823209]
+[node name="Window_8_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1134020394]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6140375, 2.5, 0.03)
 mesh = SubResource("QuadMesh_62n8s")
 surface_material_override/0 = SubResource("StandardMaterial3D_eue76")
 
-[node name="Window_8_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=236907007]
+[node name="Window_8_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=499838292]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.97, 6, -5.794508)
 mesh = SubResource("QuadMesh_1sjf7")
 surface_material_override/0 = SubResource("StandardMaterial3D_f021t")
 
-[node name="Window_8_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=714419133]
+[node name="Window_8_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1749120479]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.248653, 6, 0.03)
 mesh = SubResource("QuadMesh_fsoix")
 surface_material_override/0 = SubResource("StandardMaterial3D_yr4qc")
 
-[node name="Window_8_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1226235514]
+[node name="Window_8_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1446527614]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.03, 9.5, -3.8111622)
 mesh = SubResource("QuadMesh_msc6e")
 surface_material_override/0 = SubResource("StandardMaterial3D_v4ji8")
 
-[node name="Window_8_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=916056804]
+[node name="Window_8_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=101067448]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.307577, 13, 0.03)
 mesh = SubResource("QuadMesh_tcc5g")
 surface_material_override/0 = SubResource("StandardMaterial3D_li0i2")
 
-[node name="Window_8_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=297014937]
+[node name="Window_8_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=422215863]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.03, 16.5, -5.127452)
 mesh = SubResource("QuadMesh_u703y")
 surface_material_override/0 = SubResource("StandardMaterial3D_md8o1")
 
-[node name="Window_8_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=440595436]
+[node name="Window_8_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1821671449]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.555671, 16.5, -8.03)
 mesh = SubResource("QuadMesh_2lxij")
 surface_material_override/0 = SubResource("StandardMaterial3D_iv184")
 
-[node name="Window_8_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1807199719]
+[node name="Window_8_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=55642650]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.03, 20, -3.9259694)
 mesh = SubResource("QuadMesh_qubtq")
 surface_material_override/0 = SubResource("StandardMaterial3D_40tdo")
 
-[node name="Window_8_6_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=50260434]
+[node name="Window_8_6_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1676955577]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.03, 23.5, -5.7482843)
 mesh = SubResource("QuadMesh_84lfa")
 surface_material_override/0 = SubResource("StandardMaterial3D_4ewg2")
 
-[node name="Building_9" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1171661327]
+[node name="Building_9" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=943468017]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 10, 6)
 use_collision = true
 collision_layer = 4
@@ -2847,81 +2847,81 @@ collision_mask = 0
 size = Vector3(10, 20, 7)
 material = SubResource("StandardMaterial3D_b8naa")
 
-[node name="NeonSign_9_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1070903937]
+[node name="NeonSign_9_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=607232596]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2713146, 4.370861, 9.55)
 mesh = SubResource("QuadMesh_mbip1")
 surface_material_override/0 = SubResource("StandardMaterial3D_umfwr")
 
-[node name="NeonLight_9_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1325134118]
+[node name="NeonLight_9_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=916171469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2713146, 4.370861, 10.05)
 light_color = Color(1, 0.2, 0.6, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_9_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1891562798]
+[node name="NeonSign_9_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1855789353]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.05, 11.305167, 7.515489)
 mesh = SubResource("QuadMesh_we1q2")
 surface_material_override/0 = SubResource("StandardMaterial3D_hhooi")
 
-[node name="NeonLight_9_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=590997738]
+[node name="NeonLight_9_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1493093367]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.55, 11.305167, 7.515489)
 light_color = Color(0.2, 0.8, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_9_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=143415946]
+[node name="Window_9_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1586498818]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.03, 2.5, 5.1137953)
 mesh = SubResource("QuadMesh_bh862")
 surface_material_override/0 = SubResource("StandardMaterial3D_5vwcq")
 
-[node name="Window_9_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1818042677]
+[node name="Window_9_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1160731711]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.803753, 2.5, 2.47)
 mesh = SubResource("QuadMesh_0gsix")
 surface_material_override/0 = SubResource("StandardMaterial3D_3hs2c")
 
-[node name="Window_9_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1525828586]
+[node name="Window_9_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=637013444]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.03, 6, 4.6798525)
 mesh = SubResource("QuadMesh_upmjt")
 surface_material_override/0 = SubResource("StandardMaterial3D_ql6nn")
 
-[node name="Window_9_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=626696479]
+[node name="Window_9_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1004240380]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.41248, 6, 2.47)
 mesh = SubResource("QuadMesh_ybb54")
 surface_material_override/0 = SubResource("StandardMaterial3D_pamfo")
 
-[node name="Window_9_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1018995706]
+[node name="Window_9_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=350688429]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.03, 9.5, 4.6088433)
 mesh = SubResource("QuadMesh_1g0co")
 surface_material_override/0 = SubResource("StandardMaterial3D_4terg")
 
-[node name="Window_9_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=307521864]
+[node name="Window_9_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1106306]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.89648, 9.5, 2.47)
 mesh = SubResource("QuadMesh_j25y6")
 surface_material_override/0 = SubResource("StandardMaterial3D_kaivk")
 
-[node name="Window_9_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1752070230]
+[node name="Window_9_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=300207733]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.97, 13, 7.6033444)
 mesh = SubResource("QuadMesh_cum3f")
 surface_material_override/0 = SubResource("StandardMaterial3D_nvlaw")
 
-[node name="Window_9_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=850859712]
+[node name="Window_9_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=8189274]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.849882, 13, 2.47)
 mesh = SubResource("QuadMesh_xc3so")
 surface_material_override/0 = SubResource("StandardMaterial3D_2eb5f")
 
-[node name="Window_9_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=43050679]
+[node name="Window_9_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2135943603]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.03, 16.5, 5.263009)
 mesh = SubResource("QuadMesh_f5w0b")
 surface_material_override/0 = SubResource("StandardMaterial3D_qod8n")
 
-[node name="Window_9_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=459509498]
+[node name="Window_9_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=468308806]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7738, 16.5, 9.53)
 mesh = SubResource("QuadMesh_tf538")
 surface_material_override/0 = SubResource("StandardMaterial3D_0flyn")
 
-[node name="Building_10" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=227500200]
+[node name="Building_10" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=963537499]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 8, 16)
 use_collision = true
 collision_layer = 4
@@ -2929,56 +2929,56 @@ collision_mask = 0
 size = Vector3(8, 16, 8)
 material = SubResource("StandardMaterial3D_hwnun")
 
-[node name="NeonSign_10_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=770484676]
+[node name="NeonSign_10_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=647679259]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.05, 6.5631566, 16.827745)
 mesh = SubResource("QuadMesh_h423s")
 surface_material_override/0 = SubResource("StandardMaterial3D_3ek4g")
 
-[node name="NeonLight_10_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1474512703]
+[node name="NeonLight_10_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1020246737]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.55, 6.5631566, 16.827745)
 light_color = Color(0.7, 0.3, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_10_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1929630426]
+[node name="NeonSign_10_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1121827823]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6798434, 10.908599, 20.05)
 mesh = SubResource("QuadMesh_7ede4")
 surface_material_override/0 = SubResource("StandardMaterial3D_dh7tm")
 
-[node name="NeonLight_10_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1462196449]
+[node name="NeonLight_10_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=485532543]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6798434, 10.908599, 20.55)
 light_color = Color(1, 0.5, 0.1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_10_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=429942227]
+[node name="Window_10_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1706755593]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.97, 2.5, 16.765522)
 mesh = SubResource("QuadMesh_ckhyv")
 surface_material_override/0 = SubResource("StandardMaterial3D_sgn26")
 
-[node name="Window_10_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1585014167]
+[node name="Window_10_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=744169545]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0325165, 2.5, 20.03)
 mesh = SubResource("QuadMesh_ipooi")
 surface_material_override/0 = SubResource("StandardMaterial3D_2b1y3")
 
-[node name="Window_10_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1177096417]
+[node name="Window_10_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2052994929]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7863455, 6, 20.03)
 mesh = SubResource("QuadMesh_qwxy0")
 surface_material_override/0 = SubResource("StandardMaterial3D_4762f")
 
-[node name="Window_10_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1743372147]
+[node name="Window_10_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1425161784]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.97, 9.5, 14.304127)
 mesh = SubResource("QuadMesh_gyx5g")
 surface_material_override/0 = SubResource("StandardMaterial3D_1tja7")
 
-[node name="Window_10_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1009427300]
+[node name="Window_10_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=117857646]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.97, 13, 16.037458)
 mesh = SubResource("QuadMesh_qvdeo")
 surface_material_override/0 = SubResource("StandardMaterial3D_0igxi")
 
-[node name="Building_11" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1230101519]
+[node name="Building_11" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1661626908]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 11, 24)
 use_collision = true
 collision_layer = 4
@@ -2986,59 +2986,59 @@ collision_mask = 0
 size = Vector3(10, 22, 7)
 material = SubResource("StandardMaterial3D_j4h4y")
 
-[node name="NeonSign_11_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2076651417]
+[node name="NeonSign_11_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1747214376]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.802271, 9.116308, 20.45)
 mesh = SubResource("QuadMesh_av2nq")
 surface_material_override/0 = SubResource("StandardMaterial3D_vv325")
 
-[node name="NeonLight_11_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=511754377]
+[node name="NeonLight_11_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=353401992]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.802271, 9.116308, 19.95)
 light_color = Color(1, 0.2, 0.6, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_11_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1140475597]
+[node name="Window_11_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1087561395]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.97, 2.5, 24.62141)
 mesh = SubResource("QuadMesh_ixpuu")
 surface_material_override/0 = SubResource("StandardMaterial3D_xulyg")
 
-[node name="Window_11_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1643554742]
+[node name="Window_11_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2037507016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.914423, 2.5, 27.53)
 mesh = SubResource("QuadMesh_jsyds")
 surface_material_override/0 = SubResource("StandardMaterial3D_cfydv")
 
-[node name="Window_11_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1507286848]
+[node name="Window_11_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2031732081]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.97, 6, 23.127836)
 mesh = SubResource("QuadMesh_uapyc")
 surface_material_override/0 = SubResource("StandardMaterial3D_p6djk")
 
-[node name="Window_11_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=348695482]
+[node name="Window_11_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1025347338]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.890132, 6, 27.53)
 mesh = SubResource("QuadMesh_kd1gl")
 surface_material_override/0 = SubResource("StandardMaterial3D_3mj5x")
 
-[node name="Window_11_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1937943257]
+[node name="Window_11_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=808431595]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.03, 9.5, 23.883266)
 mesh = SubResource("QuadMesh_65ot6")
 surface_material_override/0 = SubResource("StandardMaterial3D_gw3nu")
 
-[node name="Window_11_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=832767518]
+[node name="Window_11_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=505390648]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.529207, 9.5, 27.53)
 mesh = SubResource("QuadMesh_llpq0")
 surface_material_override/0 = SubResource("StandardMaterial3D_2kgb0")
 
-[node name="Window_11_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1041851627]
+[node name="Window_11_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1279342937]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.582588, 13, 27.53)
 mesh = SubResource("QuadMesh_pfb28")
 surface_material_override/0 = SubResource("StandardMaterial3D_jg67h")
 
-[node name="Window_11_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=78709419]
+[node name="Window_11_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=862552559]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.03, 20, 21.97891)
 mesh = SubResource("QuadMesh_hdjqt")
 surface_material_override/0 = SubResource("StandardMaterial3D_mnr56")
 
-[node name="Building_12" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=827011740]
+[node name="Building_12" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=72275225]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 11, -18)
 use_collision = true
 collision_layer = 4
@@ -3046,71 +3046,71 @@ collision_mask = 0
 size = Vector3(8, 22, 14)
 material = SubResource("StandardMaterial3D_omhl7")
 
-[node name="NeonSign_12_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=635438981]
+[node name="NeonSign_12_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2021723960]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.95, 7.0352235, -20.676308)
 mesh = SubResource("QuadMesh_57rfq")
 surface_material_override/0 = SubResource("StandardMaterial3D_ucmxi")
 
-[node name="NeonLight_12_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=2095975881]
+[node name="NeonLight_12_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1303740994]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.45, 7.0352235, -20.676308)
 light_color = Color(0.2, 0.8, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_12_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=230493122]
+[node name="NeonSign_12_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=325550739]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 19.488102, 8.8500185, -25.05)
 mesh = SubResource("QuadMesh_3c03b")
 surface_material_override/0 = SubResource("StandardMaterial3D_pf2nd")
 
-[node name="NeonLight_12_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=217145825]
+[node name="NeonLight_12_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=445190637]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.488102, 8.8500185, -25.55)
 light_color = Color(0.7, 0.3, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_12_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=945569598]
+[node name="Window_12_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1731646542]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.97, 2.5, -21.423481)
 mesh = SubResource("QuadMesh_fjwh2")
 surface_material_override/0 = SubResource("StandardMaterial3D_h5h5j")
 
-[node name="Window_12_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=978130627]
+[node name="Window_12_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=643219214]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.514277, 2.5, -10.97)
 mesh = SubResource("QuadMesh_u3aoi")
 surface_material_override/0 = SubResource("StandardMaterial3D_qyxrn")
 
-[node name="Window_12_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1831686979]
+[node name="Window_12_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=595830452]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24.03, 9.5, -15.869767)
 mesh = SubResource("QuadMesh_pb3gb")
 surface_material_override/0 = SubResource("StandardMaterial3D_x5k6m")
 
-[node name="Window_12_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1439311713]
+[node name="Window_12_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1717205594]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.97, 13, -16.283356)
 mesh = SubResource("QuadMesh_sxdd5")
 surface_material_override/0 = SubResource("StandardMaterial3D_c8mm0")
 
-[node name="Window_12_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=633665234]
+[node name="Window_12_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1262809338]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.97, 16.5, -19.081066)
 mesh = SubResource("QuadMesh_sjq5v")
 surface_material_override/0 = SubResource("StandardMaterial3D_yeoxj")
 
-[node name="Window_12_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1614384385]
+[node name="Window_12_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1565195053]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.599104, 16.5, -10.97)
 mesh = SubResource("QuadMesh_pfr4k")
 surface_material_override/0 = SubResource("StandardMaterial3D_m27pj")
 
-[node name="Window_12_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1294395075]
+[node name="Window_12_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=679755786]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24.03, 20, -15.721223)
 mesh = SubResource("QuadMesh_4ld77")
 surface_material_override/0 = SubResource("StandardMaterial3D_u0idk")
 
-[node name="Window_12_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2054198572]
+[node name="Window_12_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1683020071]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.387505, 20, -10.97)
 mesh = SubResource("QuadMesh_b6t3q")
 surface_material_override/0 = SubResource("StandardMaterial3D_1cq8d")
 
-[node name="Building_13" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1093147715]
+[node name="Building_13" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=210025802]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 15, -2)
 use_collision = true
 collision_layer = 4
@@ -3118,103 +3118,103 @@ collision_mask = 0
 size = Vector3(8, 30, 12)
 material = SubResource("StandardMaterial3D_b23gb")
 
-[node name="NeonSign_13_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1246724187]
+[node name="NeonSign_13_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=593972638]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.95, 11.871532, -1.3055608)
 mesh = SubResource("QuadMesh_qbsse")
 surface_material_override/0 = SubResource("StandardMaterial3D_m8sa2")
 
-[node name="NeonLight_13_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=650806265]
+[node name="NeonLight_13_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1861287862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.45, 11.871532, -1.3055608)
 light_color = Color(1, 0.5, 0.1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_13_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1755015876]
+[node name="NeonSign_13_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1254979144]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.95, 7.6992755, -1.6759347)
 mesh = SubResource("QuadMesh_ntm50")
 surface_material_override/0 = SubResource("StandardMaterial3D_02ouj")
 
-[node name="NeonLight_13_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=518015947]
+[node name="NeonLight_13_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=628911404]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.45, 7.6992755, -1.6759347)
 light_color = Color(1, 0.2, 0.6, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_13_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1076301939]
+[node name="NeonSign_13_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=429248274]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24.05, 18.346487, 1.4232405)
 mesh = SubResource("QuadMesh_mw8sl")
 surface_material_override/0 = SubResource("StandardMaterial3D_2r3c4")
 
-[node name="NeonLight_13_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1459042306]
+[node name="NeonLight_13_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1609688850]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.55, 18.346487, 1.4232405)
 light_color = Color(0.2, 0.8, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_13_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1182303430]
+[node name="Window_13_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=945921561]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24.03, 2.5, 1.1506888)
 mesh = SubResource("QuadMesh_pewyp")
 surface_material_override/0 = SubResource("StandardMaterial3D_j463k")
 
-[node name="Window_13_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=364263184]
+[node name="Window_13_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1810779910]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 21.023302, 2.5, -8.03)
 mesh = SubResource("QuadMesh_lklwn")
 surface_material_override/0 = SubResource("StandardMaterial3D_3ftg4")
 
-[node name="Window_13_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1998925144]
+[node name="Window_13_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=699079811]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24.03, 6, -3.5650172)
 mesh = SubResource("QuadMesh_ef6p3")
 surface_material_override/0 = SubResource("StandardMaterial3D_gghs1")
 
-[node name="Window_13_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1785335222]
+[node name="Window_13_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=199790563]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 20.645401, 6, -8.03)
 mesh = SubResource("QuadMesh_emw4m")
 surface_material_override/0 = SubResource("StandardMaterial3D_phd1s")
 
-[node name="Window_13_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=15197411]
+[node name="Window_13_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1594327761]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.97, 9.5, -5.15715)
 mesh = SubResource("QuadMesh_5eb4u")
 surface_material_override/0 = SubResource("StandardMaterial3D_etgxu")
 
-[node name="Window_13_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1616186513]
+[node name="Window_13_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=701645305]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 22.395782, 9.5, -8.03)
 mesh = SubResource("QuadMesh_ay5i7")
 surface_material_override/0 = SubResource("StandardMaterial3D_ihyau")
 
-[node name="Window_13_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2129635567]
+[node name="Window_13_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=200100509]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.97, 13, -3.534489)
 mesh = SubResource("QuadMesh_6x0qc")
 surface_material_override/0 = SubResource("StandardMaterial3D_17um7")
 
-[node name="Window_13_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=777455590]
+[node name="Window_13_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1046313860]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18.040094, 16.5, -8.03)
 mesh = SubResource("QuadMesh_nf4if")
 surface_material_override/0 = SubResource("StandardMaterial3D_h2cfo")
 
-[node name="Window_13_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1640690464]
+[node name="Window_13_5_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=568583170]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.97, 20, -3.7651298)
 mesh = SubResource("QuadMesh_h2ugf")
 surface_material_override/0 = SubResource("StandardMaterial3D_puo6j")
 
-[node name="Window_13_6_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1171025518]
+[node name="Window_13_6_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=921382002]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.97, 23.5, 0.39776862)
 mesh = SubResource("QuadMesh_1g0gy")
 surface_material_override/0 = SubResource("StandardMaterial3D_2xuss")
 
-[node name="Window_13_7_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=31955308]
+[node name="Window_13_7_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2114280721]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24.03, 27, 0.59670085)
 mesh = SubResource("QuadMesh_y05x4")
 surface_material_override/0 = SubResource("StandardMaterial3D_rr8em")
 
-[node name="Window_13_7_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1081246691]
+[node name="Window_13_7_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=430061367]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 22.038458, 27, -8.03)
 mesh = SubResource("QuadMesh_3pm63")
 surface_material_override/0 = SubResource("StandardMaterial3D_yhtly")
 
-[node name="Building_14" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=2032178987]
+[node name="Building_14" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=188008094]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 9, 14)
 use_collision = true
 collision_layer = 4
@@ -3222,66 +3222,66 @@ collision_mask = 0
 size = Vector3(8, 18, 14)
 material = SubResource("StandardMaterial3D_ovpxt")
 
-[node name="NeonSign_14_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=293966045]
+[node name="NeonSign_14_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1540455058]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.95, 4.916334, 9.974798)
 mesh = SubResource("QuadMesh_ddgpd")
 surface_material_override/0 = SubResource("StandardMaterial3D_es1pn")
 
-[node name="NeonLight_14_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=214580234]
+[node name="NeonLight_14_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1393538644]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.45, 4.916334, 9.974798)
 light_color = Color(0.7, 0.3, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_14_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=459569273]
+[node name="NeonSign_14_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=319975101]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 19.520472, 10.781747, 6.95)
 mesh = SubResource("QuadMesh_7sljc")
 surface_material_override/0 = SubResource("StandardMaterial3D_5p0a7")
 
-[node name="NeonLight_14_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1410703890]
+[node name="NeonLight_14_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=2120319501]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.520472, 10.781747, 6.45)
 light_color = Color(1, 0.5, 0.1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_14_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1863118494]
+[node name="Window_14_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=274729383]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24.03, 2.5, 14.782151)
 mesh = SubResource("QuadMesh_0blx6")
 surface_material_override/0 = SubResource("StandardMaterial3D_k0kn3")
 
-[node name="Window_14_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=96199970]
+[node name="Window_14_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1280964910]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.336231, 2.5, 21.03)
 mesh = SubResource("QuadMesh_eq2xd")
 surface_material_override/0 = SubResource("StandardMaterial3D_3nw6e")
 
-[node name="Window_14_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=290533872]
+[node name="Window_14_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=847011969]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.648026, 9.5, 21.03)
 mesh = SubResource("QuadMesh_q25oi")
 surface_material_override/0 = SubResource("StandardMaterial3D_g1sb2")
 
-[node name="Window_14_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=511429074]
+[node name="Window_14_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=922719538]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.97, 13, 12.570383)
 mesh = SubResource("QuadMesh_buyen")
 surface_material_override/0 = SubResource("StandardMaterial3D_xlc2n")
 
-[node name="Window_14_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=645739803]
+[node name="Window_14_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=888345612]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.882538, 13, 21.03)
 mesh = SubResource("QuadMesh_yijag")
 surface_material_override/0 = SubResource("StandardMaterial3D_5bx6u")
 
-[node name="Window_14_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1015243056]
+[node name="Window_14_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1812323433]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24.03, 16.5, 13.403072)
 mesh = SubResource("QuadMesh_mydq0")
 surface_material_override/0 = SubResource("StandardMaterial3D_0bc7a")
 
-[node name="Window_14_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=867168013]
+[node name="Window_14_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=370859357]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.08965, 16.5, 21.03)
 mesh = SubResource("QuadMesh_s3ltr")
 surface_material_override/0 = SubResource("StandardMaterial3D_oyyp5")
 
-[node name="Building_15" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=659402227]
+[node name="Building_15" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1177417337]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 13, -16)
 use_collision = true
 collision_layer = 4
@@ -3289,49 +3289,49 @@ collision_mask = 0
 size = Vector3(8, 26, 14)
 material = SubResource("StandardMaterial3D_uoxek")
 
-[node name="NeonSign_15_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1945589965]
+[node name="NeonSign_15_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=536461726]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.95, 9.789929, -16.812109)
 mesh = SubResource("QuadMesh_6agtq")
 surface_material_override/0 = SubResource("StandardMaterial3D_uavwx")
 
-[node name="NeonLight_15_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1776167062]
+[node name="NeonLight_15_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=2045271520]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.45, 9.789929, -16.812109)
 light_color = Color(1, 0.2, 0.6, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_15_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=455780555]
+[node name="Window_15_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1792702120]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.97, 2.5, -19.010838)
 mesh = SubResource("QuadMesh_svpnx")
 surface_material_override/0 = SubResource("StandardMaterial3D_a83ej")
 
-[node name="Window_15_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1590252343]
+[node name="Window_15_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1564640223]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -18.135687, 6, -23.03)
 mesh = SubResource("QuadMesh_itn6d")
 surface_material_override/0 = SubResource("StandardMaterial3D_6t5jp")
 
-[node name="Window_15_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2012416614]
+[node name="Window_15_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1505481385]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.97, 13, -16.133862)
 mesh = SubResource("QuadMesh_gw8py")
 surface_material_override/0 = SubResource("StandardMaterial3D_llf37")
 
-[node name="Window_15_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=846112185]
+[node name="Window_15_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=775263735]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.390858, 13, -8.97)
 mesh = SubResource("QuadMesh_0he1x")
 surface_material_override/0 = SubResource("StandardMaterial3D_yw0f0")
 
-[node name="Window_15_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=394210784]
+[node name="Window_15_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1710756679]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.867504, 16.5, -8.97)
 mesh = SubResource("QuadMesh_ecb4h")
 surface_material_override/0 = SubResource("StandardMaterial3D_f7rwe")
 
-[node name="Window_15_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=151001417]
+[node name="Window_15_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=105391237]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.345528, 20, -8.97)
 mesh = SubResource("QuadMesh_fhm7m")
 surface_material_override/0 = SubResource("StandardMaterial3D_k757i")
 
-[node name="Building_16" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=2047239665]
+[node name="Building_16" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1401260112]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 10, 2)
 use_collision = true
 collision_layer = 4
@@ -3339,71 +3339,71 @@ collision_mask = 0
 size = Vector3(8, 20, 12)
 material = SubResource("StandardMaterial3D_bmlvp")
 
-[node name="NeonSign_16_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1270587720]
+[node name="NeonSign_16_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=518403659]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.05, 10.289989, 5.4858212)
 mesh = SubResource("QuadMesh_56rm6")
 surface_material_override/0 = SubResource("StandardMaterial3D_elh8h")
 
-[node name="NeonLight_16_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=363237513]
+[node name="NeonLight_16_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1422854732]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.55, 10.289989, 5.4858212)
 light_color = Color(0.2, 0.8, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_16_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=740157973]
+[node name="NeonSign_16_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1160527502]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.05, 12.254352, 1.1488276)
 mesh = SubResource("QuadMesh_jvpea")
 surface_material_override/0 = SubResource("StandardMaterial3D_ixyp6")
 
-[node name="NeonLight_16_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1844609040]
+[node name="NeonLight_16_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1368702535]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.55, 12.254352, 1.1488276)
 light_color = Color(0.7, 0.3, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_16_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2085474487]
+[node name="Window_16_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=480696176]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.03, 2.5, 2.4832828)
 mesh = SubResource("QuadMesh_h3gaa")
 surface_material_override/0 = SubResource("StandardMaterial3D_bu8w1")
 
-[node name="Window_16_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=110950763]
+[node name="Window_16_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1038867124]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.513506, 2.5, 8.03)
 mesh = SubResource("QuadMesh_kis7d")
 surface_material_override/0 = SubResource("StandardMaterial3D_2306u")
 
-[node name="Window_16_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=839563248]
+[node name="Window_16_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1181610647]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.97, 6, 0.7447327)
 mesh = SubResource("QuadMesh_mquhx")
 surface_material_override/0 = SubResource("StandardMaterial3D_jfhn3")
 
-[node name="Window_16_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=855836671]
+[node name="Window_16_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1360683697]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.428242, 6, 8.03)
 mesh = SubResource("QuadMesh_0dovy")
 surface_material_override/0 = SubResource("StandardMaterial3D_ch27m")
 
-[node name="Window_16_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=920900110]
+[node name="Window_16_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=238688994]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -18.282383, 9.5, -4.03)
 mesh = SubResource("QuadMesh_3kpco")
 surface_material_override/0 = SubResource("StandardMaterial3D_ggkjr")
 
-[node name="Window_16_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=800849591]
+[node name="Window_16_3_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=517802851]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.855848, 13, 8.03)
 mesh = SubResource("QuadMesh_qwwd0")
 surface_material_override/0 = SubResource("StandardMaterial3D_737hj")
 
-[node name="Window_16_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=951314330]
+[node name="Window_16_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1907543780]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.03, 16.5, 4.798421)
 mesh = SubResource("QuadMesh_08nea")
 surface_material_override/0 = SubResource("StandardMaterial3D_4ighw")
 
-[node name="Window_16_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1850406962]
+[node name="Window_16_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1833775351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.478144, 16.5, 8.03)
 mesh = SubResource("QuadMesh_ikug4")
 surface_material_override/0 = SubResource("StandardMaterial3D_h8r0j")
 
-[node name="Building_17" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=312860396]
+[node name="Building_17" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1129779398]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 12, 18)
 use_collision = true
 collision_layer = 4
@@ -3411,78 +3411,78 @@ collision_mask = 0
 size = Vector3(8, 24, 14)
 material = SubResource("StandardMaterial3D_gllsu")
 
-[node name="NeonSign_17_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1068037650]
+[node name="NeonSign_17_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=459115391]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.95, 15.848075, 16.890274)
 mesh = SubResource("QuadMesh_ifj3u")
 surface_material_override/0 = SubResource("StandardMaterial3D_ejlon")
 
-[node name="NeonLight_17_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1163023264]
+[node name="NeonLight_17_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1340030687]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.45, 15.848075, 16.890274)
 light_color = Color(1, 0.5, 0.1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_17_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1336193623]
+[node name="NeonSign_17_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=735415634]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -20.34357, 15.805362, 10.95)
 mesh = SubResource("QuadMesh_b156q")
 surface_material_override/0 = SubResource("StandardMaterial3D_8xgmu")
 
-[node name="NeonLight_17_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=894479240]
+[node name="NeonLight_17_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1744619674]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.34357, 15.805362, 10.45)
 light_color = Color(1, 0.2, 0.6, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_17_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1172132053]
+[node name="NeonSign_17_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1172707742]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.774044, 10.336728, 25.05)
 mesh = SubResource("QuadMesh_2nuqd")
 surface_material_override/0 = SubResource("StandardMaterial3D_cn5vp")
 
-[node name="NeonLight_17_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1368465131]
+[node name="NeonLight_17_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1724041697]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.774044, 10.336728, 25.55)
 light_color = Color(0.2, 0.8, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_17_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1531197704]
+[node name="Window_17_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=599027309]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.97, 2.5, 19.363863)
 mesh = SubResource("QuadMesh_uwl03")
 surface_material_override/0 = SubResource("StandardMaterial3D_2ghsn")
 
-[node name="Window_17_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1570839196]
+[node name="Window_17_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1040894170]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.206013, 2.5, 25.03)
 mesh = SubResource("QuadMesh_c8eps")
 surface_material_override/0 = SubResource("StandardMaterial3D_fsp4t")
 
-[node name="Window_17_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=815913548]
+[node name="Window_17_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1609130438]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.03, 6, 21.965809)
 mesh = SubResource("QuadMesh_2bc6f")
 surface_material_override/0 = SubResource("StandardMaterial3D_cd6c5")
 
-[node name="Window_17_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1585425070]
+[node name="Window_17_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1382948194]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.568617, 9.5, 25.03)
 mesh = SubResource("QuadMesh_kiuga")
 surface_material_override/0 = SubResource("StandardMaterial3D_opo1u")
 
-[node name="Window_17_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=80548570]
+[node name="Window_17_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=781640978]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.03, 13, 14.821972)
 mesh = SubResource("QuadMesh_n806a")
 surface_material_override/0 = SubResource("StandardMaterial3D_h48vs")
 
-[node name="Window_17_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1031851319]
+[node name="Window_17_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1195449128]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -18.286728, 16.5, 10.97)
 mesh = SubResource("QuadMesh_rljos")
 surface_material_override/0 = SubResource("StandardMaterial3D_obyty")
 
-[node name="Window_17_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1972283441]
+[node name="Window_17_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1256848211]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.065006, 20, 25.03)
 mesh = SubResource("QuadMesh_jevd8")
 surface_material_override/0 = SubResource("StandardMaterial3D_qn84o")
 
-[node name="Building_18" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1324204483]
+[node name="Building_18" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=345020781]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 11, -28)
 use_collision = true
 collision_layer = 4
@@ -3490,76 +3490,76 @@ collision_mask = 0
 size = Vector3(5, 22, 4)
 material = SubResource("StandardMaterial3D_ungk5")
 
-[node name="NeonSign_18_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=260033379]
+[node name="NeonSign_18_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1043105528]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.55, 6.675898, -27.827557)
 mesh = SubResource("QuadMesh_geg5o")
 surface_material_override/0 = SubResource("StandardMaterial3D_yh3hn")
 
-[node name="NeonLight_18_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=632487240]
+[node name="NeonLight_18_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1365734077]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05, 6.675898, -27.827557)
 light_color = Color(0.7, 0.3, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_18_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=849133731]
+[node name="NeonSign_18_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=508711391]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48818675, 12.198316, -25.95)
 mesh = SubResource("QuadMesh_gjf8j")
 surface_material_override/0 = SubResource("StandardMaterial3D_bvexb")
 
-[node name="NeonLight_18_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1770920380]
+[node name="NeonLight_18_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=2142516009]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48818675, 12.198316, -25.45)
 light_color = Color(1, 0.5, 0.1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_18_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=495305356]
+[node name="Window_18_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1779922334]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.53, 2.5, -26.861885)
 mesh = SubResource("QuadMesh_ole3g")
 surface_material_override/0 = SubResource("StandardMaterial3D_ejj2s")
 
-[node name="Window_18_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=318485797]
+[node name="Window_18_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1673309569]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.303432, 2.5, -30.03)
 mesh = SubResource("QuadMesh_dml5t")
 surface_material_override/0 = SubResource("StandardMaterial3D_pmh5g")
 
-[node name="Window_18_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=142433196]
+[node name="Window_18_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=543293803]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.53, 6, -29.093096)
 mesh = SubResource("QuadMesh_7rvsv")
 surface_material_override/0 = SubResource("StandardMaterial3D_vap4m")
 
-[node name="Window_18_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=286801857]
+[node name="Window_18_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=199935931]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.53, 9.5, -29.10155)
 mesh = SubResource("QuadMesh_4xf3r")
 surface_material_override/0 = SubResource("StandardMaterial3D_ekit2")
 
-[node name="Window_18_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2014693588]
+[node name="Window_18_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1504220807]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96526104, 9.5, -25.97)
 mesh = SubResource("QuadMesh_gaceq")
 surface_material_override/0 = SubResource("StandardMaterial3D_ffioa")
 
-[node name="Window_18_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2064759692]
+[node name="Window_18_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=639990028]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.53, 13, -27.179823)
 mesh = SubResource("QuadMesh_bor6u")
 surface_material_override/0 = SubResource("StandardMaterial3D_xdy03")
 
-[node name="Window_18_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1869989753]
+[node name="Window_18_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=18879297]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.53, 16.5, -28.452238)
 mesh = SubResource("QuadMesh_cyfjj")
 surface_material_override/0 = SubResource("StandardMaterial3D_tbljb")
 
-[node name="Window_18_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1654058520]
+[node name="Window_18_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=905783626]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.6518775, 16.5, -30.03)
 mesh = SubResource("QuadMesh_qfx6j")
 surface_material_override/0 = SubResource("StandardMaterial3D_33me3")
 
-[node name="Window_18_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1741552062]
+[node name="Window_18_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1930829022]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.5677878, 20, -30.03)
 mesh = SubResource("QuadMesh_8iugq")
 surface_material_override/0 = SubResource("StandardMaterial3D_acxrt")
 
-[node name="Building_19" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=135891816]
+[node name="Building_19" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=819099534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 9, -28)
 use_collision = true
 collision_layer = 4
@@ -3567,71 +3567,71 @@ collision_mask = 0
 size = Vector3(4, 18, 4)
 material = SubResource("StandardMaterial3D_ydtb0")
 
-[node name="NeonSign_19_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2895650]
+[node name="NeonSign_19_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1483524106]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.796761, 5.7384715, -30.05)
 mesh = SubResource("QuadMesh_5rhrb")
 surface_material_override/0 = SubResource("StandardMaterial3D_a7nn6")
 
-[node name="NeonLight_19_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=327880046]
+[node name="NeonLight_19_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1338035184]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.796761, 5.7384715, -30.55)
 light_color = Color(1, 0.2, 0.6, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_19_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=165388205]
+[node name="NeonSign_19_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=540982959]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.5831213, 11.52567, -30.05)
 mesh = SubResource("QuadMesh_u6cmo")
 surface_material_override/0 = SubResource("StandardMaterial3D_u4xno")
 
-[node name="NeonLight_19_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=5116583]
+[node name="NeonLight_19_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=2123006434]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5831213, 11.52567, -30.55)
 light_color = Color(0.2, 0.8, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_19_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=875466028]
+[node name="Window_19_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=11593990]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.97, 2.5, -27.118612)
 mesh = SubResource("QuadMesh_5hpgj")
 surface_material_override/0 = SubResource("StandardMaterial3D_yd634")
 
-[node name="Window_19_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2098799559]
+[node name="Window_19_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=409498811]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1700306, 2.5, -25.97)
 mesh = SubResource("QuadMesh_go50w")
 surface_material_override/0 = SubResource("StandardMaterial3D_kppwl")
 
-[node name="Window_19_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=343029119]
+[node name="Window_19_1_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=82142415]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.97, 6, -29.170353)
 mesh = SubResource("QuadMesh_mdkof")
 surface_material_override/0 = SubResource("StandardMaterial3D_eq6wl")
 
-[node name="Window_19_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=934139577]
+[node name="Window_19_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=30538417]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0302944, 6, -25.97)
 mesh = SubResource("QuadMesh_kawik")
 surface_material_override/0 = SubResource("StandardMaterial3D_br0f7")
 
-[node name="Window_19_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=246065934]
+[node name="Window_19_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1718062991]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.03, 9.5, -28.949337)
 mesh = SubResource("QuadMesh_0b701")
 surface_material_override/0 = SubResource("StandardMaterial3D_crq7w")
 
-[node name="Window_19_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1989585403]
+[node name="Window_19_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=140334716]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1851544, 9.5, -25.97)
 mesh = SubResource("QuadMesh_ibyer")
 surface_material_override/0 = SubResource("StandardMaterial3D_v14bl")
 
-[node name="Window_19_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=985258868]
+[node name="Window_19_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=142275720]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.97, 13, -28.298391)
 mesh = SubResource("QuadMesh_yhcjo")
 surface_material_override/0 = SubResource("StandardMaterial3D_wiug0")
 
-[node name="Window_19_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1524887304]
+[node name="Window_19_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=853687868]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.97, 16.5, -27.990765)
 mesh = SubResource("QuadMesh_c7qap")
 surface_material_override/0 = SubResource("StandardMaterial3D_87p7j")
 
-[node name="Building_20" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=2055866021]
+[node name="Building_20" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=157715656]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 10, 28)
 use_collision = true
 collision_layer = 4
@@ -3639,68 +3639,68 @@ collision_mask = 0
 size = Vector3(6, 20, 4)
 material = SubResource("StandardMaterial3D_7rblt")
 
-[node name="NeonSign_20_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1955809850]
+[node name="NeonSign_20_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1756909871]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.05, 5.9666195, 26.85423)
 mesh = SubResource("QuadMesh_bdpuv")
 surface_material_override/0 = SubResource("StandardMaterial3D_sr4xw")
 
-[node name="NeonLight_20_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=861828794]
+[node name="NeonLight_20_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1189918237]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55, 5.9666195, 26.85423)
 light_color = Color(0.7, 0.3, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_20_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1870504368]
+[node name="NeonSign_20_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=487383361]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7606972, 9.702023, 30.05)
 mesh = SubResource("QuadMesh_prbca")
 surface_material_override/0 = SubResource("StandardMaterial3D_xqwei")
 
-[node name="NeonLight_20_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1088119235]
+[node name="NeonLight_20_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1386001531]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7606972, 9.702023, 30.55)
 light_color = Color(1, 0.5, 0.1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_20_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2143771475]
+[node name="NeonSign_20_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1857426258]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.05, 5.943324, 28.989838)
 mesh = SubResource("QuadMesh_ccxte")
 surface_material_override/0 = SubResource("StandardMaterial3D_i2f0g")
 
-[node name="NeonLight_20_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=991761204]
+[node name="NeonLight_20_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1378273097]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55, 5.943324, 28.989838)
 light_color = Color(1, 0.2, 0.6, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_20_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1125761358]
+[node name="Window_20_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1694273088]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.03, 2.5, 28.206808)
 mesh = SubResource("QuadMesh_wwpku")
 surface_material_override/0 = SubResource("StandardMaterial3D_136y8")
 
-[node name="Window_20_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1605064546]
+[node name="Window_20_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=196005981]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.5685742, 2.5, 25.97)
 mesh = SubResource("QuadMesh_va62c")
 surface_material_override/0 = SubResource("StandardMaterial3D_fdbiu")
 
-[node name="Window_20_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1860656043]
+[node name="Window_20_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=424712236]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.03, 9.5, 29.14625)
 mesh = SubResource("QuadMesh_iarye")
 surface_material_override/0 = SubResource("StandardMaterial3D_01icw")
 
-[node name="Window_20_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=241850612]
+[node name="Window_20_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1304176883]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.7007587, 9.5, 25.97)
 mesh = SubResource("QuadMesh_2a0rj")
 surface_material_override/0 = SubResource("StandardMaterial3D_s5fj5")
 
-[node name="Window_20_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1834136476]
+[node name="Window_20_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=970812901]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.03, 13, 27.718744)
 mesh = SubResource("QuadMesh_m4l1c")
 surface_material_override/0 = SubResource("StandardMaterial3D_m2ob5")
 
-[node name="Building_21" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1447138945]
+[node name="Building_21" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1687538569]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 12, 28)
 use_collision = true
 collision_layer = 4
@@ -3708,83 +3708,83 @@ collision_mask = 0
 size = Vector3(4, 24, 4)
 material = SubResource("StandardMaterial3D_myasp")
 
-[node name="NeonSign_21_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1225515025]
+[node name="NeonSign_21_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=91738164]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.0829732, 13.273673, 25.95)
 mesh = SubResource("QuadMesh_2f0i0")
 surface_material_override/0 = SubResource("StandardMaterial3D_3avje")
 
-[node name="NeonLight_21_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=325906080]
+[node name="NeonLight_21_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=331142720]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0829732, 13.273673, 25.45)
 light_color = Color(0.2, 0.8, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_21_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1777115408]
+[node name="NeonSign_21_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1509854297]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.118983, 12.845659, 30.05)
 mesh = SubResource("QuadMesh_j5ogx")
 surface_material_override/0 = SubResource("StandardMaterial3D_fymg8")
 
-[node name="NeonLight_21_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1323786231]
+[node name="NeonLight_21_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=35890274]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.118983, 12.845659, 30.55)
 light_color = Color(0.7, 0.3, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_21_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1962442465]
+[node name="NeonSign_21_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=760467001]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.95, 14.1567745, 27.565498)
 mesh = SubResource("QuadMesh_s625p")
 surface_material_override/0 = SubResource("StandardMaterial3D_xnbqk")
 
-[node name="NeonLight_21_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1615716694]
+[node name="NeonLight_21_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1350761754]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45, 14.1567745, 27.565498)
 light_color = Color(1, 0.5, 0.1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_21_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=333032561]
+[node name="Window_21_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1476734685]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3468819, 2.5, 30.03)
 mesh = SubResource("QuadMesh_ix0vl")
 surface_material_override/0 = SubResource("StandardMaterial3D_nu32j")
 
-[node name="Window_21_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1762749180]
+[node name="Window_21_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1101025245]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7012653, 6, 30.03)
 mesh = SubResource("QuadMesh_48j00")
 surface_material_override/0 = SubResource("StandardMaterial3D_wle6v")
 
-[node name="Window_21_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=769249181]
+[node name="Window_21_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=679042274]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.97, 9.5, 28.557985)
 mesh = SubResource("QuadMesh_er2gd")
 surface_material_override/0 = SubResource("StandardMaterial3D_8xrmy")
 
-[node name="Window_21_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=547780354]
+[node name="Window_21_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1028689280]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.987466, 9.5, 25.97)
 mesh = SubResource("QuadMesh_rvups")
 surface_material_override/0 = SubResource("StandardMaterial3D_mlfgp")
 
-[node name="Window_21_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1087417800]
+[node name="Window_21_3_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=263472491]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.03, 13, 28.836458)
 mesh = SubResource("QuadMesh_d0t7s")
 surface_material_override/0 = SubResource("StandardMaterial3D_l87y5")
 
-[node name="Window_21_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1144513912]
+[node name="Window_21_4_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1578533130]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.97, 16.5, 29.020971)
 mesh = SubResource("QuadMesh_guhwh")
 surface_material_override/0 = SubResource("StandardMaterial3D_jq8b1")
 
-[node name="Window_21_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=250821772]
+[node name="Window_21_4_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1867011147]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7029634, 16.5, 30.03)
 mesh = SubResource("QuadMesh_u33jv")
 surface_material_override/0 = SubResource("StandardMaterial3D_3yo3e")
 
-[node name="Window_21_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1297460298]
+[node name="Window_21_5_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1944295288]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.1147795, 20, 25.97)
 mesh = SubResource("QuadMesh_rn3tv")
 surface_material_override/0 = SubResource("StandardMaterial3D_ejk2f")
 
-[node name="Building_22" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1794493181]
+[node name="Building_22" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1085208172]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -16)
 use_collision = true
 collision_layer = 4
@@ -3792,56 +3792,56 @@ collision_mask = 0
 size = Vector3(3, 14, 4)
 material = SubResource("StandardMaterial3D_f5f1b")
 
-[node name="NeonSign_22_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1757737915]
+[node name="NeonSign_22_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=529173255]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.15056165, 8.951622, -18.05)
 mesh = SubResource("QuadMesh_olsp0")
 surface_material_override/0 = SubResource("StandardMaterial3D_2w7qt")
 
-[node name="NeonLight_22_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=296591636]
+[node name="NeonLight_22_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1506015327]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15056165, 8.951622, -18.55)
 light_color = Color(1, 0.2, 0.6, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="NeonSign_22_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1052811906]
+[node name="NeonSign_22_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=377410325]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.21963906, 8.125986, -18.05)
 mesh = SubResource("QuadMesh_nep6o")
 surface_material_override/0 = SubResource("StandardMaterial3D_f7rnn")
 
-[node name="NeonLight_22_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1358255201]
+[node name="NeonLight_22_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1454801345]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21963906, 8.125986, -18.55)
 light_color = Color(0.2, 0.8, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_22_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1927482349]
+[node name="Window_22_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1175426999]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.53, 2.5, -15.043765)
 mesh = SubResource("QuadMesh_ib0c6")
 surface_material_override/0 = SubResource("StandardMaterial3D_dkbge")
 
-[node name="Window_22_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1792841262]
+[node name="Window_22_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1508891023]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0831077, 2.5, -13.97)
 mesh = SubResource("QuadMesh_upcls")
 surface_material_override/0 = SubResource("StandardMaterial3D_g8ith")
 
-[node name="Window_22_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=2041673980]
+[node name="Window_22_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1722128566]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.86713374, 6, -18.03)
 mesh = SubResource("QuadMesh_c3m4n")
 surface_material_override/0 = SubResource("StandardMaterial3D_sx5du")
 
-[node name="Window_22_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1812419328]
+[node name="Window_22_2_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=237867411]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.53, 9.5, -16.352795)
 mesh = SubResource("QuadMesh_1vm1i")
 surface_material_override/0 = SubResource("StandardMaterial3D_d3cwh")
 
-[node name="Window_22_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1304916683]
+[node name="Window_22_2_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1299024775]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8367392, 9.5, -13.97)
 mesh = SubResource("QuadMesh_welsi")
 surface_material_override/0 = SubResource("StandardMaterial3D_p0nro")
 
-[node name="Building_23" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=867743152]
+[node name="Building_23" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=1483601095]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 6, 10)
 use_collision = true
 collision_layer = 4
@@ -3849,34 +3849,34 @@ collision_mask = 0
 size = Vector3(3, 12, 3)
 material = SubResource("StandardMaterial3D_fpije")
 
-[node name="NeonSign_23_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1229235265]
+[node name="NeonSign_23_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=856968354]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.45, 7.9375463, 10.1215925)
 mesh = SubResource("QuadMesh_bae4k")
 surface_material_override/0 = SubResource("StandardMaterial3D_i30og")
 
-[node name="NeonLight_23_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1336572949]
+[node name="NeonLight_23_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=69392125]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95000005, 7.9375463, 10.1215925)
 light_color = Color(0.7, 0.3, 1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_23_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=315712289]
+[node name="Window_23_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1938848397]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.53, 2.5, 9.619901)
 mesh = SubResource("QuadMesh_7prvr")
 surface_material_override/0 = SubResource("StandardMaterial3D_3dmyy")
 
-[node name="Window_23_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1839194496]
+[node name="Window_23_0_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=297077734]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.7374458, 2.5, 8.47)
 mesh = SubResource("QuadMesh_yacnm")
 surface_material_override/0 = SubResource("StandardMaterial3D_st228")
 
-[node name="Window_23_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=652607178]
+[node name="Window_23_1_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=639713961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7444115, 6, 11.53)
 mesh = SubResource("QuadMesh_p62b4")
 surface_material_override/0 = SubResource("StandardMaterial3D_p8o4m")
 
-[node name="Building_24" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=2048664624]
+[node name="Building_24" type="CSGBox3D" parent="NavigationRegion3D/Buildings" unique_id=2093313828]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, -7)
 use_collision = true
 collision_layer = 4
@@ -3884,146 +3884,146 @@ collision_mask = 0
 size = Vector3(2.5, 10, 3)
 material = SubResource("StandardMaterial3D_84kbt")
 
-[node name="NeonSign_24_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1271071719]
+[node name="NeonSign_24_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1172373760]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2496638, 6.6641107, -5.45)
 mesh = SubResource("QuadMesh_2mjtp")
 surface_material_override/0 = SubResource("StandardMaterial3D_gckcp")
 
-[node name="NeonLight_24_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=226275116]
+[node name="NeonLight_24_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1953150883]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2496638, 6.6641107, -4.95)
 light_color = Color(1, 0.5, 0.1, 1)
 light_energy = 1.5
 omni_range = 6.0
 omni_attenuation = 1.5
 
-[node name="Window_24_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=627145193]
+[node name="Window_24_0_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1484595641]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.28, 2.5, -6.123174)
 mesh = SubResource("QuadMesh_wun5a")
 surface_material_override/0 = SubResource("StandardMaterial3D_4m50u")
 
-[node name="LargeSign_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1434033090]
+[node name="LargeSign_0" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=528179921]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 6, -22)
 mesh = SubResource("QuadMesh_xsa8b")
 surface_material_override/0 = SubResource("StandardMaterial3D_thkci")
 
-[node name="LargeSignLight_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=880471380]
+[node name="LargeSignLight_0" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1077673626]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 6, -22)
 light_color = Color(1, 0.1, 0.5, 1)
 light_energy = 2.5
 omni_range = 10.0
 omni_attenuation = 1.2
 
-[node name="LargeSign_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=314182206]
+[node name="LargeSign_1" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=371382072]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 8, -14)
 mesh = SubResource("QuadMesh_uxprq")
 surface_material_override/0 = SubResource("StandardMaterial3D_cki1c")
 
-[node name="LargeSignLight_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=367122866]
+[node name="LargeSignLight_1" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=903993762]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 8, -14)
 light_color = Color(0.1, 0.9, 1, 1)
 light_energy = 2.5
 omni_range = 10.0
 omni_attenuation = 1.2
 
-[node name="LargeSign_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1576066795]
+[node name="LargeSign_2" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1344889932]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 5, -2)
 mesh = SubResource("QuadMesh_aqxdn")
 surface_material_override/0 = SubResource("StandardMaterial3D_o2pri")
 
-[node name="LargeSignLight_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1256358611]
+[node name="LargeSignLight_2" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=2062318831]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 5, -2)
 light_color = Color(0.8, 0.2, 1, 1)
 light_energy = 2.5
 omni_range = 10.0
 omni_attenuation = 1.2
 
-[node name="LargeSign_3" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1241534444]
+[node name="LargeSign_3" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=405588230]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 10, -4)
 mesh = SubResource("QuadMesh_3kj13")
 surface_material_override/0 = SubResource("StandardMaterial3D_6o1k8")
 
-[node name="LargeSignLight_3" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=329204941]
+[node name="LargeSignLight_3" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1338853137]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, -4)
 light_color = Color(1, 0.4, 0.1, 1)
 light_energy = 2.5
 omni_range = 10.0
 omni_attenuation = 1.2
 
-[node name="LargeSign_4" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=86687262]
+[node name="LargeSign_4" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1272418296]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 7, 8)
 mesh = SubResource("QuadMesh_6cu20")
 surface_material_override/0 = SubResource("StandardMaterial3D_0kay4")
 
-[node name="LargeSignLight_4" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1590415274]
+[node name="LargeSignLight_4" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1243797629]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7, 8)
 light_color = Color(0.2, 1, 0.5, 1)
 light_energy = 2.5
 omni_range = 10.0
 omni_attenuation = 1.2
 
-[node name="LargeSign_5" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1189746460]
+[node name="LargeSign_5" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1380417702]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 6, 6)
 mesh = SubResource("QuadMesh_ms5nl")
 surface_material_override/0 = SubResource("StandardMaterial3D_22b2h")
 
-[node name="LargeSignLight_5" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=66444518]
+[node name="LargeSignLight_5" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=194626411]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 6, 6)
 light_color = Color(1, 0.2, 0.8, 1)
 light_energy = 2.5
 omni_range = 10.0
 omni_attenuation = 1.2
 
-[node name="LargeSign_6" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1073181031]
+[node name="LargeSign_6" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1152622555]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -26)
 mesh = SubResource("QuadMesh_xer2s")
 surface_material_override/0 = SubResource("StandardMaterial3D_hi38l")
 
-[node name="LargeSignLight_6" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=2130457673]
+[node name="LargeSignLight_6" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1419617504]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -26)
 light_color = Color(0.3, 0.7, 1, 1)
 light_energy = 2.5
 omni_range = 10.0
 omni_attenuation = 1.2
 
-[node name="LargeSign_7" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1207150129]
+[node name="LargeSign_7" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1227451895]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2, 7, 26)
 mesh = SubResource("QuadMesh_mbugm")
 surface_material_override/0 = SubResource("StandardMaterial3D_bs6oy")
 
-[node name="LargeSignLight_7" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=427648025]
+[node name="LargeSignLight_7" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1293345469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 7, 26)
 light_color = Color(1, 0.6, 0.1, 1)
 light_energy = 2.5
 omni_range = 10.0
 omni_attenuation = 1.2
 
-[node name="LargeSign_8" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=239626444]
+[node name="LargeSign_8" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=629920787]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 4, 18)
 mesh = SubResource("QuadMesh_2c3q0")
 surface_material_override/0 = SubResource("StandardMaterial3D_la5oi")
 
-[node name="LargeSignLight_8" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=727903961]
+[node name="LargeSignLight_8" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=309804663]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 18)
 light_color = Color(0.9, 0.1, 0.9, 1)
 light_energy = 2.5
 omni_range = 10.0
 omni_attenuation = 1.2
 
-[node name="LargeSign_9" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1759135155]
+[node name="LargeSign_9" type="MeshInstance3D" parent="NavigationRegion3D/Buildings" unique_id=1916200690]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 9, 16)
 mesh = SubResource("QuadMesh_06sgc")
 surface_material_override/0 = SubResource("StandardMaterial3D_bj36b")
 
-[node name="LargeSignLight_9" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=563784778]
+[node name="LargeSignLight_9" type="OmniLight3D" parent="NavigationRegion3D/Buildings" unique_id=1124317374]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 9, 16)
 light_color = Color(0.1, 0.8, 0.9, 1)
 light_energy = 2.5
 omni_range = 10.0
 omni_attenuation = 1.2
 
-[node name="Cover" type="Node3D" parent="NavigationRegion3D" unique_id=988637756]
+[node name="Cover" type="Node3D" parent="NavigationRegion3D" unique_id=382388186]
 
-[node name="Vending_0" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=803049319]
+[node name="Vending_0" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=598099677]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 0.9, -3)
 use_collision = true
 collision_layer = 4
@@ -4031,19 +4031,19 @@ collision_mask = 0
 size = Vector3(0.8, 1.8, 0.6)
 material = SubResource("StandardMaterial3D_hkyx6")
 
-[node name="VendingFront_0" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=325262017]
+[node name="VendingFront_0" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=514639186]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.199, 0.9, -3)
 mesh = SubResource("QuadMesh_shv8x")
 surface_material_override/0 = SubResource("StandardMaterial3D_cta70")
 
-[node name="VendingLight_0" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=251075754]
+[node name="VendingLight_0" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1727825971]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1, 1, -3)
 light_color = Color(0.2, 1, 0.4, 1)
 light_energy = 0.8
 omni_range = 2.5
 omni_attenuation = 1.5
 
-[node name="Vending_1" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1454402445]
+[node name="Vending_1" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1565924881]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5, 0.9, 5)
 use_collision = true
 collision_layer = 4
@@ -4051,19 +4051,19 @@ collision_mask = 0
 size = Vector3(0.8, 1.8, 0.6)
 material = SubResource("StandardMaterial3D_cg8iv")
 
-[node name="VendingFront_1" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=1912815672]
+[node name="VendingFront_1" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=307561082]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.199, 0.9, 5)
 mesh = SubResource("QuadMesh_d5k2p")
 surface_material_override/0 = SubResource("StandardMaterial3D_prtey")
 
-[node name="VendingLight_1" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1138979438]
+[node name="VendingLight_1" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=2101902751]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1, 1, 5)
 light_color = Color(1, 0.4, 0.1, 1)
 light_energy = 0.8
 omni_range = 2.5
 omni_attenuation = 1.5
 
-[node name="Vending_2" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1280359733]
+[node name="Vending_2" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=369782651]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 0.9, 15)
 use_collision = true
 collision_layer = 4
@@ -4071,19 +4071,19 @@ collision_mask = 0
 size = Vector3(0.8, 1.8, 0.6)
 material = SubResource("StandardMaterial3D_00y4p")
 
-[node name="VendingFront_2" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=284028968]
+[node name="VendingFront_2" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=585667659]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.199, 0.9, 15)
 mesh = SubResource("QuadMesh_oemqr")
 surface_material_override/0 = SubResource("StandardMaterial3D_ltysv")
 
-[node name="VendingLight_2" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=795638338]
+[node name="VendingLight_2" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=507158885]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1, 1, 15)
 light_color = Color(0.2, 0.6, 1, 1)
 light_energy = 0.8
 omni_range = 2.5
 omni_attenuation = 1.5
 
-[node name="Vending_3" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=318741290]
+[node name="Vending_3" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=865086772]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5, 0.9, -15)
 use_collision = true
 collision_layer = 4
@@ -4091,19 +4091,19 @@ collision_mask = 0
 size = Vector3(0.8, 1.8, 0.6)
 material = SubResource("StandardMaterial3D_u7rr0")
 
-[node name="VendingFront_3" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=2103660108]
+[node name="VendingFront_3" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=337444337]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.199, 0.9, -15)
 mesh = SubResource("QuadMesh_orvxk")
 surface_material_override/0 = SubResource("StandardMaterial3D_a1c7r")
 
-[node name="VendingLight_3" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=664188333]
+[node name="VendingLight_3" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=323137760]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1, 1, -15)
 light_color = Color(1, 0.2, 0.8, 1)
 light_energy = 0.8
 omni_range = 2.5
 omni_attenuation = 1.5
 
-[node name="Dumpster_0" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1159089502]
+[node name="Dumpster_0" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=121041353]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -12)
 use_collision = true
 collision_layer = 4
@@ -4111,7 +4111,7 @@ collision_mask = 0
 size = Vector3(1.5, 1, 0.8)
 material = SubResource("StandardMaterial3D_ntxmf")
 
-[node name="Dumpster_1" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=748243774]
+[node name="Dumpster_1" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=40892128]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5, 10)
 use_collision = true
 collision_layer = 4
@@ -4119,7 +4119,7 @@ collision_mask = 0
 size = Vector3(1.5, 1, 0.8)
 material = SubResource("StandardMaterial3D_7voev")
 
-[node name="Dumpster_2" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=552020787]
+[node name="Dumpster_2" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=358355047]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0.5, -8)
 use_collision = true
 collision_layer = 4
@@ -4127,7 +4127,7 @@ collision_mask = 0
 size = Vector3(1.5, 1, 0.8)
 material = SubResource("StandardMaterial3D_5iajm")
 
-[node name="Dumpster_3" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=788798271]
+[node name="Dumpster_3" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1663598358]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0.5, 8)
 use_collision = true
 collision_layer = 4
@@ -4135,7 +4135,7 @@ collision_mask = 0
 size = Vector3(1.5, 1, 0.8)
 material = SubResource("StandardMaterial3D_0124o")
 
-[node name="Crate_0" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1890296473]
+[node name="Crate_0" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1163149839]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.3, 0)
 use_collision = true
 collision_layer = 4
@@ -4143,7 +4143,7 @@ collision_mask = 0
 size = Vector3(0.6, 0.6, 0.6)
 material = SubResource("StandardMaterial3D_isb5n")
 
-[node name="Crate_1" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1021175509]
+[node name="Crate_1" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=209400421]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, 0.3, 0)
 use_collision = true
 collision_layer = 4
@@ -4151,7 +4151,7 @@ collision_mask = 0
 size = Vector3(0.6, 0.6, 0.6)
 material = SubResource("StandardMaterial3D_isb5n")
 
-[node name="Crate_2" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=208839979]
+[node name="Crate_2" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1057690006]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 0.90000004, 0)
 use_collision = true
 collision_layer = 4
@@ -4159,7 +4159,7 @@ collision_mask = 0
 size = Vector3(0.6, 0.6, 0.6)
 material = SubResource("StandardMaterial3D_isb5n")
 
-[node name="Crate_3" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=661991076]
+[node name="Crate_3" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=2125643293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.3, -8)
 use_collision = true
 collision_layer = 4
@@ -4167,7 +4167,7 @@ collision_mask = 0
 size = Vector3(0.6, 0.6, 0.6)
 material = SubResource("StandardMaterial3D_isb5n")
 
-[node name="Crate_4" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1487166184]
+[node name="Crate_4" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=111071126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0.3, -8)
 use_collision = true
 collision_layer = 4
@@ -4175,7 +4175,7 @@ collision_mask = 0
 size = Vector3(0.6, 0.6, 0.6)
 material = SubResource("StandardMaterial3D_isb5n")
 
-[node name="Crate_5" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1430888991]
+[node name="Crate_5" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=233652274]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.3, 5)
 use_collision = true
 collision_layer = 4
@@ -4183,7 +4183,7 @@ collision_mask = 0
 size = Vector3(0.6, 0.6, 0.6)
 material = SubResource("StandardMaterial3D_isb5n")
 
-[node name="Crate_6" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1259101608]
+[node name="Crate_6" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1532590130]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6, 0.3, 5)
 use_collision = true
 collision_layer = 4
@@ -4191,7 +4191,7 @@ collision_mask = 0
 size = Vector3(0.6, 0.6, 0.6)
 material = SubResource("StandardMaterial3D_isb5n")
 
-[node name="Crate_7" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=981462722]
+[node name="Crate_7" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=743133708]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3, 0.90000004, 5)
 use_collision = true
 collision_layer = 4
@@ -4199,7 +4199,7 @@ collision_mask = 0
 size = Vector3(0.6, 0.6, 0.6)
 material = SubResource("StandardMaterial3D_isb5n")
 
-[node name="Crate_8" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1944777845]
+[node name="Crate_8" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=387162784]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.3, -5)
 use_collision = true
 collision_layer = 4
@@ -4207,7 +4207,7 @@ collision_mask = 0
 size = Vector3(0.6, 0.6, 0.6)
 material = SubResource("StandardMaterial3D_isb5n")
 
-[node name="Crate_9" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1028717028]
+[node name="Crate_9" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=554894888]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6, 0.3, -5)
 use_collision = true
 collision_layer = 4
@@ -4215,7 +4215,7 @@ collision_mask = 0
 size = Vector3(0.6, 0.6, 0.6)
 material = SubResource("StandardMaterial3D_isb5n")
 
-[node name="Barrier_0" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=903395031]
+[node name="Barrier_0" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1882763046]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -10)
 use_collision = true
 collision_layer = 4
@@ -4223,7 +4223,7 @@ collision_mask = 0
 size = Vector3(1.5, 1, 0.4)
 material = SubResource("StandardMaterial3D_7h682")
 
-[node name="Barrier_1" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=593000812]
+[node name="Barrier_1" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1955449577]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -10)
 use_collision = true
 collision_layer = 4
@@ -4231,7 +4231,7 @@ collision_mask = 0
 size = Vector3(1.5, 1, 0.4)
 material = SubResource("StandardMaterial3D_ek7ay")
 
-[node name="Barrier_2" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=308911969]
+[node name="Barrier_2" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1069471776]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0.5, 10)
 use_collision = true
 collision_layer = 4
@@ -4239,7 +4239,7 @@ collision_mask = 0
 size = Vector3(1.5, 1, 0.4)
 material = SubResource("StandardMaterial3D_grojv")
 
-[node name="Barrier_3" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=128783174]
+[node name="Barrier_3" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=235810158]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -2, 0.5, 10)
 use_collision = true
 collision_layer = 4
@@ -4247,7 +4247,7 @@ collision_mask = 0
 size = Vector3(1.5, 1, 0.4)
 material = SubResource("StandardMaterial3D_rshmb")
 
-[node name="Barrier_4" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=632253563]
+[node name="Barrier_4" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=106549797]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0.5, 5)
 use_collision = true
 collision_layer = 4
@@ -4255,7 +4255,7 @@ collision_mask = 0
 size = Vector3(1.5, 1, 0.4)
 material = SubResource("StandardMaterial3D_5ibx4")
 
-[node name="Barrier_5" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1786661444]
+[node name="Barrier_5" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1605959797]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 0.5, -5)
 use_collision = true
 collision_layer = 4
@@ -4263,7 +4263,7 @@ collision_mask = 0
 size = Vector3(1.5, 1, 0.4)
 material = SubResource("StandardMaterial3D_j05pe")
 
-[node name="Barrier_6" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=923900160]
+[node name="Barrier_6" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=296976026]
 transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 14, 0.5, 12)
 use_collision = true
 collision_layer = 4
@@ -4271,7 +4271,7 @@ collision_mask = 0
 size = Vector3(1.5, 1, 0.4)
 material = SubResource("StandardMaterial3D_3s6jw")
 
-[node name="Barrier_7" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=1397168535]
+[node name="Barrier_7" type="CSGBox3D" parent="NavigationRegion3D/Cover" unique_id=592635819]
 transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -14, 0.5, -12)
 use_collision = true
 collision_layer = 4
@@ -4282,164 +4282,164 @@ material = SubResource("StandardMaterial3D_njf04")
 [node name="TrashCan_0" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=1925506873 instance=ExtResource("11_xy2fk")]
 transform = Transform3D(-0.7998553, 0, 0.0008952687, 0, 0.7998558, 0, -0.0008952687, 0, -0.7998553, 5, 0, -8)
 
-[node name="TrashCan_1" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=29422621 instance=ExtResource("11_xy2fk")]
+[node name="TrashCan_1" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=1610733835 instance=ExtResource("11_xy2fk")]
 transform = Transform3D(-0.7631944, 0, 0.23938182, 0, 0.7998558, 0, -0.23938182, 0, -0.7631944, -5, 0, 3)
 
-[node name="TrashCan_2" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=755858451 instance=ExtResource("11_xy2fk")]
+[node name="TrashCan_2" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=67068230 instance=ExtResource("11_xy2fk")]
 transform = Transform3D(0.756998, 0, -0.25830874, 0, 0.7998558, 0, 0.25830874, 0, 0.756998, 12, 0, -5)
 
-[node name="TrashCan_3" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=964557960 instance=ExtResource("11_xy2fk")]
+[node name="TrashCan_3" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=168713191 instance=ExtResource("11_xy2fk")]
 transform = Transform3D(0.3489553, 0, -0.71972185, 0, 0.7998558, 0, 0.71972185, 0, 0.3489553, -12, 0, 15)
 
-[node name="TrashCan_4" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=1535730334 instance=ExtResource("11_xy2fk")]
+[node name="TrashCan_4" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=1383676923 instance=ExtResource("11_xy2fk")]
 transform = Transform3D(-0.4347711, 0, 0.67137426, 0, 0.7998558, 0, -0.67137426, 0, -0.4347711, 1, 0, -22)
 
-[node name="TrashCan_5" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=976876318 instance=ExtResource("11_xy2fk")]
+[node name="TrashCan_5" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=1414035459 instance=ExtResource("11_xy2fk")]
 transform = Transform3D(0.765559, 0, 0.23170824, 0, 0.7998558, 0, -0.23170824, 0, 0.765559, -1, 0, 22)
 
-[node name="TrashCan_6" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=1331304230 instance=ExtResource("11_xy2fk")]
+[node name="TrashCan_6" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=25237496 instance=ExtResource("11_xy2fk")]
 transform = Transform3D(0.47994354, 0, 0.6398621, 0, 0.7998558, 0, -0.6398621, 0, 0.47994354, 16, 0, 5)
 
-[node name="TrashCan_7" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=669039673 instance=ExtResource("11_xy2fk")]
+[node name="TrashCan_7" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=140657854 instance=ExtResource("11_xy2fk")]
 transform = Transform3D(0.29395193, 0, -0.7438828, 0, 0.7998558, 0, 0.7438828, 0, 0.29395193, -16, 0, -5)
 
 [node name="PowerBox_0" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=224800762 instance=ExtResource("12_cmcjb")]
 transform = Transform3D(-2.1890445e-08, 0, -0.500795, 0, 0.500795, 0, 0.500795, 0, -2.1890445e-08, 4, 1.4, -18)
 
-[node name="PowerLight_0" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=565623961]
+[node name="PowerLight_0" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1159222533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.6999999, -18)
 light_color = Color(1, 0.3, 0.1, 1)
 light_energy = 0.4
 omni_range = 1.5
 omni_attenuation = 2.0
 
-[node name="PowerBox_1" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=1100932841 instance=ExtResource("12_cmcjb")]
+[node name="PowerBox_1" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=757497860 instance=ExtResource("12_cmcjb")]
 transform = Transform3D(-2.1890445e-08, 0, -0.500795, 0, 0.500795, 0, 0.500795, 0, -2.1890445e-08, 4, 1.4, 4)
 
-[node name="PowerLight_1" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1710662301]
+[node name="PowerLight_1" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1442843705]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.6999999, 4)
 light_color = Color(1, 0.3, 0.1, 1)
 light_energy = 0.4
 omni_range = 1.5
 omni_attenuation = 2.0
 
-[node name="PowerBox_2" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=1574814652 instance=ExtResource("12_cmcjb")]
+[node name="PowerBox_2" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=625679287 instance=ExtResource("12_cmcjb")]
 transform = Transform3D(-2.1890445e-08, 0, 0.500795, 0, 0.500795, 0, -0.500795, 0, -2.1890445e-08, -4, 1.4, -10)
 
-[node name="PowerLight_2" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1373880479]
+[node name="PowerLight_2" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=505916215]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.6999999, -10)
 light_color = Color(1, 0.3, 0.1, 1)
 light_energy = 0.4
 omni_range = 1.5
 omni_attenuation = 2.0
 
-[node name="PowerBox_3" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=215199430 instance=ExtResource("12_cmcjb")]
+[node name="PowerBox_3" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=75278034 instance=ExtResource("12_cmcjb")]
 transform = Transform3D(-2.1890445e-08, 0, 0.500795, 0, 0.500795, 0, -0.500795, 0, -2.1890445e-08, -4, 1.4, 20)
 
-[node name="PowerLight_3" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=764759420]
+[node name="PowerLight_3" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1095516105]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.6999999, 20)
 light_color = Color(1, 0.3, 0.1, 1)
 light_energy = 0.4
 omni_range = 1.5
 omni_attenuation = 2.0
 
-[node name="PowerBox_4" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=2058477086 instance=ExtResource("12_cmcjb")]
+[node name="PowerBox_4" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=207749273 instance=ExtResource("12_cmcjb")]
 transform = Transform3D(-2.1890445e-08, 0, -0.500795, 0, 0.500795, 0, 0.500795, 0, -2.1890445e-08, 16, 1.4, -14)
 
-[node name="PowerLight_4" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1441318317]
+[node name="PowerLight_4" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1058079714]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1.6999999, -14)
 light_color = Color(1, 0.3, 0.1, 1)
 light_energy = 0.4
 omni_range = 1.5
 omni_attenuation = 2.0
 
-[node name="PowerBox_5" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=1584723508 instance=ExtResource("12_cmcjb")]
+[node name="PowerBox_5" type="Node3D" parent="NavigationRegion3D/Cover" unique_id=1889430262 instance=ExtResource("12_cmcjb")]
 transform = Transform3D(-2.1890445e-08, 0, 0.500795, 0, 0.500795, 0, -0.500795, 0, -2.1890445e-08, -16, 1.4, 6)
 
-[node name="PowerLight_5" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1950186865]
+[node name="PowerLight_5" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=168923112]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 1.6999999, 6)
 light_color = Color(1, 0.3, 0.1, 1)
 light_energy = 0.4
 omni_range = 1.5
 omni_attenuation = 2.0
 
-[node name="Door_0" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=29430676]
+[node name="Door_0" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=1336077494]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.99, 1.1, -22)
 mesh = SubResource("QuadMesh_lnbsl")
 surface_material_override/0 = SubResource("StandardMaterial3D_6fldv")
 
-[node name="Door_1" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=1331807127]
+[node name="Door_1" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=541680174]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.99, 1.1, -14)
 mesh = SubResource("QuadMesh_k1uh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_3gg4v")
 
-[node name="Door_2" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=813035456]
+[node name="Door_2" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=1679814338]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.99, 1.1, 8)
 mesh = SubResource("QuadMesh_8enor")
 surface_material_override/0 = SubResource("StandardMaterial3D_ttcie")
 
-[node name="Door_3" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=1354211822]
+[node name="Door_3" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=427979269]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.99, 1.1, 6)
 mesh = SubResource("QuadMesh_a3exw")
 surface_material_override/0 = SubResource("StandardMaterial3D_h8b8l")
 
-[node name="Door_4" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=1377329689]
+[node name="Door_4" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=349906711]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16, 1.1, -2)
 mesh = SubResource("QuadMesh_biw41")
 surface_material_override/0 = SubResource("StandardMaterial3D_ahf4u")
 
-[node name="Door_5" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=1599638]
+[node name="Door_5" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=1663251630]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16, 1.1, 2)
 mesh = SubResource("QuadMesh_x25nq")
 surface_material_override/0 = SubResource("StandardMaterial3D_7d6uo")
 
-[node name="Shopfront_0" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=91417446]
+[node name="Shopfront_0" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=1338380092]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.99, 1.5, -2)
 mesh = SubResource("QuadMesh_6egpm")
 surface_material_override/0 = SubResource("StandardMaterial3D_nstgj")
 
-[node name="ShopLight_0" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1195928151]
+[node name="ShopLight_0" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1609968334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.19, 1.5, -2)
 light_color = Color(1, 0.6, 0.2, 1)
 omni_range = 3.0
 omni_attenuation = 1.5
 
-[node name="Shopfront_1" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=2003403798]
+[node name="Shopfront_1" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=599877451]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.99, 1.5, -4)
 mesh = SubResource("QuadMesh_l2kux")
 surface_material_override/0 = SubResource("StandardMaterial3D_gd1ky")
 
-[node name="ShopLight_1" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1951336413]
+[node name="ShopLight_1" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=617299311]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.19, 1.5, -4)
 light_color = Color(0.2, 0.7, 1, 1)
 omni_range = 3.0
 omni_attenuation = 1.5
 
-[node name="Shopfront_2" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=428951357]
+[node name="Shopfront_2" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=917782119]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.99, 1.5, 18)
 mesh = SubResource("QuadMesh_hixik")
 surface_material_override/0 = SubResource("StandardMaterial3D_mw4ab")
 
-[node name="ShopLight_2" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1920962106]
+[node name="ShopLight_2" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1291328308]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.19, 1.5, 18)
 light_color = Color(0.8, 0.2, 0.6, 1)
 omni_range = 3.0
 omni_attenuation = 1.5
 
-[node name="Shopfront_3" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=2117287744]
+[node name="Shopfront_3" type="MeshInstance3D" parent="NavigationRegion3D/Cover" unique_id=1116672814]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.99, 1.5, 16)
 mesh = SubResource("QuadMesh_pasfi")
 surface_material_override/0 = SubResource("StandardMaterial3D_3rl6o")
 
-[node name="ShopLight_3" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=1934239011]
+[node name="ShopLight_3" type="OmniLight3D" parent="NavigationRegion3D/Cover" unique_id=2090369026]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.19, 1.5, 16)
 light_color = Color(1, 0.6, 0.2, 1)
 omni_range = 3.0
 omni_attenuation = 1.5
 
-[node name="Lights" type="Node3D" parent="." unique_id=764336942]
+[node name="Lights" type="Node3D" parent="." unique_id=168898518]
 
-[node name="StreetSpot_0" type="SpotLight3D" parent="Lights" unique_id=1301871379]
+[node name="StreetSpot_0" type="SpotLight3D" parent="Lights" unique_id=247438228]
 transform = Transform3D(1, 0, 0, 0, 0.34202015, 0.9396926, 0, -0.9396926, 0.34202015, 0, 5, -5)
 light_color = Color(1, 0.2, 0.6, 1)
 light_energy = 3.0
@@ -4447,7 +4447,7 @@ spot_range = 15.0
 spot_attenuation = 0.8
 spot_angle = 35.0
 
-[node name="StreetSpot_1" type="SpotLight3D" parent="Lights" unique_id=462181849]
+[node name="StreetSpot_1" type="SpotLight3D" parent="Lights" unique_id=1617936507]
 transform = Transform3D(1, 0, 0, 0, 0.34202015, 0.9396926, 0, -0.9396926, 0.34202015, 0, 5, 5)
 light_color = Color(0.2, 0.8, 1, 1)
 light_energy = 3.0
@@ -4455,7 +4455,7 @@ spot_range = 15.0
 spot_attenuation = 0.8
 spot_angle = 35.0
 
-[node name="StreetSpot_2" type="SpotLight3D" parent="Lights" unique_id=1065051122]
+[node name="StreetSpot_2" type="SpotLight3D" parent="Lights" unique_id=361356891]
 transform = Transform3D(-4.371139e-08, -0.9396926, 0.34202015, 0, 0.34202015, 0.9396926, -1, 4.1075268e-08, -1.4950176e-08, 3, 5, 0)
 light_color = Color(0.7, 0.3, 1, 1)
 light_energy = 3.0
@@ -4463,7 +4463,7 @@ spot_range = 15.0
 spot_attenuation = 0.8
 spot_angle = 35.0
 
-[node name="StreetSpot_3" type="SpotLight3D" parent="Lights" unique_id=1800370839]
+[node name="StreetSpot_3" type="SpotLight3D" parent="Lights" unique_id=1130047588]
 transform = Transform3D(-4.371139e-08, 0.9396926, -0.34202015, 0, 0.34202015, 0.9396926, 1, 4.1075268e-08, -1.4950176e-08, -3, 5, 0)
 light_color = Color(1, 0.5, 0.1, 1)
 light_energy = 3.0
@@ -4471,7 +4471,7 @@ spot_range = 15.0
 spot_attenuation = 0.8
 spot_angle = 35.0
 
-[node name="StreetSpot_4" type="SpotLight3D" parent="Lights" unique_id=670876982]
+[node name="StreetSpot_4" type="SpotLight3D" parent="Lights" unique_id=908991736]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 5, -18)
 light_color = Color(0.2, 1, 0.4, 1)
 light_energy = 3.0
@@ -4479,7 +4479,7 @@ spot_range = 15.0
 spot_attenuation = 0.8
 spot_angle = 35.0
 
-[node name="StreetSpot_5" type="SpotLight3D" parent="Lights" unique_id=747013456]
+[node name="StreetSpot_5" type="SpotLight3D" parent="Lights" unique_id=943739370]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 5, 18)
 light_color = Color(1, 0.1, 0.8, 1)
 light_energy = 3.0
@@ -4487,7 +4487,7 @@ spot_range = 15.0
 spot_attenuation = 0.8
 spot_angle = 35.0
 
-[node name="StreetSpot_6" type="SpotLight3D" parent="Lights" unique_id=1165895478]
+[node name="StreetSpot_6" type="SpotLight3D" parent="Lights" unique_id=354990900]
 transform = Transform3D(-4.371139e-08, -0.9659258, 0.25881907, 0, 0.25881907, 0.9659258, -1, 4.222196e-08, -1.1313341e-08, 14, 5, 0)
 light_color = Color(0.1, 0.6, 1, 1)
 light_energy = 3.0
@@ -4495,7 +4495,7 @@ spot_range = 15.0
 spot_attenuation = 0.8
 spot_angle = 35.0
 
-[node name="StreetSpot_7" type="SpotLight3D" parent="Lights" unique_id=1295648523]
+[node name="StreetSpot_7" type="SpotLight3D" parent="Lights" unique_id=1452218231]
 transform = Transform3D(-4.371139e-08, 0.9659258, -0.25881907, 0, 0.25881907, 0.9659258, 1, 4.222196e-08, -1.1313341e-08, -14, 5, 0)
 light_color = Color(1, 0.3, 0.2, 1)
 light_energy = 3.0
@@ -4503,7 +4503,7 @@ spot_range = 15.0
 spot_attenuation = 0.8
 spot_angle = 35.0
 
-[node name="StreetSpot_8" type="SpotLight3D" parent="Lights" unique_id=1782548830]
+[node name="StreetSpot_8" type="SpotLight3D" parent="Lights" unique_id=858152315]
 transform = Transform3D(1, 0, 0, 0, 0.42261824, 0.9063078, 0, -0.9063078, 0.42261824, 0, 4, -12)
 light_color = Color(1, 0.5, 0.2, 1)
 light_energy = 3.0
@@ -4511,7 +4511,7 @@ spot_range = 15.0
 spot_attenuation = 0.8
 spot_angle = 35.0
 
-[node name="StreetSpot_9" type="SpotLight3D" parent="Lights" unique_id=1265247522]
+[node name="StreetSpot_9" type="SpotLight3D" parent="Lights" unique_id=1910511987]
 transform = Transform3D(1, 0, 0, 0, 0.42261824, 0.9063078, 0, -0.9063078, 0.42261824, 0, 4, 12)
 light_color = Color(0.5, 0.2, 1, 1)
 light_energy = 3.0
@@ -4519,48 +4519,48 @@ spot_range = 15.0
 spot_attenuation = 0.8
 spot_angle = 35.0
 
-[node name="SpawnPoints" type="Node3D" parent="." unique_id=521858564]
+[node name="SpawnPoints" type="Node3D" parent="." unique_id=277657775]
 
-[node name="Spawn_0" type="Marker3D" parent="SpawnPoints" unique_id=1519790650]
+[node name="Spawn_0" type="Marker3D" parent="SpawnPoints" unique_id=839703412]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Spawn_1" type="Marker3D" parent="SpawnPoints" unique_id=1191509938]
+[node name="Spawn_1" type="Marker3D" parent="SpawnPoints" unique_id=1711640858]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -10)
 
-[node name="Spawn_2" type="Marker3D" parent="SpawnPoints" unique_id=1798569095]
+[node name="Spawn_2" type="Marker3D" parent="SpawnPoints" unique_id=543510966]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 1, 10)
 
-[node name="Spawn_3" type="Marker3D" parent="SpawnPoints" unique_id=135523360]
+[node name="Spawn_3" type="Marker3D" parent="SpawnPoints" unique_id=343087112]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -20)
 
-[node name="Spawn_4" type="Marker3D" parent="SpawnPoints" unique_id=55916044]
+[node name="Spawn_4" type="Marker3D" parent="SpawnPoints" unique_id=2143439875]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 20)
 
-[node name="Spawn_5" type="Marker3D" parent="SpawnPoints" unique_id=14775855]
+[node name="Spawn_5" type="Marker3D" parent="SpawnPoints" unique_id=293525894]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, 10)
 
-[node name="Spawn_6" type="Marker3D" parent="SpawnPoints" unique_id=206934401]
+[node name="Spawn_6" type="Marker3D" parent="SpawnPoints" unique_id=956007777]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 1, -10)
 
-[node name="Spawn_7" type="Marker3D" parent="SpawnPoints" unique_id=2139025945]
+[node name="Spawn_7" type="Marker3D" parent="SpawnPoints" unique_id=810407086]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
 
-[node name="PickupSpots" type="Node3D" parent="." unique_id=99431829]
+[node name="PickupSpots" type="Node3D" parent="." unique_id=221650390]
 
-[node name="Pickup_0" type="Marker3D" parent="PickupSpots" unique_id=1979630142]
+[node name="Pickup_0" type="Marker3D" parent="PickupSpots" unique_id=1526396242]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -5)
 
-[node name="Pickup_1" type="Marker3D" parent="PickupSpots" unique_id=1227212416]
+[node name="Pickup_1" type="Marker3D" parent="PickupSpots" unique_id=548879937]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0.5, 0)
 
-[node name="Pickup_2" type="Marker3D" parent="PickupSpots" unique_id=1337276866]
+[node name="Pickup_2" type="Marker3D" parent="PickupSpots" unique_id=31275489]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0.5, 0)
 
-[node name="Pickup_3" type="Marker3D" parent="PickupSpots" unique_id=779589297]
+[node name="Pickup_3" type="Marker3D" parent="PickupSpots" unique_id=1688340976]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 15)
 
-[node name="Pickup_4" type="Marker3D" parent="PickupSpots" unique_id=34991119]
+[node name="Pickup_4" type="Marker3D" parent="PickupSpots" unique_id=1391278586]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -15)
 
-[node name="Pickup_5" type="Marker3D" parent="PickupSpots" unique_id=1325333934]
+[node name="Pickup_5" type="Marker3D" parent="PickupSpots" unique_id=457417098]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, 10)
