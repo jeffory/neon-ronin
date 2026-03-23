@@ -10,8 +10,6 @@ signal respawned
 @export var speed: float = 5.0
 @export var sprint_speed: float = 8.0
 @export var jump_velocity: float = 5.0
-@export var mouse_sensitivity: float = 0.002
-@export var web_sensitivity_multiplier: float = 2.5
 @export var max_health: int = 100
 
 # Node references
@@ -38,9 +36,8 @@ var _effective_sensitivity: float = 0.002
 
 func _ready() -> void:
 	_gravity = float(ProjectSettings.get_setting("physics/3d/default_gravity"))
-	_effective_sensitivity = mouse_sensitivity
-	if OS.has_feature("web"):
-		_effective_sensitivity *= web_sensitivity_multiplier
+	_update_sensitivity(SettingsManager.mouse_sensitivity)
+	SettingsManager.sensitivity_changed.connect(_update_sensitivity)
 	current_health = max_health
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	# Register with game manager
@@ -48,6 +45,9 @@ func _ready() -> void:
 	if gm:
 		gm.register_entity("Player", self)
 	health_changed.emit(current_health)
+
+func _update_sensitivity(value: float) -> void:
+	_effective_sensitivity = SettingsManager.get_effective_sensitivity()
 
 func _get_game_manager() -> Node:
 	# Autoloads are children of root
@@ -58,9 +58,7 @@ func _get_game_manager() -> Node:
 	return null
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	elif event is InputEventMouseButton:
+	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

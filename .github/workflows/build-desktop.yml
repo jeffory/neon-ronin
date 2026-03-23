@@ -32,6 +32,8 @@ jobs:
             scenes/build_pickup_health.gd \
             scenes/build_level.gd \
             scenes/build_hud.gd \
+            scenes/build_settings_panel.gd \
+            scenes/build_pause_menu.gd \
             scenes/build_main.gd \
             scenes/build_title.gd; do
             timeout 120 godot --headless --script "$script" 2>&1

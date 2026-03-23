@@ -57,7 +57,7 @@ func _initialize() -> void:
 	vbox.offset_left = -140
 	vbox.offset_top = 0
 	vbox.offset_right = 140
-	vbox.offset_bottom = 140
+	vbox.offset_bottom = 220
 	vbox.add_theme_constant_override("separation", 20)
 	root.add_child(vbox)
 
@@ -79,6 +79,24 @@ func _initialize() -> void:
 	new_game.add_theme_stylebox_override("focus", ng_hover)
 	vbox.add_child(new_game)
 
+	# ── Settings button ──
+	var settings_btn := Button.new()
+	settings_btn.name = "SettingsButton"
+	settings_btn.text = "SETTINGS"
+	settings_btn.custom_minimum_size = Vector2(280, 56)
+	settings_btn.add_theme_font_size_override("font_size", 22)
+	settings_btn.add_theme_color_override("font_color", Color(0.7, 0.8, 0.9))
+	settings_btn.add_theme_color_override("font_hover_color", Color(0, 1, 1))
+	settings_btn.add_theme_color_override("font_pressed_color", Color(1, 1, 1))
+	var s_normal := _make_button_style(Color(0.03, 0.03, 0.08, 0.85), Color(0.4, 0.5, 0.6, 0.4))
+	var s_hover := _make_button_style(Color(0.05, 0.05, 0.12, 0.9), Color(0, 1, 1, 0.8))
+	var s_pressed := _make_button_style(Color(0, 0.15, 0.2, 0.9), Color(0, 1, 1, 1.0))
+	settings_btn.add_theme_stylebox_override("normal", s_normal)
+	settings_btn.add_theme_stylebox_override("hover", s_hover)
+	settings_btn.add_theme_stylebox_override("pressed", s_pressed)
+	settings_btn.add_theme_stylebox_override("focus", s_hover)
+	vbox.add_child(settings_btn)
+
 	# ── Quit button ──
 	var quit_btn := Button.new()
 	quit_btn.name = "QuitButton"
@@ -96,6 +114,24 @@ func _initialize() -> void:
 	quit_btn.add_theme_stylebox_override("pressed", q_pressed)
 	quit_btn.add_theme_stylebox_override("focus", q_hover)
 	vbox.add_child(quit_btn)
+
+	# ── Settings panel (hidden by default) ──
+	var settings_panel_scene: PackedScene = load("res://scenes/settings_panel.tscn")
+	if settings_panel_scene:
+		var settings_panel := settings_panel_scene.instantiate()
+		settings_panel.name = "SettingsPanel"
+		settings_panel.visible = false
+		settings_panel.anchor_left = 0.5
+		settings_panel.anchor_top = 0.45
+		settings_panel.anchor_right = 0.5
+		settings_panel.anchor_bottom = 0.45
+		settings_panel.offset_left = -220
+		settings_panel.offset_top = 0
+		settings_panel.offset_right = 220
+		settings_panel.offset_bottom = 240
+		root.add_child(settings_panel)
+	else:
+		push_warning("settings_panel.tscn not found — build it first")
 
 	# ── Subtitle ──
 	var subtitle := Label.new()

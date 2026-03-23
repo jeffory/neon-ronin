@@ -26,6 +26,13 @@ func _initialize() -> void:
 	hud.name = "HUD"
 	root.add_child(hud)
 
+	# Instance Pause Menu
+	var pause_scene: PackedScene = load("res://scenes/pause_menu.tscn")
+	if pause_scene:
+		var pause_menu = pause_scene.instantiate()
+		pause_menu.name = "PauseMenu"
+		root.add_child(pause_menu)
+
 	# Instance 4 bots at different spawn points
 	var bot_scene: PackedScene = load("res://scenes/bot.tscn")
 	var bot_names: Array[String] = ["Bot_Alpha", "Bot_Bravo", "Bot_Charlie", "Bot_Delta"]
