@@ -11,6 +11,7 @@ signal respawned
 @export var sprint_speed: float = 8.0
 @export var jump_velocity: float = 5.0
 @export var mouse_sensitivity: float = 0.002
+@export var web_sensitivity_multiplier: float = 2.5
 @export var max_health: int = 100
 
 # Node references
@@ -33,8 +34,13 @@ var _bob_time: float = 0.0
 var _weapon_rest_pos: Vector3 = Vector3(0.25, -0.25, -0.4)
 var _respawn_ready: bool = false
 
+var _effective_sensitivity: float = 0.002
+
 func _ready() -> void:
 	_gravity = float(ProjectSettings.get_setting("physics/3d/default_gravity"))
+	_effective_sensitivity = mouse_sensitivity
+	if OS.has_feature("web"):
+		_effective_sensitivity *= web_sensitivity_multiplier
 	current_health = max_health
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	# Register with game manager
@@ -68,9 +74,9 @@ func _input(event: InputEvent) -> void:
 		return
 	if event is InputEventMouseMotion:
 		# Horizontal rotation on body
-		rotate_y(-event.relative.x * mouse_sensitivity)
+		rotate_y(-event.relative.x * _effective_sensitivity)
 		# Vertical rotation on head
-		head.rotate_x(-event.relative.y * mouse_sensitivity)
+		head.rotate_x(-event.relative.y * _effective_sensitivity)
 		var head_rot: float = clampf(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 		head.rotation.x = head_rot
 
