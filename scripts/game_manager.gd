@@ -13,9 +13,9 @@ var _nav_baked: bool = false
 func _ready() -> void:
 	# Spawn points from MEMORY.md
 	spawn_points = [
-		Vector3(0, 1, 0), Vector3(14, 1, -10), Vector3(-14, 1, 10),
-		Vector3(0, 1, -20), Vector3(0, 1, 20), Vector3(14, 1, 10),
-		Vector3(-14, 1, -10), Vector3(0, 1, -10)
+		Vector3(0, 1, 0), Vector3(0, 1, -10), Vector3(0, 1, -20),
+		Vector3(0, 1, 10), Vector3(0, 1, 20), Vector3(2, 1, 3),
+		Vector3(-2, 1, -5), Vector3(15, 1, 5)
 	]
 	# Pickup spots from MEMORY.md
 	pickup_spots = [

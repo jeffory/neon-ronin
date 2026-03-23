@@ -41,6 +41,7 @@ var _aim_spread: float = 0.04  # Bot inaccuracy
 # Animation
 var _model_node: Node3D = null
 var _model_base_y: float = 0.0
+const _MODEL_Y_ROTATION: float = PI  # Mixamo FBX faces +Z; rotate to align with Godot -Z forward
 var _anim_player: AnimationPlayer = null
 var _current_anim: String = ""
 var _death_anims: Array[String] = ["death_1", "death_2", "death_3", "death_4"]
@@ -78,6 +79,10 @@ func _ready() -> void:
 			_model_node = child
 			_model_base_y = child.position.y
 			break
+
+	# Rotate model to align Mixamo +Z facing with Godot -Z forward
+	if _model_node:
+		_model_node.rotation.y = _MODEL_Y_ROTATION
 
 	# Find AnimationPlayer and Skeleton in the model tree and load animations
 	if _model_node:
@@ -321,8 +326,8 @@ func _pick_patrol_target() -> void:
 	if gm and gm.spawn_points.size() > 0:
 		var random_point: Vector3 = gm.spawn_points[randi() % gm.spawn_points.size()]
 		# Add some randomness to avoid all bots converging
-		random_point.x += randf_range(-5.0, 5.0)
-		random_point.z += randf_range(-5.0, 5.0)
+		random_point.x += randf_range(-3.0, 3.0)
+		random_point.z += randf_range(-3.0, 3.0)
 		nav_agent.target_position = random_point
 	_patrol_timer = randf_range(2.0, 5.0)
 
@@ -544,7 +549,7 @@ func _die() -> void:
 
 func _reset_model() -> void:
 	if _model_node:
-		_model_node.rotation = Vector3.ZERO
+		_model_node.rotation = Vector3(0.0, _MODEL_Y_ROTATION, 0.0)
 		_model_node.position.y = _model_base_y
 		_model_node.scale = Vector3.ONE
 	_current_anim = ""
@@ -625,8 +630,11 @@ func _setup_weapon_models() -> void:
 			if longest > 0.001:
 				var sf: float = target_scales[i] / longest
 				weapon_inst.scale = Vector3(sf, sf, sf)
-		# Rotate 90° on Y — Tripo3D models face +Z, we need them to point forward
-		weapon_inst.rotation_degrees.y = 90.0
+		# Z=90 aligns barrel with bone axis, Y=180 flips to point forward
+		weapon_inst.rotation_degrees = Vector3(0, 180, 90)
+		# Offset forward along bone Y axis and up along bone X axis
+		weapon_inst.position.y = 0.15
+		weapon_inst.position.x = 0.05
 		_weapon_holder.add_child(weapon_inst)
 		_weapon_models.append(weapon_inst)
 
