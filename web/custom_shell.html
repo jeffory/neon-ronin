@@ -306,27 +306,27 @@ const engine = new Engine(GODOT_CONFIG);
 
 	if (missing.length !== 0) {
 		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
-			let serviceWorkerRegistrationPromise;
-			try {
-				serviceWorkerRegistrationPromise = navigator.serviceWorker.getRegistration();
-			} catch (err) {
-				serviceWorkerRegistrationPromise = Promise.reject(new Error('Service worker registration failed.'));
-			}
-			Promise.race([
-				serviceWorkerRegistrationPromise.then((registration) => {
+			// Prevent infinite reload: if we already reloaded once and
+			// features are still missing, show the error instead of looping.
+			if (sessionStorage.getItem('godot-coi-reload')) {
+				sessionStorage.removeItem('godot-coi-reload');
+				const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
+				displayFailureNotice(missingMsg + missing.join('\n'));
+			} else {
+				sessionStorage.setItem('godot-coi-reload', '1');
+				navigator.serviceWorker.getRegistration().then((registration) => {
 					if (registration != null) {
-						return Promise.reject(new Error('Service worker already exists.'));
+						// SW exists but not yet controlling — reload to activate it
+						return Promise.resolve();
 					}
-					return registration;
-				}).then(() => engine.installServiceWorker()),
-				new Promise((resolve) => {
-					setTimeout(() => resolve(), 2000);
-				}),
-			]).then(() => {
-				window.location.reload();
-			}).catch((err) => {
-				console.error('Error while registering service worker:', err);
-			});
+					return engine.installServiceWorker();
+				}).then(() => {
+					window.location.reload();
+				}).catch((err) => {
+					console.error('Error while registering service worker:', err);
+					sessionStorage.removeItem('godot-coi-reload');
+				});
+			}
 		} else {
 			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
 			displayFailureNotice(missingMsg + missing.join('\n'));
